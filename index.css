@@ -1,0 +1,42 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #3030D1; /* Background color */
+}
+
+h1 {
+  font-size: 2em;
+  color: #61affe;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2em;
+  color: #555;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #36a0e1;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1f4d95;
+}

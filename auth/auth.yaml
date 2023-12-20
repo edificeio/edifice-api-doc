@@ -1,0 +1,1037 @@
+---
+openapi: 3.0.0
+info:
+  title: Édifice - Auth - API
+  description: This part represant the documentation of the Édifice api use in auth module
+  version: 4.10.0
+servers:
+  - url: /
+tags:
+  - name: oauth2
+    description: //TODO
+  - name: auth
+    description: //TODO
+  - name: cgu
+    description: //TODO
+  - name: openid
+    description: //TODO
+  - name: saml
+    description: //TODO
+paths:
+  /auth/oauth2/auth:
+    get:
+      tags:
+        - oauth2
+      summary: Authenticate using OAuth 2.0 with Authorization Code
+      parameters:
+        - name: response_type
+          in: query
+          description: Add description
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: client_id
+          in: query
+          description: Add description
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: redirect_uri
+          in: query
+          description: Add description
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: scope
+          in: query
+          description: Add description
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: state
+          in: query
+          description: Add description
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: nonce
+          in: query
+          description: Add description
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/oauth2/token:
+    get:
+      tags:
+        - oauth2
+      summary: //TODO
+      parameters:
+        - name: type
+          in: query
+          description: Add description
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    post:
+      tags:
+        - oauth2
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/context:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/user/requirements:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/admin-welcome-message:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/login:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/logout:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/oauth2/userinfo:
+    get:
+      tags:
+        - oauth2
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    post:
+      tags:
+        - oauth2
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/internal/userinfo:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/activation:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/activation/match:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/rest/match:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/activation/no-login:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/forgot:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/upgrade:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/forgot-id:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/password-channels:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/forgot-password:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/sendResetPassword:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/generatePasswordRenewalCode:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/massGeneratePasswordRenewalCode:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/block/{userId}:
+    put:
+      tags:
+        - auth
+      summary: //TODO
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/block:
+    put:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/reset/{resetCode}:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      parameters:
+        - name: resetCode
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/reset:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/cgu:
+    get:
+      tags:
+        - cgu
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/cgu/revalidate:
+    get:
+      tags:
+        - cgu
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/user/mfa/code:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/session:
+    delete:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/generate/otp:
+    post:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/revalidate-terms:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/validate-mail:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/validate-mfa:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/configure/welcome:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    put:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/openid/certs:
+    get:
+      tags:
+        - openid
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/openid/login:
+    get:
+      tags:
+        - openid
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/openid/authenticate:
+    get:
+      tags:
+        - openid
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/openid/mapingUser:
+    post:
+      tags:
+        - openid
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/openid/slo:
+    get:
+      tags:
+        - openid
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/openid/webhook:
+    post:
+      tags:
+        - openid
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/redirect:
+    get:
+      tags:
+        - auth
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/wayf:
+    get:
+      tags:
+        - saml
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/authn/{providerId}:
+    get:
+      tags:
+        - saml
+      summary: //TODO
+      parameters:
+        - name: providerId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/sso/{providerId}:
+    get:
+      tags:
+        - saml
+      summary: //TODO
+      parameters:
+        - name: providerId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/redirect/sso:
+    get:
+      tags:
+        - saml
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/post/sso:
+    post:
+      tags:
+        - saml
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/metadata:
+    get:
+      tags:
+        - saml
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/acs:
+    post:
+      tags:
+        - saml
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/slo:
+    get:
+      tags:
+        - saml
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/saml/selectUser:
+    get:
+      tags:
+        - saml
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/test/newdevicemail:
+    get:
+      tags:
+        - saml
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+components:
+  schemas:
+    Error:
+      required:
+        - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+  securitySchemes:
+    oAuth2AuthCode:
+      type: oauth2
+      description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
+      flows:
+        authorizationCode:
+          authorizationUrl: /auth/oauth2/auth
+          tokenUrl: /auth/oauth2/token
+          scopes:
+            userinfo: Get user's identification information
+            conversation: Access to conversation API

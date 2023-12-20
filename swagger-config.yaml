@@ -1,0 +1,5 @@
+swaggerConfigurations:
+  - url: edifice.yaml
+    containerId: edifice
+  - url: auth.yaml
+    containerId: auth

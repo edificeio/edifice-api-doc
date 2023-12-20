@@ -1,0 +1,808 @@
+---
+openapi: 3.0.0
+info:
+  title: Édifice - Conversation - API
+  description: Conversation is the internal messaging application of NEO
+  version: 4.10.0
+servers:
+  - url: /
+tags:
+  - name: conversation
+    description: //TODO
+  - name: message
+    description: //TODO
+  - name: thread
+    description: //TODO
+  - name: folder
+    description: //TODO
+paths:
+  /conversation/visible:
+    get:
+      tags:
+        - conversation
+      summary: Search visible users and groups
+      description: "If a search keyword is passed as queryParam, then only users with displayname matching that keyword are returned."
+      parameters:
+        - name: search
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Visible users (matching search's keyword) and visible groups
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/conversationVisible"
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation:
+    get:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/draft:
+    post:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/draft/{id}:
+    put:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/send:
+    post:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/list/{folder}:
+    get:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: folder
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/threads/list:
+    get:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/thread/messages/{id}:
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/thread/previous-messages/{id}:
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/thread/new-messages/{id}:
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/thread/trash:
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/thread/toggleUnread:
+    post:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/count/{folder}:
+    get:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: folder
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/visibles:
+    post:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/message/{id}:
+    get:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/trash:
+    put:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/restore:
+    put:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/delete:
+    put:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/emptyTrash:
+    delete:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/toggleUnread:
+    post:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/max-depth:
+    get:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/folders/list:
+    get:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/userfolders/list:
+    get:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/folder:
+    post:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/folder/{folderId}:
+    put:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: folderId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/move/userfolder/{folderId}:
+    put:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: folderId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    delete:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: folderId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/move/root:
+    put:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/folder/trash/{folderId}:
+    put:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: folderId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/folder/restore/{folderId}:
+    put:
+      tags:
+        - folder
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: folderId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/message/{id}/attachment:
+    post:
+      tags:
+        - message
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/message/{id}/attachment/{attachmentId}:
+    get:
+      tags:
+        - message
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: attachmentId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    delete:
+      tags:
+        - message
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: attachmentId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/message/{id}/allAttachments:
+    get:
+      tags:
+        - message
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/message/{id}/forward/{forwardedId}:
+    put:
+      tags:
+        - message
+      summary: //TODO
+      description: //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: forwardedId
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /conversation/print:
+    get:
+      tags:
+        - conversation
+      summary: //TODO
+      description: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+components:
+  schemas:
+    conversationVisible:
+      required:
+        - groups
+        - users
+      type: object
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: "#/components/schemas/VisibleGroup"
+        users:
+          type: array
+          items:
+            $ref: "#/components/schemas/VisibleUser"
+    VisibleUser:
+      required:
+        - displayName
+        - id
+        - profile
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        profile:
+          type: string
+          enum:
+            - Student
+            - Teacher
+            - Relative
+            - Personel
+            - Guest
+        groupDisplayName:
+          type: string
+        structureyName:
+          type: string
+    VisibleGroup:
+      required:
+        - groupDisplayName
+        - id
+        - name
+        - profile
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        profile:
+          type: string
+          enum:
+            - Student
+            - Teacher
+            - Relative
+            - Personel
+            - Guest
+            - Manual
+        groupDisplayName:
+          type: string
+        structureyName:
+          type: string
+    Error:
+      required:
+        - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human readable error message
+  securitySchemes:
+    oAuth2AuthCode:
+      type: oauth2
+      description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
+      flows:
+        authorizationCode:
+          authorizationUrl: /auth/oauth2/auth
+          tokenUrl: /auth/oauth2/token
+          scopes:
+            userinfo: Get user's identification informations
+            conversation: Acces to convsersation API

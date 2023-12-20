@@ -1,0 +1,51 @@
+html {
+  box-sizing: border-box;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  color: #61affe;
+}
+
+p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #36a0e1;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1f4d95;
+}

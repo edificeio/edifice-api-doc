@@ -1,0 +1,1031 @@
+---
+openapi: 3.0.0
+info:
+  title: Édifice - Actualites - API
+  description: This part represant the documentation of the Édifice api use in actualites module
+  version: 4.10.0
+servers:
+  - url: /
+
+tags:
+  - name: actualites
+    description: //TODO
+  - name: info
+    description: //TODO
+  - name: thread
+    description: //TODO
+
+paths:
+  /actualites/info/{infoid}/comment:
+    parameters:
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/info/{infoid}/comment/{id}:
+    parameters:
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+    put:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    delete:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites:
+    get:
+      tags:
+        - actualites
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/{infoid}:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    delete:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/infos:
+    get:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/infos/{infoid}/comments:
+    parameters:
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+    get:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/infos/{infoid}/shared:
+    parameters:
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+    get:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+    post:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/linker/infos:
+    get:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/infos/last/{resultSize}:
+    parameters:
+      - name: resultSize
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    get:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/pending:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    post:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/published:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+    post:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/{infoid}/draft:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/{infoid}/pending:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/{infoid}/published:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/{infoid}/submit:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/{infoid}/unsubmit:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/{infoid}/publish:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/{infoid}/unpublish:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/share/json/{id}:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/share/remove/{id}:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/info/{infoid}/timelin:
+    parameters:
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    get:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}/info/share/resource/{id}:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/config/share:
+    get:
+      tags:
+        - actualites
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/list:
+    get:
+      tags:
+        - actualites
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/info/{infoid}:
+    parameters:
+      - name: infoid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    get:
+      tags:
+        - info
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/threads:
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread:
+    post:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/{threadid}:
+    parameters:
+      - name: threadid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+    delete:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/share/json/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/share/remove/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/thread/share/resource/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+
+    put:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/print/actualites:
+    get:
+      tags:
+        - actualites
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /actualites/threads/list:
+    get:
+      tags:
+        - thread
+      summary: //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+components:
+  schemas:
+    Error:
+      required:
+        - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+  securitySchemes:
+    oAuth2AuthCode:
+      type: oauth2
+      description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
+      flows:
+        authorizationCode:
+          authorizationUrl: /auth/oauth2/auth
+          tokenUrl: /auth/oauth2/token
+          scopes:
+            userinfo: Get user's identification information
+            conversation: Access to conversation API
