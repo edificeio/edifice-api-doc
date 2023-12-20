@@ -1,8 +1,8 @@
 ---
 openapi: 3.0.0
 info:
-  title: Édifice - Timeline - API
-  description: This part represant the documentation of the Édifice api use in timeline module
+  title: Edifice - Timeline - API
+  description: This part represant the documentation of the Edifice api use in timeline module
   version: 4.10.0
 servers:
   - url: /

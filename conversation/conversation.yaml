@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Édifice - Conversation - API
+  title: Edifice - Conversation - API
   description: Conversation is the internal messaging application of NEO
   version: 4.10.0
 servers:

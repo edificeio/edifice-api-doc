@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Édifice - Communication - API
+  title: Edifice - Communication - API
   description: Explore communication rules beteen users and groups
   version: 4.10.0
 servers:

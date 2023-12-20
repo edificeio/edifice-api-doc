@@ -1,8 +1,8 @@
 ---
 openapi: 3.0.0
 info:
-  title: Édifice - Auth - API
-  description: This part represant the documentation of the Édifice api use in auth module
+  title: Edifice - Auth - API
+  description: This part represant the documentation of the Edifice api use in auth module
   version: 4.10.0
 servers:
   - url: /

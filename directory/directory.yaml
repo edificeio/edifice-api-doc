@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Édifice - Directory - API
+  title: Edifice - Directory - API
   description: "Discover Schools, classes, groups and users in Edifice's platform"
   version: 4.10.0
 servers:
@@ -1464,41 +1464,31 @@ paths:
             - userinfo
             - conversation
   /directory/sharebookmark/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        description: This id represent shareBookmarkId
+        schema:
+          type: string
     get:
       tags:
         - sharebookmark
-      summary: //TODO
-      parameters:
-        - name: id
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
+      summary: Get the details of a given Share Bookmark
+
       responses:
         "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
+          description: "Get properties, groups and users of a Share Bookmark"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ShareBookmark"
     put:
       tags:
         - sharebookmark
       summary: //TODO
-      parameters:
-        - name: id
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
       responses:
         "200":
           description: Successful response
@@ -1533,6 +1523,24 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
+
+  /directory/sharebookmark/all:
+    get:
+      tags:
+        - sharebookmark
+      summary: List all Share Bookmarks of the connected user
+      responses:
+        "200":
+          description: List of Share Bookmark
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LightShareBookmark"
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
+
   /directory/allowSharebookmarks:
     get:
       tags:
@@ -2229,26 +2237,25 @@ paths:
     get:
       tags:
         - structure
-      summary: //TODO
+      summary: Get all users of the school
       parameters:
         - name: id
           in: path
           required: true
           style: simple
           explode: false
+          description: This id represent structureId
           schema:
             type: string
       responses:
         "200":
-          description: Successful response
-        "404":
-          description: Bad request
+          description: List of users
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StructureUsers"
         "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
   /directory/structure/{id}/removedUsers:
     get:
       tags:
@@ -3905,6 +3912,7 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
+
   /directory/user/adml/list/{structureId}:
     get:
       tags:
@@ -3929,22 +3937,51 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-  /directory/user/adml/list:
+
+  /directory/user/admin/list:
     get:
       tags:
         - user
-      summary: //TODO
+      summary: Get all users that match condition in parameters. For exmple you can collect all school's users or all group's users
+      parameters:
+        - name: structureId
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: groupId
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: classId
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: profile
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
       responses:
         "200":
-          description: Successful response
-        "404":
-          description: Bad request
+          description: List of users
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExportUsers"
         "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
+
   /directory/user/{studentId}/related/{relativeId}:
     put:
       tags:
@@ -4319,107 +4356,7 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-  /directory/structure/{structureId}/users:
-    get:
-      tags:
-        - directory
-      summary: Get all users of the school
-      parameters:
-        - name: structureId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-      responses:
-        "200":
-          description: List of users
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/StructureUsers"
-        "302":
-          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
-  /directory/user/admin/list:
-    get:
-      tags:
-        - directory
-      summary: Get all users that match condition in parameters. For exmple you can collect all school's users or all group's users
-      parameters:
-        - name: structureId
-          in: query
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: string
-        - name: groupId
-          in: query
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: string
-        - name: classId
-          in: query
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: string
-        - name: profile
-          in: query
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: string
-      responses:
-        "200":
-          description: List of users
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ExportUsers"
-        "302":
-          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
-  /directory/sharebookmark/all:
-    get:
-      tags:
-        - directory
-      summary: List all Share Bookmarks of the connected user
-      responses:
-        "200":
-          description: List of Share Bookmark
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/LightShareBookmark"
-        "302":
-          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
-  /directory/sharebookmark/{shareBookmarkId}:
-    get:
-      tags:
-        - directory
-      summary: Get the details of a given Share Bookmark
-      parameters:
-        - name: shareBookmarkId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-      responses:
-        "200":
-          description: "Get properties, groups and users of a Share Bookmark"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ShareBookmark"
+
 components:
   schemas:
     Profile:
