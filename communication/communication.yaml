@@ -1,26 +1,26 @@
 ---
 openapi: 3.0.0
 info:
-  title: Edifice - Communication - API
+  title: Edifice - Communication - API 🚧🚧
   description: Explore communication rules beteen users and groups
   version: 4.10.0
 servers:
   - url: /
 tags:
   - name: communication
-    description: //TODO
+    description: 🚧 //TODO
   - name: group
-    description: //TODO
+    description: 🚧 //TODO
   - name: visible
-    description: //TODO
+    description: 🚧 //TODO
   - name: rules
-    description: //TODO
+    description: 🚧 //TODO
 paths:
   /communication/admin-console:
     get:
       tags:
         - communication
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -36,7 +36,7 @@ paths:
     post:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: startGroupId
           in: path
@@ -66,7 +66,7 @@ paths:
     delete:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: startGroupId
           in: path
@@ -121,7 +121,7 @@ paths:
     post:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -144,7 +144,7 @@ paths:
     delete:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -168,7 +168,7 @@ paths:
     get:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -192,7 +192,7 @@ paths:
     get:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -216,7 +216,7 @@ paths:
     post:
       tags:
         - communication
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -239,7 +239,7 @@ paths:
     delete:
       tags:
         - communication
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -263,7 +263,7 @@ paths:
     get:
       tags:
         - visible
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: userId
           in: path
@@ -287,7 +287,7 @@ paths:
     post:
       tags:
         - visible
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -303,7 +303,7 @@ paths:
     get:
       tags:
         - visible
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -327,7 +327,7 @@ paths:
     put:
       tags:
         - rules
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -343,7 +343,7 @@ paths:
     get:
       tags:
         - rules
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -358,7 +358,7 @@ paths:
     delete:
       tags:
         - rules
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -374,7 +374,7 @@ paths:
     put:
       tags:
         - rules
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: structureId
           in: path
@@ -398,7 +398,7 @@ paths:
     post:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -421,7 +421,7 @@ paths:
     delete:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: groupId
           in: path
@@ -445,7 +445,7 @@ paths:
     get:
       tags:
         - group
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: startGroupId
           in: path
@@ -476,7 +476,7 @@ paths:
     post:
       tags:
         - communication
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: startGroupId
           in: path
@@ -506,7 +506,7 @@ paths:
     delete:
       tags:
         - communication
-      summary: //TODO
+      summary: 🚧 //TODO
       parameters:
         - name: startGroupId
           in: path

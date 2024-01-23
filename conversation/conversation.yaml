@@ -1,20 +1,20 @@
 ---
 openapi: 3.0.0
 info:
-  title: Edifice - Conversation - API
+  title: Edifice - Conversation - API 🚧🚧
   description: Conversation is the internal messaging application of NEO
   version: 4.10.0
 servers:
   - url: /
 tags:
   - name: conversation
-    description: //TODO
+    description: 🚧 //TODO
   - name: message
-    description: //TODO
+    description: 🚧 //TODO
   - name: thread
-    description: //TODO
+    description: 🚧 //TODO
   - name: folder
-    description: //TODO
+    description: 🚧 //TODO
 paths:
   /conversation/visible:
     get:
@@ -47,8 +47,8 @@ paths:
     get:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -62,8 +62,8 @@ paths:
     post:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -77,8 +77,8 @@ paths:
     put:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -100,8 +100,8 @@ paths:
     post:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -115,8 +115,8 @@ paths:
     get:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: folder
           in: path
@@ -138,8 +138,8 @@ paths:
     get:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -153,8 +153,8 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -176,8 +176,8 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -199,8 +199,8 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -222,8 +222,8 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -237,8 +237,8 @@ paths:
     post:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -252,8 +252,8 @@ paths:
     get:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: folder
           in: path
@@ -275,8 +275,8 @@ paths:
     post:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -290,8 +290,8 @@ paths:
     get:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -313,8 +313,8 @@ paths:
     put:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -328,8 +328,8 @@ paths:
     put:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -343,8 +343,8 @@ paths:
     put:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -358,8 +358,8 @@ paths:
     delete:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -373,8 +373,8 @@ paths:
     post:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -388,8 +388,8 @@ paths:
     get:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -403,8 +403,8 @@ paths:
     get:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -418,8 +418,8 @@ paths:
     get:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -433,8 +433,8 @@ paths:
     post:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -448,8 +448,8 @@ paths:
     put:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: folderId
           in: path
@@ -471,8 +471,8 @@ paths:
     put:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: folderId
           in: path
@@ -493,8 +493,8 @@ paths:
     delete:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: folderId
           in: path
@@ -516,8 +516,8 @@ paths:
     put:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -531,8 +531,8 @@ paths:
     put:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: folderId
           in: path
@@ -554,8 +554,8 @@ paths:
     put:
       tags:
         - folder
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: folderId
           in: path
@@ -577,8 +577,8 @@ paths:
     post:
       tags:
         - message
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -600,8 +600,8 @@ paths:
     get:
       tags:
         - message
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -629,8 +629,8 @@ paths:
     delete:
       tags:
         - message
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -659,8 +659,8 @@ paths:
     get:
       tags:
         - message
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -682,8 +682,8 @@ paths:
     put:
       tags:
         - message
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       parameters:
         - name: id
           in: path
@@ -712,8 +712,8 @@ paths:
     get:
       tags:
         - conversation
-      summary: //TODO
-      description: //TODO
+      summary: 🚧 //TODO
+      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response

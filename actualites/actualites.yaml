@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Edifice - Actualites - API
+  title: Edifice - Actualites - API 🚧🚧
   description: This part represant the documentation of the Edifice api use in actualites module
   version: 4.10.0
 servers:
@@ -9,11 +9,11 @@ servers:
 
 tags:
   - name: actualites
-    description: //TODO
+    description: 🚧 //TODO
   - name: info
-    description: //TODO
+    description: 🚧 //TODO
   - name: thread
-    description: //TODO
+    description: 🚧 //TODO
 
 paths:
   /actualites/info/{infoid}/comment:
@@ -29,7 +29,7 @@ paths:
     put:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -61,7 +61,7 @@ paths:
     put:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -76,7 +76,7 @@ paths:
     delete:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -93,7 +93,7 @@ paths:
     get:
       tags:
         - actualites
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -127,7 +127,7 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -142,7 +142,7 @@ paths:
     delete:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -159,7 +159,7 @@ paths:
     get:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -184,7 +184,7 @@ paths:
     get:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -209,7 +209,7 @@ paths:
     get:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -235,7 +235,7 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -251,7 +251,7 @@ paths:
     post:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -268,7 +268,7 @@ paths:
     get:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -294,7 +294,7 @@ paths:
     get:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -320,7 +320,7 @@ paths:
     post:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -345,7 +345,7 @@ paths:
     post:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -378,7 +378,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -411,7 +411,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -444,7 +444,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -477,7 +477,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -509,7 +509,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -542,7 +542,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -575,7 +575,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -608,7 +608,7 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -624,7 +624,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -657,7 +657,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -683,7 +683,7 @@ paths:
     get:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -716,7 +716,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -733,7 +733,7 @@ paths:
     get:
       tags:
         - actualites
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -750,7 +750,7 @@ paths:
     get:
       tags:
         - actualites
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -776,7 +776,7 @@ paths:
     get:
       tags:
         - info
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -793,7 +793,7 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -810,7 +810,7 @@ paths:
     post:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -836,7 +836,7 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -852,7 +852,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -867,7 +867,7 @@ paths:
     delete:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -893,7 +893,7 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -909,7 +909,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -935,7 +935,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -961,7 +961,7 @@ paths:
     put:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -978,7 +978,7 @@ paths:
     get:
       tags:
         - actualites
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
@@ -995,7 +995,7 @@ paths:
     get:
       tags:
         - thread
-      summary: //TODO
+      summary: 🚧 //TODO
       responses:
         "200":
           description: Successful response
