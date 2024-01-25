@@ -1,4 +1,4 @@
-<html class="js" lang="fr-FR" style="">
+<html class="js" lang="en-GB" style="">
   <head>
     <meta
       http-equiv="origin-trial"
@@ -10,15 +10,6 @@
       src="https://www.gstatic.com/recaptcha/releases/Ya-Cd6PbRI5ktAHEhm9JuKEu/recaptcha__fr.js"
       crossorigin="anonymous"
       integrity="sha384-88MT6KgxGozcBK0DdQyGQVdbegAQS13cs23h2gJ1dmaSViLDahnvxRhkLNWrr9Yg"
-    ></script>
-    <script
-      src="chrome-extension://fdjamakpfbbddfjaooikfcpapjohcfmg/content/pageScripts/dashlane-tiresias-page-script.js"
-      id="dashlane_tiresias"
-    ></script>
-    <script
-      src="chrome-extension://fdjamakpfbbddfjaooikfcpapjohcfmg/content/pageScripts/dashlane-webauthn-page-script.js"
-      id="dashlane_webauthn"
-      name="forward_webauthn_ready"
     ></script>
     <script>
       var root = document.getElementsByTagName("html")[0];
@@ -48,28 +39,9 @@
 
     <meta
       name="description"
-      content="Édifice vous accompagne tout au long de l’année scolaire avec ONE et NEO. Toute l’actualité du numérique éducatif pour les écoles, collèges et lycées"
+      content="Edifice documentation for the use of the API"
     />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:locale:alternate" content="en_GB" />
-    <meta property="og:locale:alternate" content="es_ES" />
-    <meta property="og:type" content="article" />
-    <meta
-      property="og:title"
-      content="L'actualité du numérique éducatif avec Édifice ONE NEO"
-    />
-    <meta
-      property="og:description"
-      content="Édifice vous accompagne tout au long de l’année scolaire avec ONE et NEO. Toute l’actualité du numérique éducatif pour les écoles, collèges et lycées"
-    />
-    <meta property="og:site_name" content="Édifice" />
-    <meta
-      property="article:modified_time"
-      content="2024-01-09T14:23:27+00:00"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:label1" content="Est. reading time" />
-    <meta name="twitter:data1" content="1 minute" />
+    <meta property="og:title" content="Edifice Api Documentation" />
 
     <link rel="stylesheet" type="text/css" href="../swagger-ui.css" />
     <link rel="stylesheet" type="text/css" href="../index-swagger.css" />
@@ -81,604 +53,22 @@
       href="https://edifice.io/wp/wp-includes/css/dist/block-library/style.css?ver=6.3.1"
       media="all"
     />
-    <style id="wp-block-library-theme-inline-css">
-      .wp-block-audio figcaption {
-        color: #555;
-        font-size: 13px;
-        text-align: center;
-      }
-      .is-dark-theme .wp-block-audio figcaption {
-        color: hsla(0, 0%, 100%, 0.65);
-      }
-
-      .wp-block-audio {
-        margin: 0 0 1em;
-      }
-
-      .wp-block-code {
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-family: Menlo, Consolas, monaco, monospace;
-        padding: 0.8em 1em;
-      }
-
-      .wp-block-embed figcaption {
-        color: #555;
-        font-size: 13px;
-        text-align: center;
-      }
-      .is-dark-theme .wp-block-embed figcaption {
-        color: hsla(0, 0%, 100%, 0.65);
-      }
-
-      .wp-block-embed {
-        margin: 0 0 1em;
-      }
-
-      .blocks-gallery-caption {
-        color: #555;
-        font-size: 13px;
-        text-align: center;
-      }
-      .is-dark-theme .blocks-gallery-caption {
-        color: hsla(0, 0%, 100%, 0.65);
-      }
-
-      .wp-block-image figcaption {
-        color: #555;
-        font-size: 13px;
-        text-align: center;
-      }
-      .is-dark-theme .wp-block-image figcaption {
-        color: hsla(0, 0%, 100%, 0.65);
-      }
-
-      .wp-block-image {
-        margin: 0 0 1em;
-      }
-
-      .wp-block-pullquote {
-        border-bottom: 4px solid;
-        border-top: 4px solid;
-        color: currentColor;
-        margin-bottom: 1.75em;
-      }
-      .wp-block-pullquote cite,
-      .wp-block-pullquote footer,
-      .wp-block-pullquote__citation {
-        color: currentColor;
-        font-size: 0.8125em;
-        font-style: normal;
-        text-transform: uppercase;
-      }
-
-      .wp-block-quote {
-        border-left: 0.25em solid;
-        margin: 0 0 1.75em;
-        padding-left: 1em;
-      }
-      .wp-block-quote cite,
-      .wp-block-quote footer {
-        color: currentColor;
-        font-size: 0.8125em;
-        font-style: normal;
-        position: relative;
-      }
-      .wp-block-quote.has-text-align-right {
-        border-left: none;
-        border-right: 0.25em solid;
-        padding-left: 0;
-        padding-right: 1em;
-      }
-      .wp-block-quote.has-text-align-center {
-        border: none;
-        padding-left: 0;
-      }
-      .wp-block-quote.is-large,
-      .wp-block-quote.is-style-large,
-      .wp-block-quote.is-style-plain {
-        border: none;
-      }
-
-      .wp-block-search .wp-block-search__label {
-        font-weight: 700;
-      }
-
-      .wp-block-search__button {
-        border: 1px solid #ccc;
-        padding: 0.375em 0.625em;
-      }
-
-      :where(.wp-block-group.has-background) {
-        padding: 1.25em 2.375em;
-      }
-
-      .wp-block-separator.has-css-opacity {
-        opacity: 0.4;
-      }
-
-      .wp-block-separator {
-        border: none;
-        border-bottom: 2px solid;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .wp-block-separator.has-alpha-channel-opacity {
-        opacity: 1;
-      }
-      .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-        width: 100px;
-      }
-      .wp-block-separator.has-background:not(.is-style-dots) {
-        border-bottom: none;
-        height: 1px;
-      }
-      .wp-block-separator.has-background:not(.is-style-wide):not(
-          .is-style-dots
-        ) {
-        height: 2px;
-      }
-
-      .wp-block-table {
-        margin: 0 0 1em;
-      }
-      .wp-block-table td,
-      .wp-block-table th {
-        word-break: normal;
-      }
-      .wp-block-table figcaption {
-        color: #555;
-        font-size: 13px;
-        text-align: center;
-      }
-      .is-dark-theme .wp-block-table figcaption {
-        color: hsla(0, 0%, 100%, 0.65);
-      }
-
-      .wp-block-video figcaption {
-        color: #555;
-        font-size: 13px;
-        text-align: center;
-      }
-      .is-dark-theme .wp-block-video figcaption {
-        color: hsla(0, 0%, 100%, 0.65);
-      }
-
-      .wp-block-video {
-        margin: 0 0 1em;
-      }
-
-      .wp-block-template-part.has-background {
-        margin-bottom: 0;
-        margin-top: 0;
-        padding: 1.25em 2.375em;
-      }
-    </style>
-    <style id="classic-theme-styles-inline-css">
-      /**
-* These rules are needed for backwards compatibility.
-* They should match the button element rules in the base theme.json file.
-*/
-      .wp-block-button__link {
-        color: #ffffff;
-        background-color: #32373c;
-        border-radius: 9999px; /* 100% causes an oval, but any explicit but really high value retains the pill shape. */
-
-        /* This needs a low specificity so it won't override the rules from the button element if defined in theme.json. */
-        box-shadow: none;
-        text-decoration: none;
-
-        /* The extra 2px are added to size solids the same as the outline versions.*/
-        padding: calc(0.667em + 2px) calc(1.333em + 2px);
-
-        font-size: 1.125em;
-      }
-
-      .wp-block-file__button {
-        background: #32373c;
-        color: #ffffff;
-        text-decoration: none;
-      }
-    </style>
-    <style id="global-styles-inline-css">
-      body {
-        --wp--preset--color--black: #0f0f0f;
-        --wp--preset--color--cyan-bluish-gray: #abb8c3;
-        --wp--preset--color--white: #ffffff;
-        --wp--preset--color--pale-pink: #f78da7;
-        --wp--preset--color--vivid-red: #cf2e2e;
-        --wp--preset--color--luminous-vivid-orange: #ff6900;
-        --wp--preset--color--luminous-vivid-amber: #fcb900;
-        --wp--preset--color--light-green-cyan: #7bdcb5;
-        --wp--preset--color--vivid-green-cyan: #00d084;
-        --wp--preset--color--pale-cyan-blue: #8ed1fc;
-        --wp--preset--color--vivid-cyan-blue: #0693e3;
-        --wp--preset--color--vivid-purple: #9b51e0;
-        --wp--preset--color--primary: #3030d1;
-        --wp--preset--color--secondary: #1c1c73;
-        --wp--preset--color--gray-medium: #ebedf2;
-        --wp--preset--color--gray-light: #f5f7fc;
-        --wp--preset--color--orange: #fc5e29;
-        --wp--preset--color--yellow: #ffc400;
-        --wp--preset--color--pink: #fcbfff;
-        --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(
-          135deg,
-          rgba(6, 147, 227, 1) 0%,
-          rgb(155, 81, 224) 100%
-        );
-        --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(
-          135deg,
-          rgb(122, 220, 180) 0%,
-          rgb(0, 208, 130) 100%
-        );
-        --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(
-          135deg,
-          rgba(252, 185, 0, 1) 0%,
-          rgba(255, 105, 0, 1) 100%
-        );
-        --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(
-          135deg,
-          rgba(255, 105, 0, 1) 0%,
-          rgb(207, 46, 46) 100%
-        );
-        --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(
-          135deg,
-          rgb(238, 238, 238) 0%,
-          rgb(169, 184, 195) 100%
-        );
-        --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(
-          135deg,
-          rgb(74, 234, 220) 0%,
-          rgb(151, 120, 209) 20%,
-          rgb(207, 42, 186) 40%,
-          rgb(238, 44, 130) 60%,
-          rgb(251, 105, 98) 80%,
-          rgb(254, 248, 76) 100%
-        );
-        --wp--preset--gradient--blush-light-purple: linear-gradient(
-          135deg,
-          rgb(255, 206, 236) 0%,
-          rgb(152, 150, 240) 100%
-        );
-        --wp--preset--gradient--blush-bordeaux: linear-gradient(
-          135deg,
-          rgb(254, 205, 165) 0%,
-          rgb(254, 45, 45) 50%,
-          rgb(107, 0, 62) 100%
-        );
-        --wp--preset--gradient--luminous-dusk: linear-gradient(
-          135deg,
-          rgb(255, 203, 112) 0%,
-          rgb(199, 81, 192) 50%,
-          rgb(65, 88, 208) 100%
-        );
-        --wp--preset--gradient--pale-ocean: linear-gradient(
-          135deg,
-          rgb(255, 245, 203) 0%,
-          rgb(182, 227, 212) 50%,
-          rgb(51, 167, 181) 100%
-        );
-        --wp--preset--gradient--electric-grass: linear-gradient(
-          135deg,
-          rgb(202, 248, 128) 0%,
-          rgb(113, 206, 126) 100%
-        );
-        --wp--preset--gradient--midnight: linear-gradient(
-          135deg,
-          rgb(2, 3, 129) 0%,
-          rgb(40, 116, 252) 100%
-        );
-        --wp--preset--gradient--blue-to-dark-blue: linear-gradient(
-          135deg,
-          rgba(23, 123, 167, 1) 0%,
-          rgb(29, 46, 83, 0.85) 100%
-        );
-        --wp--preset--font-size--small: 13px;
-        --wp--preset--font-size--medium: 20px;
-        --wp--preset--font-size--large: 36px;
-        --wp--preset--font-size--x-large: 42px;
-        --wp--preset--spacing--20: 0.44rem;
-        --wp--preset--spacing--30: 0.67rem;
-        --wp--preset--spacing--40: 1rem;
-        --wp--preset--spacing--50: 1.5rem;
-        --wp--preset--spacing--60: 2.25rem;
-        --wp--preset--spacing--70: 3.38rem;
-        --wp--preset--spacing--80: 5.06rem;
-        --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
-        --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
-        --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
-        --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1),
-          6px 6px rgba(0, 0, 0, 1);
-        --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
-      }
-      :where(.is-layout-flex) {
-        gap: 0.5em;
-      }
-      :where(.is-layout-grid) {
-        gap: 0.5em;
-      }
-      body .is-layout-flow > .alignleft {
-        float: left;
-        margin-inline-start: 0;
-        margin-inline-end: 2em;
-      }
-      body .is-layout-flow > .alignright {
-        float: right;
-        margin-inline-start: 2em;
-        margin-inline-end: 0;
-      }
-      body .is-layout-flow > .aligncenter {
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-      body .is-layout-constrained > .alignleft {
-        float: left;
-        margin-inline-start: 0;
-        margin-inline-end: 2em;
-      }
-      body .is-layout-constrained > .alignright {
-        float: right;
-        margin-inline-start: 2em;
-        margin-inline-end: 0;
-      }
-      body .is-layout-constrained > .aligncenter {
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-      body
-        .is-layout-constrained
-        > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-        max-width: var(--wp--style--global--content-size);
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-      body .is-layout-constrained > .alignwide {
-        max-width: var(--wp--style--global--wide-size);
-      }
-      body .is-layout-flex {
-        display: flex;
-      }
-      body .is-layout-flex {
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      body .is-layout-flex > * {
-        margin: 0;
-      }
-      body .is-layout-grid {
-        display: grid;
-      }
-      body .is-layout-grid > * {
-        margin: 0;
-      }
-      :where(.wp-block-columns.is-layout-flex) {
-        gap: 2em;
-      }
-      :where(.wp-block-columns.is-layout-grid) {
-        gap: 2em;
-      }
-      :where(.wp-block-post-template.is-layout-flex) {
-        gap: 1.25em;
-      }
-      :where(.wp-block-post-template.is-layout-grid) {
-        gap: 1.25em;
-      }
-      .has-black-color {
-        color: var(--wp--preset--color--black) !important;
-      }
-      .has-cyan-bluish-gray-color {
-        color: var(--wp--preset--color--cyan-bluish-gray) !important;
-      }
-      .has-white-color {
-        color: var(--wp--preset--color--white) !important;
-      }
-      .has-pale-pink-color {
-        color: var(--wp--preset--color--pale-pink) !important;
-      }
-      .has-vivid-red-color {
-        color: var(--wp--preset--color--vivid-red) !important;
-      }
-      .has-luminous-vivid-orange-color {
-        color: var(--wp--preset--color--luminous-vivid-orange) !important;
-      }
-      .has-luminous-vivid-amber-color {
-        color: var(--wp--preset--color--luminous-vivid-amber) !important;
-      }
-      .has-light-green-cyan-color {
-        color: var(--wp--preset--color--light-green-cyan) !important;
-      }
-      .has-vivid-green-cyan-color {
-        color: var(--wp--preset--color--vivid-green-cyan) !important;
-      }
-      .has-pale-cyan-blue-color {
-        color: var(--wp--preset--color--pale-cyan-blue) !important;
-      }
-      .has-vivid-cyan-blue-color {
-        color: var(--wp--preset--color--vivid-cyan-blue) !important;
-      }
-      .has-vivid-purple-color {
-        color: var(--wp--preset--color--vivid-purple) !important;
-      }
-      .has-black-background-color {
-        background-color: var(--wp--preset--color--black) !important;
-      }
-      .has-cyan-bluish-gray-background-color {
-        background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
-      }
-      .has-white-background-color {
-        background-color: var(--wp--preset--color--white) !important;
-      }
-      .has-pale-pink-background-color {
-        background-color: var(--wp--preset--color--pale-pink) !important;
-      }
-      .has-vivid-red-background-color {
-        background-color: var(--wp--preset--color--vivid-red) !important;
-      }
-      .has-luminous-vivid-orange-background-color {
-        background-color: var(
-          --wp--preset--color--luminous-vivid-orange
-        ) !important;
-      }
-      .has-luminous-vivid-amber-background-color {
-        background-color: var(
-          --wp--preset--color--luminous-vivid-amber
-        ) !important;
-      }
-      .has-light-green-cyan-background-color {
-        background-color: var(--wp--preset--color--light-green-cyan) !important;
-      }
-      .has-vivid-green-cyan-background-color {
-        background-color: var(--wp--preset--color--vivid-green-cyan) !important;
-      }
-      .has-pale-cyan-blue-background-color {
-        background-color: var(--wp--preset--color--pale-cyan-blue) !important;
-      }
-      .has-vivid-cyan-blue-background-color {
-        background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
-      }
-      .has-vivid-purple-background-color {
-        background-color: var(--wp--preset--color--vivid-purple) !important;
-      }
-      .has-black-border-color {
-        border-color: var(--wp--preset--color--black) !important;
-      }
-      .has-cyan-bluish-gray-border-color {
-        border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
-      }
-      .has-white-border-color {
-        border-color: var(--wp--preset--color--white) !important;
-      }
-      .has-pale-pink-border-color {
-        border-color: var(--wp--preset--color--pale-pink) !important;
-      }
-      .has-vivid-red-border-color {
-        border-color: var(--wp--preset--color--vivid-red) !important;
-      }
-      .has-luminous-vivid-orange-border-color {
-        border-color: var(
-          --wp--preset--color--luminous-vivid-orange
-        ) !important;
-      }
-      .has-luminous-vivid-amber-border-color {
-        border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
-      }
-      .has-light-green-cyan-border-color {
-        border-color: var(--wp--preset--color--light-green-cyan) !important;
-      }
-      .has-vivid-green-cyan-border-color {
-        border-color: var(--wp--preset--color--vivid-green-cyan) !important;
-      }
-      .has-pale-cyan-blue-border-color {
-        border-color: var(--wp--preset--color--pale-cyan-blue) !important;
-      }
-      .has-vivid-cyan-blue-border-color {
-        border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
-      }
-      .has-vivid-purple-border-color {
-        border-color: var(--wp--preset--color--vivid-purple) !important;
-      }
-      .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
-        background: var(
-          --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple
-        ) !important;
-      }
-      .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
-        background: var(
-          --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan
-        ) !important;
-      }
-      .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
-        background: var(
-          --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange
-        ) !important;
-      }
-      .has-luminous-vivid-orange-to-vivid-red-gradient-background {
-        background: var(
-          --wp--preset--gradient--luminous-vivid-orange-to-vivid-red
-        ) !important;
-      }
-      .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
-        background: var(
-          --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray
-        ) !important;
-      }
-      .has-cool-to-warm-spectrum-gradient-background {
-        background: var(
-          --wp--preset--gradient--cool-to-warm-spectrum
-        ) !important;
-      }
-      .has-blush-light-purple-gradient-background {
-        background: var(--wp--preset--gradient--blush-light-purple) !important;
-      }
-      .has-blush-bordeaux-gradient-background {
-        background: var(--wp--preset--gradient--blush-bordeaux) !important;
-      }
-      .has-luminous-dusk-gradient-background {
-        background: var(--wp--preset--gradient--luminous-dusk) !important;
-      }
-      .has-pale-ocean-gradient-background {
-        background: var(--wp--preset--gradient--pale-ocean) !important;
-      }
-      .has-electric-grass-gradient-background {
-        background: var(--wp--preset--gradient--electric-grass) !important;
-      }
-      .has-midnight-gradient-background {
-        background: var(--wp--preset--gradient--midnight) !important;
-      }
-      .has-small-font-size {
-        font-size: var(--wp--preset--font-size--small) !important;
-      }
-      .has-medium-font-size {
-        font-size: var(--wp--preset--font-size--medium) !important;
-      }
-      .has-large-font-size {
-        font-size: var(--wp--preset--font-size--large) !important;
-      }
-      .has-x-large-font-size {
-        font-size: var(--wp--preset--font-size--x-large) !important;
-      }
-      .wp-block-navigation a:where(:not(.wp-element-button)) {
-        color: inherit;
-      }
-      :where(.wp-block-post-template.is-layout-flex) {
-        gap: 1.25em;
-      }
-      :where(.wp-block-post-template.is-layout-grid) {
-        gap: 1.25em;
-      }
-      :where(.wp-block-columns.is-layout-flex) {
-        gap: 2em;
-      }
-      :where(.wp-block-columns.is-layout-grid) {
-        gap: 2em;
-      }
-      .wp-block-pullquote {
-        font-size: 1.5em;
-        line-height: 1.6;
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      id="style-ltbs-css"
-      href="https://edifice.io/app/plugins/language-detect-widget/assets/ltbs.css?ver=1.0.3"
-      media="all"
-    />
     <link
       rel="stylesheet"
       id="daeristwo-tailwind-css"
       href="https://edifice.io/app/themes/daeristwo/dist/css/tailwind.css?ver=1.0.8"
       media="all"
     />
+    <script
+      src="https://edifice.io/wp/wp-includes/js/jquery/jquery.js?ver=3.7.0"
+      id="jquery-core-js"
+    ></script>
     <link
       rel="stylesheet"
       id="daeristwo-style-css"
       href="https://edifice.io/app/themes/daeristwo/dist/css/app.css?ver=1.0.9"
       media="all"
     />
-    <script
-      src="https://edifice.io/wp/wp-includes/js/jquery/jquery.js?ver=3.7.0"
-      id="jquery-core-js"
-    ></script>
     <link
       rel="icon"
       href="https://edifice.io/app/uploads/2023/05/edifice-favicon.png"
@@ -697,293 +87,6 @@
       name="msapplication-TileImage"
       content="https://edifice.io/app/uploads/2023/05/edifice-favicon.png"
     />
-
-    <style>
-      /*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
-      .pswp {
-        --pswp-bg: #000;
-        --pswp-placeholder-bg: #222;
-        --pswp-root-z-index: 100000;
-        --pswp-preloader-color: rgba(79, 79, 79, 0.4);
-        --pswp-preloader-color-secondary: hsla(0, 0%, 100%, 0.9);
-        --pswp-icon-color: #fff;
-        --pswp-icon-color-secondary: #4f4f4f;
-        --pswp-icon-stroke-color: #4f4f4f;
-        --pswp-icon-stroke-width: 2px;
-        --pswp-error-text-color: var(--pswp-icon-color);
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        contain: layout style size;
-        display: none;
-        height: 100%;
-        left: 0;
-        opacity: 0.003;
-        position: fixed;
-        top: 0;
-        touch-action: none;
-        width: 100%;
-        z-index: var(--pswp-root-z-index);
-      }
-      .pswp,
-      .pswp:focus {
-        outline: 0;
-      }
-      .pswp * {
-        box-sizing: border-box;
-      }
-      .pswp img {
-        max-width: none;
-      }
-      .pswp--open {
-        display: block;
-      }
-      .pswp,
-      .pswp__bg {
-        transform: translateZ(0);
-        will-change: opacity;
-      }
-      .pswp__bg {
-        background: var(--pswp-bg);
-        opacity: 0.005;
-      }
-      .pswp,
-      .pswp__scroll-wrap {
-        overflow: hidden;
-      }
-      .pswp__bg,
-      .pswp__container,
-      .pswp__content,
-      .pswp__img,
-      .pswp__item,
-      .pswp__scroll-wrap,
-      .pswp__zoom-wrap {
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
-      .pswp__img,
-      .pswp__zoom-wrap {
-        height: auto;
-        width: auto;
-      }
-      .pswp--click-to-zoom.pswp--zoom-allowed .pswp__img {
-        cursor: zoom-in;
-      }
-      .pswp--click-to-zoom.pswp--zoomed-in .pswp__img {
-        cursor: move;
-        cursor: grab;
-      }
-      .pswp--click-to-zoom.pswp--zoomed-in .pswp__img:active {
-        cursor: grabbing;
-      }
-      .pswp--no-mouse-drag.pswp--zoomed-in .pswp__img,
-      .pswp--no-mouse-drag.pswp--zoomed-in .pswp__img:active,
-      .pswp__img {
-        cursor: zoom-out;
-      }
-      .pswp__button,
-      .pswp__container,
-      .pswp__counter,
-      .pswp__img {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      .pswp__item {
-        overflow: hidden;
-        z-index: 1;
-      }
-      .pswp__hidden {
-        display: none !important;
-      }
-      .pswp__content {
-        pointer-events: none;
-      }
-      .pswp__content > * {
-        pointer-events: auto;
-      }
-      .pswp__error-msg-container {
-        display: grid;
-      }
-      .pswp__error-msg {
-        color: var(--pswp-error-text-color);
-        font-size: 1em;
-        line-height: 1;
-        margin: auto;
-      }
-      .pswp .pswp__hide-on-close {
-        opacity: 0.005;
-        pointer-events: none;
-        transition: opacity var(--pswp-transition-duration)
-          cubic-bezier(0.4, 0, 0.22, 1);
-        will-change: opacity;
-        z-index: 10;
-      }
-      .pswp--ui-visible .pswp__hide-on-close {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .pswp__button {
-        -webkit-touch-callout: none;
-        -webkit-appearance: none;
-        background: none;
-        border: 0;
-        box-shadow: none;
-        cursor: pointer;
-        display: block;
-        height: 60px;
-        margin: 0;
-        opacity: 0.85;
-        overflow: hidden;
-        padding: 0;
-        position: relative;
-        width: 50px;
-      }
-      .pswp__button:active,
-      .pswp__button:focus,
-      .pswp__button:hover {
-        background: none;
-        border: 0;
-        box-shadow: none;
-        opacity: 1;
-        padding: 0;
-        transition: none;
-      }
-      .pswp__button:disabled {
-        cursor: auto;
-        opacity: 0.3;
-      }
-      .pswp__icn {
-        fill: var(--pswp-icon-color);
-        color: var(--pswp-icon-color-secondary);
-        height: 32px;
-        left: 9px;
-        overflow: hidden;
-        pointer-events: none;
-        position: absolute;
-        top: 14px;
-        width: 32px;
-      }
-      .pswp__icn-shadow {
-        stroke: var(--pswp-icon-stroke-color);
-        stroke-width: var(--pswp-icon-stroke-width);
-        fill: none;
-      }
-      .pswp__icn:focus {
-        outline: 0;
-      }
-      .pswp__img--with-bg,
-      div.pswp__img--placeholder {
-        background: var(--pswp-placeholder-bg);
-      }
-      .pswp__top-bar {
-        display: flex;
-        flex-direction: row;
-        height: 60px;
-        justify-content: flex-end;
-        left: 0;
-        pointer-events: none !important;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 10;
-      }
-      .pswp__top-bar > * {
-        pointer-events: auto;
-        will-change: opacity;
-      }
-      .pswp__button--close {
-        margin-right: 6px;
-      }
-      .pswp__button--arrow {
-        height: 100px;
-        margin-top: -50px;
-        position: absolute;
-        top: 0;
-        top: 50%;
-        width: 75px;
-      }
-      .pswp__button--arrow:disabled {
-        cursor: default;
-        display: none;
-      }
-      .pswp__button--arrow .pswp__icn {
-        background: none;
-        border-radius: 0;
-        height: 60px;
-        margin-top: -30px;
-        top: 50%;
-        width: 60px;
-      }
-      .pswp--one-slide .pswp__button--arrow {
-        display: none;
-      }
-      .pswp--touch .pswp__button--arrow {
-        visibility: hidden;
-      }
-      .pswp--has_mouse .pswp__button--arrow {
-        visibility: visible;
-      }
-      .pswp__button--arrow--prev {
-        left: 0;
-        right: auto;
-      }
-      .pswp__button--arrow--next {
-        right: 0;
-      }
-      .pswp__button--arrow--next .pswp__icn {
-        left: auto;
-        right: 14px;
-        transform: scaleX(-1);
-      }
-      .pswp__button--zoom {
-        display: none;
-      }
-      .pswp--zoom-allowed .pswp__button--zoom {
-        display: block;
-      }
-      .pswp--zoomed-in .pswp__zoom-icn-bar-v {
-        display: none;
-      }
-      .pswp__preloader {
-        height: 60px;
-        margin-right: auto;
-        overflow: hidden;
-        position: relative;
-        width: 50px;
-      }
-      .pswp__preloader .pswp__icn {
-        animation: pswp-clockwise 0.6s linear infinite;
-        opacity: 0;
-        transition: opacity 0.2s linear;
-      }
-      .pswp__preloader--active .pswp__icn {
-        opacity: 0.85;
-      }
-      @keyframes pswp-clockwise {
-        0% {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(1turn);
-        }
-      }
-      .pswp__counter {
-        -webkit-margin-start: 20px;
-        color: var(--pswp-icon-color);
-        font-size: 14px;
-        height: 30px;
-        line-height: 30px;
-        margin-top: 15px;
-        margin-inline-start: 20px;
-        opacity: 0.85;
-        text-shadow: 1px 1px 3px var(--pswp-icon-color-secondary);
-      }
-      .pswp--one-slide .pswp__counter {
-        display: none;
-      }
-    </style>
   </head>
 
   <body
@@ -1034,6 +137,9 @@
             </a>
 
             <div class="text-black xl:hidden bg-background-main-secondary">
+              <a href="../" class="btn-primary btn-sm" target="">
+                <span class="">Home</span>
+              </a>
               <button
                 class="hamburger hamburger--spin mobile-menu-controller"
                 type="button"
@@ -1050,137 +156,24 @@
           <div
             class="flex flex-1 justify-end items-center max-xl:hidden lg:gap-5"
           >
-            <div id="primary-menu-desktop">
-              <div class="flex w-full justify-start items-center lg:gap-5">
-                <a
-                  class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 is-active menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-779 current_page_item menu-item-785"
-                  target=""
-                  href="../auth/"
-                >
-                  Auth Api 🚧
-                </a>
-
-                <a
-                  class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                  target=""
-                  href="../timeline/"
-                >
-                  Timeline Api 🚧
-                </a>
-
-                <a
-                  class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                  target=""
-                  href="../actualites/"
-                >
-                  Actualites Api 🚧
-                </a>
-                <a
-                  class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                  target=""
-                  href="../communication/"
-                >
-                  Communication Api 🚧
-                </a>
-                <a
-                  class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                  target=""
-                  href="../conversation/"
-                >
-                  Conversation Api 🚧
-                </a>
-                <a
-                  class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                  target=""
-                  href="../directory/"
-                >
-                  Directory Api 🚧
-                </a>
-                <a
-                  class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                  target=""
-                  href="../explorer/"
-                >
-                  Explorer Api 🚧
-                </a>
-              </div>
-            </div>
             <div>
               <div
                 class="container justify-end items-center hidden lg:flex lg:gap-5"
               >
-                <a
-                  href="https://edifice.io/contact/"
-                  class="btn-secondary btn-sm"
-                  target=""
-                >
-                  <span class="max-xxl:hidden">Contact</span>
-                  <div class="w-5">
-                    <svg
-                      class="w-full h-auto"
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clip-path="url(#clip0_599_1926)">
-                        <path
-                          d="M3.5 3H21.5C21.7652 3 22.0196 3.10536 22.2071 3.29289C22.3946 3.48043 22.5 3.73478 22.5 4V20C22.5 20.2652 22.3946 20.5196 22.2071 20.7071C22.0196 20.8946 21.7652 21 21.5 21H3.5C3.23478 21 2.98043 20.8946 2.79289 20.7071C2.60536 20.5196 2.5 20.2652 2.5 20V4C2.5 3.73478 2.60536 3.48043 2.79289 3.29289C2.98043 3.10536 3.23478 3 3.5 3ZM20.5 7.238L12.572 14.338L4.5 7.216V19H20.5V7.238ZM5.011 5L12.561 11.662L20.002 5H5.011Z"
-                          fill="currentColor"
-                        ></path>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_599_1926">
-                          <rect
-                            width="24"
-                            height="24"
-                            fill="currentColor"
-                            transform="translate(0.5)"
-                          ></rect>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </div>
+                <a href="../" class="btn-primary btn-sm" target="">
+                  <span class="">Home</span>
                 </a>
-
-                <a
-                  href="https://edifice.io/connexion/"
-                  title="Connexion"
-                  target=""
-                  class="btn-primary btn-sm"
+                <button
+                  class="hamburger hamburger--spin mobile-menu-controller"
+                  type="button"
+                  aria-label="Menu"
+                  aria-controls="navigation"
+                  style="color: rgb(15, 15, 15)"
                 >
-                  <span class="max-xl:hidden">Connexion</span>
-                  <div class="w-5">
-                    <svg
-                      class="w-full h-auto"
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clip-path="url(#clip0_599_1729)">
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M12.5 24C19.1274 24 24.5 18.6274 24.5 12C24.5 5.37258 19.1274 0 12.5 0C5.87258 0 0.5 5.37258 0.5 12C0.5 18.6274 5.87258 24 12.5 24ZM8.67863 17.02L15.8529 9.84571V16.169H17.52V7H8.35105V8.66708H14.6735L7.5 15.8414L8.67863 17.02Z"
-                          fill="currentColor"
-                        ></path>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_599_1729">
-                          <rect
-                            width="24"
-                            height="24"
-                            fill="currentColor"
-                            transform="translate(0.5)"
-                          ></rect>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </div>
-                </a>
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -1243,6 +236,9 @@
               </a>
 
               <div class="text-black xl:hidden bg-background-main-secondary">
+                <a href="../" class="btn-primary btn-sm" target="">
+                  <span class="">Home</span>
+                </a>
                 <button
                   class="hamburger hamburger--spin mobile-menu-controller"
                   type="button"
@@ -1259,137 +255,29 @@
             <div
               class="flex flex-1 justify-end items-center max-xl:hidden lg:gap-5"
             >
-              <div id="primary-menu-desktop">
-                <div class="flex w-full justify-start items-center lg:gap-5">
-                  <a
-                    class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 is-active menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-779 current_page_item menu-item-785"
-                    target=""
-                    href="../auth/"
-                  >
-                    Auth Api 🚧
-                  </a>
-
-                  <a
-                    class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                    target=""
-                    href="../timeline/"
-                  >
-                    Timeline Api 🚧
-                  </a>
-
-                  <a
-                    class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                    target=""
-                    href="../actualites/"
-                  >
-                    Actualites Api 🚧
-                  </a>
-                  <a
-                    class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                    target=""
-                    href="../communication/"
-                  >
-                    Communication Api 🚧
-                  </a>
-                  <a
-                    class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                    target=""
-                    href="../conversation/"
-                  >
-                    Conversation Api 🚧
-                  </a>
-                  <a
-                    class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                    target=""
-                    href="../directory/"
-                  >
-                    Directory Api 🚧
-                  </a>
-                  <a
-                    class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                    target=""
-                    href="../explorer/"
-                  >
-                    Explorer Api 🚧
-                  </a>
-                </div>
-              </div>
               <div>
                 <div
                   class="container justify-end items-center hidden lg:flex lg:gap-5"
                 >
                   <a
-                    href="https://edifice.io/contact/"
-                    class="btn-secondary btn-sm"
-                    target=""
-                  >
-                    <span class="max-xxl:hidden">Contact</span>
-                    <div class="w-5">
-                      <svg
-                        class="w-full h-auto"
-                        width="25"
-                        height="24"
-                        viewBox="0 0 25 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g clip-path="url(#clip0_599_1926)">
-                          <path
-                            d="M3.5 3H21.5C21.7652 3 22.0196 3.10536 22.2071 3.29289C22.3946 3.48043 22.5 3.73478 22.5 4V20C22.5 20.2652 22.3946 20.5196 22.2071 20.7071C22.0196 20.8946 21.7652 21 21.5 21H3.5C3.23478 21 2.98043 20.8946 2.79289 20.7071C2.60536 20.5196 2.5 20.2652 2.5 20V4C2.5 3.73478 2.60536 3.48043 2.79289 3.29289C2.98043 3.10536 3.23478 3 3.5 3ZM20.5 7.238L12.572 14.338L4.5 7.216V19H20.5V7.238ZM5.011 5L12.561 11.662L20.002 5H5.011Z"
-                            fill="currentColor"
-                          ></path>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_599_1926">
-                            <rect
-                              width="24"
-                              height="24"
-                              fill="currentColor"
-                              transform="translate(0.5)"
-                            ></rect>
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://edifice.io/connexion/"
-                    title="Connexion"
+                    href="../"
+                    title="Home"
                     target=""
                     class="btn-primary btn-sm"
                   >
-                    <span class="max-xl:hidden">Connexion</span>
-                    <div class="w-5">
-                      <svg
-                        class="w-full h-auto"
-                        width="25"
-                        height="24"
-                        viewBox="0 0 25 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g clip-path="url(#clip0_599_1729)">
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M12.5 24C19.1274 24 24.5 18.6274 24.5 12C24.5 5.37258 19.1274 0 12.5 0C5.87258 0 0.5 5.37258 0.5 12C0.5 18.6274 5.87258 24 12.5 24ZM8.67863 17.02L15.8529 9.84571V16.169H17.52V7H8.35105V8.66708H14.6735L7.5 15.8414L8.67863 17.02Z"
-                            fill="currentColor"
-                          ></path>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_599_1729">
-                            <rect
-                              width="24"
-                              height="24"
-                              fill="currentColor"
-                              transform="translate(0.5)"
-                            ></rect>
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </div>
+                    <span class="">Home</span>
                   </a>
+                  <button
+                    class="hamburger hamburger--spin mobile-menu-controller"
+                    type="button"
+                    aria-label="Menu"
+                    aria-controls="navigation"
+                    style="color: rgb(15, 15, 15)"
+                  >
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1463,79 +351,6 @@
                 Explorer Api 🚧
               </a>
             </div>
-
-            <div class="space-y-5 mt-15">
-              <a
-                href="https://edifice.io/connexion/"
-                title="Connexion"
-                target=""
-                class="btn-primary-light w-full"
-              >
-                <span class="">Connexion</span>
-                <div class="w-5">
-                  <svg
-                    class="w-full h-auto"
-                    width="25"
-                    height="24"
-                    viewBox="0 0 25 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clip-path="url(#clip0_599_1729)">
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M12.5 24C19.1274 24 24.5 18.6274 24.5 12C24.5 5.37258 19.1274 0 12.5 0C5.87258 0 0.5 5.37258 0.5 12C0.5 18.6274 5.87258 24 12.5 24ZM8.67863 17.02L15.8529 9.84571V16.169H17.52V7H8.35105V8.66708H14.6735L7.5 15.8414L8.67863 17.02Z"
-                        fill="currentColor"
-                      ></path>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_599_1729">
-                        <rect
-                          width="24"
-                          height="24"
-                          fill="currentColor"
-                          transform="translate(0.5)"
-                        ></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </a>
-              <a
-                href="https://edifice.io/contact/"
-                class="btn-secondary-light w-full"
-              >
-                <span class="">Contact</span>
-                <div class="w-5">
-                  <svg
-                    class="w-full h-auto"
-                    width="25"
-                    height="24"
-                    viewBox="0 0 25 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clip-path="url(#clip0_599_1926)">
-                      <path
-                        d="M3.5 3H21.5C21.7652 3 22.0196 3.10536 22.2071 3.29289C22.3946 3.48043 22.5 3.73478 22.5 4V20C22.5 20.2652 22.3946 20.5196 22.2071 20.7071C22.0196 20.8946 21.7652 21 21.5 21H3.5C3.23478 21 2.98043 20.8946 2.79289 20.7071C2.60536 20.5196 2.5 20.2652 2.5 20V4C2.5 3.73478 2.60536 3.48043 2.79289 3.29289C2.98043 3.10536 3.23478 3 3.5 3ZM20.5 7.238L12.572 14.338L4.5 7.216V19H20.5V7.238ZM5.011 5L12.561 11.662L20.002 5H5.011Z"
-                        fill="currentColor"
-                      ></path>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_599_1926">
-                        <rect
-                          width="24"
-                          height="24"
-                          fill="currentColor"
-                          transform="translate(0.5)"
-                        ></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -1588,7 +403,7 @@
                           charset="UTF-8"
                         ></script>
                         <script>
-                          window.ui["auth"] = SwaggerUIBundle({
+                          window.ui = SwaggerUIBundle({
                             url: "auth.yaml",
                             dom_id: "#swagger-ui",
                             presets: [
@@ -1613,7 +428,11 @@
             class="row flex-col max-md:items-center md:flex-row md:justify-between py-10 pt-15 gap-y-10"
           >
             <div class="col md:w-4/12 flex flex-col max-md:items-center">
-              <a href="/" title="Retour à l'accueil" class="mb-5 block">
+              <a
+                href="https://edifice.io/"
+                title="edifice.io"
+                class="mb-5 block"
+              >
                 <img
                   loading="lazy"
                   class="w-44 h-auto brightness-0 invert"
@@ -1844,9 +663,7 @@
               </div>
             </div>
             <div class="col md:w-3/12 max-md:mt-5">
-              <div class="font-bold mb-5 text-sm md:text-base">
-                Pour commencer
-              </div>
+              <div class="font-bold mb-5 text-sm md:text-base">To Begin</div>
               <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
                 <a
                   href="../auth/"
@@ -1909,48 +726,64 @@
             <div class="col md:w-3/12 max-md:hidden"></div>
             <div class="col md:w-2/12">
               <div class="font-bold mb-5 text-sm md:text-base">
-                Plus d'information
+                More information
               </div>
-              <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
+              <div class="grid grid-cols-3 md:grid-cols-1 gap-3">
                 <a
-                  href="https://www.welcometothejungle.com/fr/companies/edifice/team"
+                  href="https://edifice.io/en/your-needs/"
                   target=""
                   class="text-xs md:text-sm"
-                  title="Nous rejoindre"
+                  title="Your needs"
                 >
-                  Nous rejoindre
+                  Your needs
                 </a>
                 <a
-                  href="https://edifice.io/ent-definition-dun-espace-numerique-de-travail/"
+                  href="https://edifice.io/en/our-products/"
                   target=""
                   class="text-xs md:text-sm"
-                  title="Qu'est-ce qu'un ENT ?"
+                  title="Our products"
                 >
-                  Qu'est-ce qu'un ENT ?
+                  Our products
                 </a>
                 <a
-                  href="https://edifice.io/release/"
+                  href="https://edifice.io/en/community/"
                   target=""
                   class="text-xs md:text-sm"
-                  title="Notes de version"
+                  title="Community"
                 >
-                  Notes de version
+                  Community
                 </a>
                 <a
-                  href="https://violences-parlonsen.fr/"
+                  href="https://edifice.io/en/actualites/"
                   target=""
                   class="text-xs md:text-sm"
-                  title="Violences, parlons-en"
+                  title="News"
                 >
-                  Violences, parlons-en
+                  News
                 </a>
                 <a
-                  href="https://support.opendigitaleducation.com/hc/fr/requests/new?ticket_form_id=360002018299"
+                  href="https://edifice.io/en/who-are-we/"
                   target=""
                   class="text-xs md:text-sm"
-                  title="Contactez-nous"
+                  title="Who are we?"
                 >
-                  Contactez-nous
+                  Who are we?
+                </a>
+                <a
+                  href="https://edifice.io/en/release/"
+                  target=""
+                  class="text-xs md:text-sm"
+                  title="Release"
+                >
+                  Release
+                </a>
+                <a
+                  href="https://edifice.io/en/contact/"
+                  target=""
+                  class="text-xs md:text-sm"
+                  title="Contact us"
+                >
+                  Contact us
                 </a>
               </div>
             </div>
@@ -1979,12 +812,12 @@
 
             <div class="flex max-md:justify-center gap-5 flex-wrap">
               <a
-                href="https://edifice.io/mentions-legales/"
+                href="https://edifice.io/en/legal-mentions/"
                 target=""
                 class="text-xs md:text-sm"
-                title="Mentions légales"
+                title="Legal Mentions"
               >
-                Mentions légales
+                Legal Mentions
               </a>
             </div>
           </div>
