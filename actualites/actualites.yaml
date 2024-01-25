@@ -8,11 +8,17 @@ servers:
   - url: /
 
 tags:
-  - name: actualites
-    description: 🚧 //TODO
-  - name: info
-    description: 🚧 //TODO
   - name: thread
+    description: Thread API
+  - name: info
+    description: Information API
+  - name: actualites
+    description: Actualites API
+  - name: actualites 🚧
+    description: 🚧 //TODO
+  - name: info 🚧
+    description: 🚧 //TODO
+  - name: thread 🚧
     description: 🚧 //TODO
 
 paths:
@@ -28,7 +34,7 @@ paths:
 
     put:
       tags:
-        - info
+        - info 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -60,7 +66,7 @@ paths:
           type: string
     put:
       tags:
-        - info
+        - info 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -75,7 +81,7 @@ paths:
             - conversation
     delete:
       tags:
-        - info
+        - info 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -92,7 +98,7 @@ paths:
   /actualites:
     get:
       tags:
-        - actualites
+        - actualites 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -126,7 +132,7 @@ paths:
 
     get:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -141,7 +147,7 @@ paths:
             - conversation
     delete:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -159,10 +165,68 @@ paths:
     get:
       tags:
         - info
-      summary: 🚧 //TODO
-      responses:
+      "summary": "Retrieve News Articles"
+      "description": "Retrieves news articles"
+      "parameters":
+        - "name": "optimized"
+          "in": "query"
+          "description": "Flag to optimize the response (default is true)."
+          "required": false
+          "schema":
+            "type": "boolean"
+      "responses":
         "200":
-          description: Successful response
+          "description": "Successful response"
+          "content":
+            "application/json":
+              "schema":
+                "type": "array"
+                "items":
+                  "type": "object"
+                  "properties":
+                    "_id":
+                      "type": "integer"
+                    "title":
+                      "type": "string"
+                    "content":
+                      "type": "string"
+                    "status":
+                      "type": "integer"
+                    "publication_date":
+                      "type": "string"
+                      "format": "date-time"
+                    "expiration_date":
+                      "type": "string"
+                      "format": "date-time"
+                    "is_headline":
+                      "type": "boolean"
+                    "thread_id":
+                      "type": "integer"
+                    "created":
+                      "type": "string"
+                      "format": "date-time"
+                    "modified":
+                      "type": "string"
+                      "format": "date-time"
+                    "owner":
+                      "type": "string"
+                    "username":
+                      "type": "string"
+                    "thread_title":
+                      "type": "string"
+                    "thread_icon":
+                      "type": "string"
+                    "comments":
+                      "type": "string"
+                    "shared":
+                      "type": "array"
+                      "items":
+                        "type": "object"
+                        "properties":
+                          "groupId":
+                            "type": "string"
+                          "userId":
+                            "type": "string"
         "404":
           description: Bad request
         "302":
@@ -184,10 +248,34 @@ paths:
     get:
       tags:
         - info
-      summary: 🚧 //TODO
+      "summary": "Get Comments for News Article"
+      "description": "Retrieves comments for a specific news article by its ID."
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              "schema":
+                "type": "array"
+                "items":
+                  "type": "object"
+                  "properties":
+                    "_id":
+                      "type": "integer"
+                    "comment":
+                      "type": "string"
+                    "owner":
+                      "type": "string"
+                    "created":
+                      "type": "string"
+                      "format": "date-time"
+                    "modified":
+                      "type": "string"
+                      "format": "date-time"
+                    "username":
+                      "type": "string"
+                    "info_id":
+                      "type": "integer"
         "404":
           description: Bad request
         "302":
@@ -207,12 +295,40 @@ paths:
         schema:
           type: string
     get:
+      "summary": "Get Shared Rights for News Article"
+      "description": "Retrieves shared rights for a specific news article by its ID."
       tags:
         - info
-      summary: 🚧 //TODO
-      responses:
+      "responses":
         "200":
-          description: Successful response
+          "description": "Successful response"
+          "content":
+            "application/json":
+              "schema":
+                "type": "array"
+                "items":
+                  "type": "object"
+                  "properties":
+                    "userId":
+                      "type": "string"
+                    "groupId":
+                      "type": "string"
+                    "net-atos-entng-actualites-controllers-CommentController|deleteComment":
+                      "type": "boolean"
+                    "net-atos-entng-actualites-controllers-InfoController|getInfo":
+                      "type": "boolean"
+                    "net-atos-entng-actualites-controllers-InfoController|getInfoComments":
+                      "type": "boolean"
+                    "net-atos-entng-actualites-controllers-CommentController|updateComment":
+                      "type": "boolean"
+                    "net-atos-entng-actualites-controllers-InfoController|getInfoShared":
+                      "type": "boolean"
+                    "net-atos-entng-actualites-controllers-CommentController|comment":
+                      "type": "boolean"
+                    "net-atos-entng-actualites-controllers-InfoController|getSingleInfo":
+                      "type": "boolean"
+        "401":
+          description: "News article not authorized or not found"
         "404":
           description: Bad request
         "302":
@@ -234,7 +350,7 @@ paths:
 
     get:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -250,7 +366,7 @@ paths:
 
     post:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -267,7 +383,7 @@ paths:
   /actualites/linker/infos:
     get:
       tags:
-        - info
+        - info 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -294,10 +410,33 @@ paths:
     get:
       tags:
         - info
-      summary: 🚧 //TODO
-      responses:
+      "summary": "Retrieve Last 10 News Articles"
+      "description": "Retrieves the last 10 news articles."
+      "responses":
         "200":
-          description: Successful response
+          "description": "Successful response"
+          "content":
+            "application/json":
+              "schema":
+                "type": "array"
+                "items":
+                  "type": "object"
+                  "properties":
+                    "_id":
+                      "type": "integer"
+                    "title":
+                      "type": "string"
+                    "username":
+                      "type": "string"
+                    "thread_id":
+                      "type": "integer"
+                    "thread_title":
+                      "type": "string"
+                    "thread_icon":
+                      "type": "string"
+                    "date":
+                      "type": "string"
+                      "format": "date-time"
         "404":
           description: Bad request
         "302":
@@ -319,7 +458,7 @@ paths:
 
     post:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -344,7 +483,7 @@ paths:
           type: string
     post:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -377,7 +516,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -410,7 +549,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -443,7 +582,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -476,7 +615,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -508,7 +647,7 @@ paths:
           type: string
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -541,7 +680,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -574,7 +713,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -607,7 +746,7 @@ paths:
 
     get:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -623,7 +762,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -656,7 +795,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -682,7 +821,7 @@ paths:
 
     get:
       tags:
-        - info
+        - info 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -715,7 +854,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -732,7 +871,7 @@ paths:
   /actualites/config/share:
     get:
       tags:
-        - actualites
+        - actualites 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -750,10 +889,73 @@ paths:
     get:
       tags:
         - actualites
-      summary: 🚧 //TODO
+      summary: Retrieve a list of information with pagination and filtering by thread ID
+      description: List infos with pagination. Accept custom page size. Params threadId can be used to restrict the list to this thread
+      parameters:
+        - name: page
+          in: query
+          description: Page number for pagination (default is 0)
+          required: false
+          schema:
+            type: integer
+        - name: pageSize
+          in: query
+          description: Number of items per page (default is 20)
+          required: false
+          schema:
+            type: integer
+        - name: threadId
+          in: query
+          description: Filter information by thread ID
+          required: false
+          schema:
+            type: integer
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    threadId:
+                      type: integer
+                    content:
+                      type: string
+                    status:
+                      type: string
+                    owner:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        displayName:
+                          type: string
+                    created:
+                      type: string
+                      format: date-time
+                    modified:
+                      type: string
+                      format: date-time
+                    publicationDate:
+                      type: string
+                    expirationDate:
+                      type: string
+                      format: date-time
+                    isHeadline:
+                      type: boolean
+                    numberOfComments:
+                      type: integer
+                    sharedRights:
+                      type: array
+                      items:
+                        type: string
+                    title:
+                      type: string
         "404":
           description: Bad request
         "302":
@@ -769,6 +971,7 @@ paths:
         in: path
         required: true
         style: simple
+        description: ID of the information to retrieve
         explode: false
         schema:
           type: string
@@ -776,12 +979,81 @@ paths:
     get:
       tags:
         - info
-      summary: 🚧 //TODO
+      summary: Retrieve information by ID
+      description: Returns information details for a given ID.
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              "schema":
+                "type": "object"
+                "properties":
+                  "id":
+                    "type": "integer"
+                  "thread":
+                    "type": "object"
+                    "properties":
+                      "id":
+                        "type": "integer"
+                      "title":
+                        "type": "string"
+                      "icon":
+                        "type": "string"
+                      "owner":
+                        "type": "object"
+                        "properties":
+                          "id":
+                            "type": "string"
+                          "displayName":
+                            "type": "string"
+                          "deleted":
+                            "type": "boolean"
+                      "sharedRights":
+                        "type": "array"
+                        "items":
+                          "schema":
+                          "$ref": "#/components/securitySchemes"
+                  "content":
+                    "type": "string"
+                  "status":
+                    "type": "string"
+                  "owner":
+                    "type": "object"
+                    "properties":
+                      "id":
+                        "type": "string"
+                      "displayName":
+                        "type": "string"
+                      "deleted":
+                        "type": "boolean"
+                  "created":
+                    "type": "string"
+                    "format": "date-time"
+                  "modified":
+                    "type": "string"
+                    "format": "date-time"
+                  "publicationDate":
+                    "type": "string"
+                    "format": "date-time"
+                  "expirationDate":
+                    "type": "string"
+                    "format": "date-time"
+                  "numberOfComments":
+                    "type": "integer"
+                  "title":
+                    "type": "string"
+                  "headline":
+                    "type": "boolean"
+                  "sharedRights":
+                    "type": "array"
+                    "items":
+                      "schema":
+                      "$ref": "#/components/securitySchemes"
         "404":
-          description: Bad request
+          description: "News article not found"
+        "401":
+          description: "News article not authorized"
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -792,7 +1064,7 @@ paths:
   /actualites/threads:
     get:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -809,7 +1081,7 @@ paths:
   /actualites/thread:
     post:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -835,7 +1107,7 @@ paths:
 
     get:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -851,7 +1123,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -866,7 +1138,7 @@ paths:
             - conversation
     delete:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -892,7 +1164,7 @@ paths:
 
     get:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -908,7 +1180,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -934,7 +1206,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -960,7 +1232,7 @@ paths:
 
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -977,7 +1249,7 @@ paths:
   /actualites/print/actualites:
     get:
       tags:
-        - actualites
+        - actualites 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -995,10 +1267,43 @@ paths:
     get:
       tags:
         - thread
-      summary: 🚧 //TODO
+      summary: Retrieve a list of threads
+      description: Returns a list of threads with details.
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    id:
+                      type: integer
+                    icon:
+                      type: string
+                    created:
+                      type: string
+                      format: date-time
+                    modified:
+                      type: string
+                      format: date-time
+                    owner:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        displayName:
+                          type: string
+                        deleted:
+                          type: boolean
+                    sharedRights:
+                      type: array
+                      items:
+                        type: string
         "404":
           description: Bad request
         "302":
@@ -1008,8 +1313,137 @@ paths:
             - userinfo
             - conversation
 
+  /actualites/thread/{threadId}/infos:
+    get:
+      tags:
+        - thread
+      "summary": "Retrieve News Articles of a Thread"
+      "description": "Retrieves news articles of a Thread"
+      "parameters":
+        - "name": "threadId"
+          "in": "path"
+          "description": "Identifier of the Thread."
+          "required": true
+          "schema":
+            "type": "integer"
+        - "name": "optimized"
+          "in": "query"
+          "description": "Flag to optimize the response (default is true)."
+          "required": false
+          "schema":
+            "type": "boolean"
+      "responses":
+        "200":
+          "description": "Successful response"
+          "content":
+            "application/json":
+              "schema":
+                "type": "array"
+                "items":
+                  "type": "object"
+                  "properties":
+                    "_id":
+                      "type": "integer"
+                    "title":
+                      "type": "string"
+                    "content":
+                      "type": "string"
+                    "status":
+                      "type": "integer"
+                    "publication_date":
+                      "type": "string"
+                      "format": "date-time"
+                    "expiration_date":
+                      "type": "string"
+                      "format": "date-time"
+                    "is_headline":
+                      "type": "boolean"
+                    "thread_id":
+                      "type": "integer"
+                    "created":
+                      "type": "string"
+                      "format": "date-time"
+                    "modified":
+                      "type": "string"
+                      "format": "date-time"
+                    "owner":
+                      "type": "string"
+                    "username":
+                      "type": "string"
+                    "thread_title":
+                      "type": "string"
+                    "thread_icon":
+                      "type": "string"
+                    "comments":
+                      "type": "string"
+                    "shared":
+                      "type": "array"
+                      "items":
+                        "type": "object"
+                        "properties":
+                          "groupId":
+                            "type": "string"
+                          "userId":
+                            "type": "string"
+        302:
+          "description": "Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/"
+
 components:
   schemas:
+    "ShareRight":
+      "type": "string"
+      "enum":
+        - "thread.publish"
+        - "thread.manager"
+        - "thread.contrib"
+    "Infos":
+      "type": "array"
+      "items":
+        "type": "object"
+        "properties":
+          "_id":
+            "type": "integer"
+          "title":
+            "type": "string"
+          "content":
+            "type": "string"
+          "status":
+            "type": "integer"
+          "publication_date":
+            "type": "string"
+            "format": "date-time"
+          "expiration_date":
+            "type": "string"
+            "format": "date-time"
+          "is_headline":
+            "type": "boolean"
+          "thread_id":
+            "type": "integer"
+          "created":
+            "type": "string"
+            "format": "date-time"
+          "modified":
+            "type": "string"
+            "format": "date-time"
+          "owner":
+            "type": "string"
+          "username":
+            "type": "string"
+          "thread_title":
+            "type": "string"
+          "thread_icon":
+            "type": "string"
+          "comments":
+            "type": "string"
+          "shared":
+            "type": "array"
+            "items":
+              "type": "object"
+              "properties":
+                "groupId":
+                  "type": "string"
+                "userId":
+                  "type": "string"
     Error:
       required:
         - message

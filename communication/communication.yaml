@@ -8,8 +8,12 @@ servers:
   - url: /
 tags:
   - name: communication
-    description: 🚧 //TODO
+    description: API for communication
   - name: group
+    description: API for group communication
+  - name: communication 🚧
+    description: 🚧 //TODO
+  - name: group 🚧
     description: 🚧 //TODO
   - name: visible
     description: 🚧 //TODO
@@ -19,7 +23,7 @@ paths:
   /communication/admin-console:
     get:
       tags:
-        - communication
+        - communication 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -35,7 +39,7 @@ paths:
   /communication/group/{startGroupId}/communique/{endGroupId}:
     post:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: startGroupId
@@ -65,7 +69,7 @@ paths:
             - conversation
     delete:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: startGroupId
@@ -120,7 +124,7 @@ paths:
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
     post:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -143,7 +147,7 @@ paths:
             - conversation
     delete:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -167,7 +171,7 @@ paths:
   /communication/group/{groupId}/outgoing:
     get:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -191,7 +195,7 @@ paths:
   /communication/group/{groupId}/incoming:
     get:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -215,7 +219,7 @@ paths:
   /communication/relative/{groupId}:
     post:
       tags:
-        - communication
+        - communication 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -238,7 +242,7 @@ paths:
             - conversation
     delete:
       tags:
-        - communication
+        - communication 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -397,7 +401,7 @@ paths:
   /communication/group/{groupId}/users:
     post:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -420,7 +424,7 @@ paths:
             - conversation
     delete:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -444,7 +448,7 @@ paths:
   /communication/v2/group/{startGroupId}/communique/{endGroupId}/check:
     get:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: startGroupId
@@ -475,7 +479,7 @@ paths:
   /communication/v2/group/{startGroupId}/communique/{endGroupId}:
     post:
       tags:
-        - communication
+        - communication 🚧
       summary: 🚧 //TODO
       parameters:
         - name: startGroupId
@@ -505,7 +509,7 @@ paths:
             - conversation
     delete:
       tags:
-        - communication
+        - communication 🚧
       summary: 🚧 //TODO
       parameters:
         - name: startGroupId
@@ -560,8 +564,11 @@ paths:
           description: "Returns JsonObject {canCommunicate => true/false}"
           content:
             application/json:
-              example:
-                canCommunicate: false
+              schema:
+                type: object
+                properties:
+                  canCommunicate:
+                    type: boolean
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
         "404":

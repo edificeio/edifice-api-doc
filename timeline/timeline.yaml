@@ -7,19 +7,48 @@ info:
 servers:
   - url: /
 tags:
-  - name: timeline
-    description: 🚧 //TODO
   - name: flashmsg
+    description: Timeline Flash Message API
+  - name: timeline
+    description: Timeline Api
+  - name: timeline 🚧
+    description: 🚧 //TODO
+  - name: flashmsg 🚧
     description: 🚧 //TODO
 paths:
   /timeline/flashmsg/listuser:
     get:
       tags:
         - flashmsg
-      summary: 🚧 //TODO
+      summary: Get list of flash messages for a user
+      description: Retrieve a list of flash messages for a user.
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    contents:
+                      type: object
+                      properties:
+                        fr:
+                          type: string
+                        null:
+                          type: string
+                    color:
+                      type: string
+                    customColor:
+                      type: string
+                    signature:
+                      type: string
+                    signatureColor:
+                      type: string
         "404":
           description: Bad request
         "302":
@@ -32,11 +61,13 @@ paths:
     put:
       tags:
         - flashmsg
-      summary: 🚧 //TODO
+      summary: Mark a flash message as read
+      description: Mark a specific flash message as read for a user.
       parameters:
         - name: id
           in: path
           required: true
+          description: The id of the flash message.
           style: simple
           explode: false
           schema:
@@ -55,7 +86,7 @@ paths:
   /timeline/flashmsg/admin:
     get:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -71,7 +102,7 @@ paths:
   /timeline/flashmsg/preview:
     get:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -87,7 +118,7 @@ paths:
   /timeline/flashmsg:
     post:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -102,7 +133,7 @@ paths:
             - conversation
     delete:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -118,7 +149,7 @@ paths:
   /timeline/flashmsg/structure/{structureId}:
     post:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -141,7 +172,7 @@ paths:
             - conversation
     delete:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -165,7 +196,7 @@ paths:
   /timeline/flashmsg/{id}:
     put:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -188,7 +219,7 @@ paths:
             - conversation
     delete:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -212,7 +243,7 @@ paths:
   /timeline/flashmsg/structure/{structureId}/{id}:
     put:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -242,7 +273,7 @@ paths:
             - conversation
     delete:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -273,7 +304,7 @@ paths:
   /timeline/flashmsg/listadmin:
     get:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -289,7 +320,7 @@ paths:
   /timeline/flashmsg/listadmin/{structureId}:
     get:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -313,7 +344,7 @@ paths:
   /timeline/flashmsg/{messageId}/substructures:
     get:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: messageId
@@ -336,7 +367,7 @@ paths:
             - conversation
     post:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: messageId
@@ -360,7 +391,7 @@ paths:
   /timeline/flashmsg/structure/{structureId}/{messageId}/substructures:
     post:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -391,7 +422,7 @@ paths:
   /timeline/flashmsg/notif:
     post:
       tags:
-        - flashmsg
+        - flashmsg 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -407,7 +438,7 @@ paths:
   /timeline/timeline:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -423,7 +454,7 @@ paths:
   /timeline/timeline2:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -439,7 +470,7 @@ paths:
   /timeline/preferencesView:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -455,7 +486,7 @@ paths:
   /timeline/historyView:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -471,7 +502,7 @@ paths:
   /timeline/il8nNotifications:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -488,10 +519,34 @@ paths:
     get:
       tags:
         - timeline
-      summary: 🚧 //TODO
+      summary: Get registered notifications for the timeline
+      description: Returns an array of registered notifications
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    event-type:
+                      type: string
+                    app-name:
+                      type: string
+                    app-address:
+                      type: string
+                    defaultFrequency:
+                      type: string
+                    restriction:
+                      type: string
+                    push-notif:
+                      type: boolean
+                    key:
+                      type: string
         "404":
           description: Bad request
         "302":
@@ -503,7 +558,7 @@ paths:
   /timeline/calendar:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -520,10 +575,51 @@ paths:
     get:
       tags:
         - timeline
-      summary: 🚧 //TODO
+      summary: Get last notifications for a user
+      description: Retrieve the last notifications for a user.
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                        type:
+                          type: string
+                        event-type:
+                          type: string
+                        sender:
+                          type: string
+                        params:
+                          type: object
+                          properties:
+                            profilUri:
+                              type: string
+                            username:
+                              type: string
+                            resourceUri:
+                              type: string
+                            resourceName:
+                              type: string
+                        date:
+                          type: object
+                          properties:
+                            $date:
+                              type: integer
+                        message:
+                          type: string
+                  status:
+                    type: string
+                  number:
+                    type: integer
         "404":
           description: Bad request
         "302":
@@ -536,10 +632,17 @@ paths:
     get:
       tags:
         - timeline
-      summary: 🚧 //TODO
+      summary: Get available timeline types
+      description: Retrieve the available timeline types.
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
         "404":
           description: Bad request
         "302":
@@ -551,7 +654,7 @@ paths:
   /timeline/publish:
     post:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -567,7 +670,7 @@ paths:
   /timeline/admin-consol:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -583,7 +686,7 @@ paths:
   /timeline/admin-history:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -599,7 +702,7 @@ paths:
   /timeline/config:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -614,7 +717,7 @@ paths:
             - conversation
     put:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -630,7 +733,7 @@ paths:
   /timeline/notifications-defaults:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -646,7 +749,7 @@ paths:
   /timeline/performWeeklyMailing:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -662,7 +765,7 @@ paths:
   /timeline/allowLanguages:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -678,7 +781,7 @@ paths:
   /timeline/{id}:
     put:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -702,7 +805,7 @@ paths:
   /timeline/{id}/repor:
     put:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -726,7 +829,7 @@ paths:
   /timeline/reported:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -742,7 +845,7 @@ paths:
   /timeline/{id}/action/keep:
     put:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -766,7 +869,7 @@ paths:
   /timeline/{id}/action/delete:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -790,7 +893,7 @@ paths:
   /timeline/pushNotif/fcmTokens:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -805,7 +908,7 @@ paths:
             - conversation
     post:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -820,7 +923,7 @@ paths:
             - conversation
     delete:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -836,7 +939,7 @@ paths:
   /timeline/performDailyMailing:
     get:
       tags:
-        - timeline
+        - timeline 🚧
       summary: 🚧 //TODO
       responses:
         "200":

@@ -7,29 +7,39 @@ info:
 servers:
   - url: /
 tags:
+  - name: user
+    description: Get user information
+  - name: group
+    description: Get group information
+  - name: class
+    description: Get class information
+  - name: structure
+    description: Get structure information
+  - name: sharebookmark
+    description: Get sharebookmark information
+  - name: user 🚧
+    description: 🚧 //TODO
   - name: directory
     description: 🚧 //TODO
-  - name: class
+  - name: class 🚧
     description: 🚧 //TODO
-  - name: group
-    description: //TOD
+  - name: group 🚧
+    description: //TODO
   - name: wizard
     description: 🚧 //TODO
   - name: remote
     description: 🚧 //TODO
-  - name: sharebookmark
+  - name: sharebookmark 🚧
     description: 🚧 //TODO
   - name: slotprofiles
     description: 🚧 //TODO
-  - name: structure
+  - name: structure 🚧
     description: 🚧 //TODO
   - name: subject
     description: 🚧 //TODO
   - name: tenant
     description: 🚧 //TODO
   - name: timetable
-    description: 🚧 //TODO
-  - name: user
     description: 🚧 //TODO
 paths:
   /directory/calendar:
@@ -51,7 +61,7 @@ paths:
   /directory/class/{classId}:
     get:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -74,7 +84,7 @@ paths:
             - conversation
     put:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -97,7 +107,7 @@ paths:
             - conversation
     delete:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -121,7 +131,7 @@ paths:
   /directory/class/{classId}/user:
     post:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -145,7 +155,7 @@ paths:
   /directory/class/{classId}/users:
     get:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -169,7 +179,7 @@ paths:
   /directory/class/add-self:
     put:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -185,7 +195,7 @@ paths:
   /directory/class/{classId}/add/{userId}:
     put:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -216,7 +226,7 @@ paths:
   /directory/class/{classId}/apply:
     put:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -240,7 +250,7 @@ paths:
   /directory/class/{classId}/link/{userId}:
     put:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -271,7 +281,7 @@ paths:
   /directory/class/{classId}/link:
     put:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -295,7 +305,7 @@ paths:
   /directory/class/{classId}/unlink:
     put:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -319,7 +329,7 @@ paths:
   /directory/class/{classId}/change:
     put:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -343,7 +353,7 @@ paths:
   /directory/class/{classId}/unlink/{userId}:
     delete:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: classId
@@ -400,7 +410,7 @@ paths:
   /directory/class/users/detached:
     get:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -416,7 +426,7 @@ paths:
   /directory/class/users/visibles:
     get:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -448,7 +458,7 @@ paths:
   /directory/class-admin:
     get:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -464,7 +474,7 @@ paths:
   /directory/class-admin/{userId}:
     get:
       tags:
-        - class
+        - class 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -863,7 +873,7 @@ paths:
   /directory/group/admin/funcAndDisciplines:
     get:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -879,7 +889,7 @@ paths:
   /directory/group:
     post:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -923,7 +933,7 @@ paths:
             - conversation
     put:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -946,7 +956,7 @@ paths:
             - conversation
     delete:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -970,7 +980,7 @@ paths:
   /directory/group/{groupId}/users/add:
     put:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -994,7 +1004,7 @@ paths:
   /directory/group/{groupId}/users/delete:
     put:
       tags:
-        - group
+        - group 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -1450,7 +1460,7 @@ paths:
   /directory/sharebookmark:
     post:
       tags:
-        - sharebookmark
+        - sharebookmark 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1487,7 +1497,7 @@ paths:
                 $ref: "#/components/schemas/ShareBookmark"
     put:
       tags:
-        - sharebookmark
+        - sharebookmark 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1502,7 +1512,7 @@ paths:
             - conversation
     delete:
       tags:
-        - sharebookmark
+        - sharebookmark 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -1544,7 +1554,7 @@ paths:
   /directory/allowSharebookmarks:
     get:
       tags:
-        - sharebookmark
+        - sharebookmark 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1755,7 +1765,7 @@ paths:
   /directory/structure/{structureId}:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -1779,7 +1789,7 @@ paths:
   /directory/structure/{structureId}/link/{userId}:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -1810,7 +1820,7 @@ paths:
   /directory/structure/{structureId}/unlink/{userId}:
     delete:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -1841,7 +1851,7 @@ paths:
   /directory/structure/admin/list:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1857,7 +1867,7 @@ paths:
   /directory/structure/{structureId}/parent/{parentStructureId}:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -1887,7 +1897,7 @@ paths:
             - conversation
     delete:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -1918,7 +1928,7 @@ paths:
   /directory/structure/{structureId}/children:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -1942,7 +1952,7 @@ paths:
   /directory/structure/{structureId}/levels:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -1966,7 +1976,7 @@ paths:
   /directory/structure/{structureId}/levels-of-education:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -1990,7 +2000,7 @@ paths:
   /directory/structure/{structureId}/distributions:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -2014,7 +2024,7 @@ paths:
   /directory/structure/{structureId}/massMail/users:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -2038,7 +2048,7 @@ paths:
   /directory/structure/{structureId}/massMail/allUsers:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -2062,7 +2072,7 @@ paths:
   /directory/structure/massMail/{userId}/{type}:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -2093,7 +2103,7 @@ paths:
   /directory/structure/{structureId}/massMail/process/{type}:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -2124,7 +2134,7 @@ paths:
   /directory/class-admin/massmail:
     post:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2140,7 +2150,7 @@ paths:
   /directory/structure/{structureId}/metrics:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -2164,7 +2174,7 @@ paths:
   /directory/structure/{id}/sources:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -2188,7 +2198,7 @@ paths:
   /directory/structure/{id}/aaffunctions:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -2212,7 +2222,7 @@ paths:
   /directory/structure/{id}/quicksearch/users:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -2259,7 +2269,7 @@ paths:
   /directory/structure/{id}/removedUsers:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -2283,7 +2293,7 @@ paths:
   /directory/structure/{id}/profile/block:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -2307,7 +2317,7 @@ paths:
   /directory/structure/{structureId}/resetName:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -2331,7 +2341,7 @@ paths:
   /directory/structure/check/uai:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2347,7 +2357,7 @@ paths:
   /directory/structure/{structureId}/duplicate:
     put:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -3002,7 +3012,7 @@ paths:
   /directory/structure/{structId}:
     get:
       tags:
-        - structure
+        - structure 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structId
@@ -3258,10 +3268,177 @@ paths:
     get:
       tags:
         - user
-      summary: 🚧 //TODO
+      summary: Get a list of moods
+      description: Retrieve a list of available moods for userbook.
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /userbook/api/person:
+    get:
+      tags:
+        - user
+      summary: Get user information
+      description: Retrieve information about a person from the userbook.
+      parameters:
+        - name: id
+          in: query
+          description: The unique identifier for the person.
+          required: false
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: The type of the person.
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        login:
+                          type: string
+                        displayName:
+                          type: string
+                        type:
+                          type: array
+                          items:
+                            type: string
+                        visibleInfos:
+                          type: array
+                          items:
+                            type: string
+                        schools:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              exports:
+                                type: string
+                              classes:
+                                type: array
+                                items:
+                                  type: string
+                              name:
+                                type: string
+                              id:
+                                type: string
+                              UAI:
+                                type: string
+                        relatedName:
+                          type: string
+                        relatedId:
+                          type: string
+                        relatedType:
+                          type: string
+                        userId:
+                          type: string
+                        motto:
+                          type: string
+                        photo:
+                          type: string
+                        mood:
+                          type: string
+                        health:
+                          type: string
+                        address:
+                          type: string
+                        email:
+                          type: string
+                        tel:
+                          type: string
+                        mobile:
+                          type: string
+                        birthdate:
+                          type: string
+                        hobbies:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              visibility:
+                                type: string
+                              category:
+                                type: string
+                              values:
+                                type: string
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /userbook/preference/timeline:
+    get:
+      tags:
+        - user
+      summary: Retrieve userbook timeline preferences
+      description: Returns the user's timeline preferences.
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type: string
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+
+  /userbook/preference/presences.register:
+    get:
+      tags:
+        - user
+      summary: Retrieve userbook presences register preferences
+      description: Returns the user's presences register preferences.
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type: string
         "404":
           description: Bad request
         "302":
@@ -3274,11 +3451,13 @@ paths:
     get:
       tags:
         - user
-      summary: 🚧 //TODO
+      summary: Get user details by user ID
+      description: Retrieve detailed information about a user based on the provided user ID.
       parameters:
         - name: userId
           in: path
           required: true
+          description: The unique identifier for the user.
           style: simple
           explode: false
           schema:
@@ -3286,6 +3465,131 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lastLogin:
+                    type: string
+                    format: date-time
+                  lastName:
+                    type: string
+                  zipCode:
+                    type: string
+                  city:
+                    type: string
+                  displayName:
+                    type: string
+                  source:
+                    type: string
+                  title:
+                    type: string
+                  login:
+                    type: string
+                  modified:
+                    type: string
+                    format: date-time
+                  id:
+                    type: string
+                  email:
+                    type: string
+                  address:
+                    type: string
+                  created:
+                    type: string
+                    format: date-time
+                  mobile:
+                    type: string
+                  structures:
+                    type: array
+                    items:
+                      type: string
+                  profiles:
+                    type: array
+                    items:
+                      type: string
+                  externalId:
+                    type: string
+                  needRevalidateTerms:
+                    type: boolean
+                  firstName:
+                    type: string
+                  structureNodes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        created:
+                          type: string
+                          format: date-time
+                        checksum:
+                          type: string
+                        name:
+                          type: string
+                        modified:
+                          type: string
+                          format: date-time
+                        externalId:
+                          type: string
+                        feederName:
+                          type: string
+                        id:
+                          type: string
+                        source:
+                          type: string
+                  type:
+                    type: array
+                    items:
+                      type: string
+                  functions:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: string
+                  children:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        displayName:
+                          type: string
+                        externalId:
+                          type: string
+                        id:
+                          type: string
+                  parents:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        displayName:
+                          type: string
+                        externalId:
+                          type: string
+                        id:
+                          type: string
+                  functionalGroups:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        id:
+                          type: string
+                  administrativeStructures:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                  subjectCodes:
+                    type: array
+                    items:
+                      type: string
         "404":
           description: Bad request
         "302":
@@ -3296,7 +3600,7 @@ paths:
             - conversation
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3320,7 +3624,7 @@ paths:
   /directory/user/login/{userId}:
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3344,19 +3648,65 @@ paths:
   /directory/userbook/{userId}:
     get:
       tags:
-        - directory
-      summary: 🚧 //TODO
+        - user
+      summary: Get userbook details by user ID
+      description: Retrieve userbook details based on the provided user ID.
       parameters:
         - name: userId
           in: path
           required: true
           style: simple
+          description: The unique identifier for the user.
           explode: false
           schema:
             type: string
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  themecg771d:
+                    type: string
+                  themecg77:
+                    type: string
+                  mood:
+                    type: string
+                  alertSize:
+                    type: boolean
+                  health:
+                    type: string
+                  storage:
+                    type: integer
+                  type:
+                    type: string
+                  userid:
+                    type: string
+                  picture:
+                    type: string
+                  quota:
+                    type: integer
+                  visibleInfos:
+                    type: array
+                    items:
+                      type: string
+                  motto:
+                    type: string
+                  theme:
+                    type: string
+                  hobbies:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        visibility:
+                          type: string
+                        category:
+                          type: string
+                        values:
+                          type: string
         "404":
           description: Bad request
         "302":
@@ -3367,7 +3717,7 @@ paths:
             - conversation
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3391,7 +3741,7 @@ paths:
   /directory/user/{userId}/groups:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3495,7 +3845,7 @@ paths:
   /directory/avater/{userId}:
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3535,7 +3885,7 @@ paths:
   /directory/user:
     delete:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -3551,7 +3901,7 @@ paths:
   /directory/user/delete:
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -3567,7 +3917,7 @@ paths:
   /directory/restore/user:
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -3605,7 +3955,7 @@ paths:
   /directory/user/function/{userId}:
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3629,7 +3979,7 @@ paths:
   /directory/{structure}/user/{userId}/headteacher:
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structure
@@ -3659,7 +4009,7 @@ paths:
             - conversation
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structure
@@ -3690,7 +4040,7 @@ paths:
   /directory/{structure}/user/{userId}/direction:
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structure
@@ -3720,7 +4070,7 @@ paths:
             - conversation
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structure
@@ -3751,7 +4101,7 @@ paths:
   /directory/user/function/{userId}/{function}:
     delete:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3782,7 +4132,7 @@ paths:
   /directory/user/{userId}/function:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3807,11 +4157,13 @@ paths:
     get:
       tags:
         - user
-      summary: 🚧 //TODO
+      summary: Get children information of a user
+      description: Retrieve information about the children of a parent user.
       parameters:
         - name: userId
           in: path
           required: true
+          description: The unique identifier for the user.
           style: simple
           explode: false
           schema:
@@ -3819,6 +4171,30 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    structureName:
+                      type: string
+                    children:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          classesNames:
+                            type: array
+                            items:
+                              type: string
+                          displayName:
+                            type: string
+                          externalId:
+                            type: string
+                          id:
+                            type: string
         "404":
           description: Bad request
         "302":
@@ -3830,7 +4206,7 @@ paths:
   /directory/user/group/{userId}/{groupId}:
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3860,7 +4236,7 @@ paths:
             - conversation
     delete:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -3891,7 +4267,7 @@ paths:
   /directory/user/group/{groupId}:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -3916,7 +4292,7 @@ paths:
   /directory/user/adml/list/{structureId}:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -3985,7 +4361,7 @@ paths:
   /directory/user/{studentId}/related/{relativeId}:
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: studentId
@@ -4015,7 +4391,7 @@ paths:
             - conversation
     delete:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: studentId
@@ -4046,7 +4422,7 @@ paths:
   /directory/duplicate/ignore/{userId}/{userId2}:
     delete:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -4077,7 +4453,7 @@ paths:
   /directory/duplicate/merge/{userId1}/{userId2}:
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId1
@@ -4108,7 +4484,7 @@ paths:
   /directory/duplicates:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4124,7 +4500,7 @@ paths:
   /directory/user/structures/list:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4140,7 +4516,7 @@ paths:
   /directory/duplicate/generate/mergeKey/{userId}:
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -4164,7 +4540,7 @@ paths:
   /directory/duplicate/user/mergeKey:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4179,7 +4555,7 @@ paths:
             - conversation
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4195,7 +4571,7 @@ paths:
   /directory/user/unmergeByLogins:
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4211,7 +4587,7 @@ paths:
   /directory/allowLoginUpdate:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4227,7 +4603,7 @@ paths:
   /directory/user/level/list:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4243,7 +4619,7 @@ paths:
   /directory/user/{userId}/attachment-school:
     get:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -4268,10 +4644,28 @@ paths:
     get:
       tags:
         - user
-      summary: 🚧 //TODO
+      summary: Get user mobile state
+      description: Retrieve information about the mobile state of a user.
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mobile:
+                    type: string
+                  mobileState:
+                    type: string # You may need to replace this with the actual type if known
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  displayName:
+                    type: string
+                  waitInSeconds:
+                    type: integer
         "404":
           description: Bad request
         "302":
@@ -4282,7 +4676,7 @@ paths:
             - conversation
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4297,7 +4691,7 @@ paths:
             - conversation
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4314,10 +4708,28 @@ paths:
     get:
       tags:
         - user
-      summary: 🚧 //TODO
+      summary: Get user email state
+      description: Retrieve information about the email state of a user.
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                  emailState:
+                    type: string 
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  displayName:
+                    type: string
+                  waitInSeconds:
+                    type: integer
         "404":
           description: Bad request
         "302":
@@ -4328,7 +4740,7 @@ paths:
             - conversation
     put:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -4343,7 +4755,7 @@ paths:
             - conversation
     post:
       tags:
-        - user
+        - user 🚧
       summary: 🚧 //TODO
       responses:
         "200":

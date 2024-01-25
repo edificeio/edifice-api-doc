@@ -8,6 +8,8 @@ servers:
   - url: /
 tags:
   - name: conversation
+    description: Api for conversation
+  - name: conversation 🚧
     description: 🚧 //TODO
   - name: message
     description: 🚧 //TODO
@@ -46,7 +48,7 @@ paths:
   /conversation:
     get:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -61,7 +63,7 @@ paths:
   /conversation/draft:
     post:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -76,7 +78,7 @@ paths:
   /conversation/draft/{id}:
     put:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -99,7 +101,7 @@ paths:
   /conversation/send:
     post:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -137,7 +139,7 @@ paths:
   /conversation/threads/list:
     get:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -236,7 +238,7 @@ paths:
   /conversation/thread/toggleUnread:
     post:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -274,7 +276,7 @@ paths:
   /conversation/visibles:
     post:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -289,7 +291,7 @@ paths:
   /conversation/message/{id}:
     get:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -312,7 +314,7 @@ paths:
   /conversation/trash:
     put:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -327,7 +329,7 @@ paths:
   /conversation/restore:
     put:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -342,7 +344,7 @@ paths:
   /conversation/delete:
     put:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -357,7 +359,7 @@ paths:
   /conversation/emptyTrash:
     delete:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -372,7 +374,7 @@ paths:
   /conversation/toggleUnread:
     post:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -387,7 +389,7 @@ paths:
   /conversation/max-depth:
     get:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -492,7 +494,7 @@ paths:
             - conversation
     delete:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -515,7 +517,7 @@ paths:
   /conversation/move/root:
     put:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -711,7 +713,7 @@ paths:
   /conversation/print:
     get:
       tags:
-        - conversation
+        - conversation 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:

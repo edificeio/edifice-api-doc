@@ -12,9 +12,11 @@ tags:
     externalDocs:
       description: For more information
       url: "https://oauth.net/2/grant-types/authorization-code/"
-  - name: cas
-    description: 🚧 //TODO
   - name: auth
+    description: Authenticate
+  - name: auth🚧
+    description: 🚧 //TODO
+  - name: cas
     description: 🚧 //TODO
   - name: cgu
     description: 🚧 //TODO
@@ -130,19 +132,14 @@ paths:
                 properties:
                   token_type:
                     type: string
-                    example: Bearer
                   access_token:
                     type: string
-                    example: "1413b31c-b240-453a-bc1e-3773cd31adc9"
                   refresh_token:
                     type: string
-                    example: "9e746d64-3fa8-4ff8-88b3-2d8314f56179"
                   expires_in:
                     type: integer
-                    example: 3600
                   scope:
                     type: string
-                    example: "{SCOPE}"
         "400":
           description: Bad Request
           content:
@@ -152,10 +149,8 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: invalid_request
                   error_description:
                     type: string
-                    example: "Invalid request parameters"
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -195,19 +190,14 @@ paths:
                 properties:
                   token_type:
                     type: string
-                    example: Bearer
                   access_token:
                     type: string
-                    example: 37995391-3976-4811-a72a-0cd55522e1f6
                   refresh_token:
                     type: string
-                    example: ce472190-0fea-4826-a0d5-c22e8082b49d
                   expires_in:
                     type: integer
-                    example: 3600
                   scope:
                     type: string
-                    example: userinfo
         "400":
           description: Bad Request
           content:
@@ -217,10 +207,8 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: invalid_request
                   error_description:
                     type: string
-                    example: "redirect_uri not found"
         "401":
           description: Unauthorized
           content:
@@ -230,7 +218,6 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: invalid_grant
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -260,15 +247,27 @@ paths:
           description: Successful response
           content:
             application/json:
-              example:
-                callBack: ""
-                cgu: true
-                passwordRegex: ".*"
-                mandatory: {}
-                passwordRegexI18n:
-                  fr: "Choisissez 8 caractères minimum, lettres et chiffres obligatoires."
-                  en: "password.errors"
-                mfaConfig: []
+              schema:
+                type: object
+                properties:
+                  callBack:
+                    type: string
+                  cgu:
+                    type: boolean
+                  passwordRegex:
+                    type: string
+                  mandatory:
+                    type: object
+                  passwordRegexI18n:
+                    type: object
+                    example:
+                      fr: "Choisissez 8 caractères minimum, lettres et chiffres obligatoires."
+                      en: "password.errors"
+                  mfaConfig:
+                    type: array
+                    items:
+                      type: object
+
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -281,16 +280,23 @@ paths:
         - auth
       summary: Get user requirements
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json:
-              example:
-                forceChangePassword: false
-                needRevalidateTerms: false
-                needRevalidateEmail: false
-                needRevalidateMobile: false
-                needMfa: false
+              schema:
+                type: object
+                properties:
+                  forceChangePassword:
+                    type: boolean
+                  needRevalidateTerms:
+                    type: boolean
+                  needRevalidateEmail:
+                    type: boolean
+                  needRevalidateMobile:
+                    type: boolean
+                  needMfa:
+                    type: boolean
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -315,20 +321,37 @@ paths:
           description: Successful response
           content:
             application/json:
-              example:
-                level: ""
-                login: severine.alexandre
-                lastName: ALEXANDRE
-                firstName: SEVERINE
-                externalId: "5555959"
-                username: SEVERINE ALEXANDRE
-                type: ENSEIGNANT
-                childrenIds: []
-                uai:
-                  - "0805432C"
-                userId: 2bacdfd2-b59c-4b21-a23e-f6346e02fc4a
-                classId: "55567$3ARMS"
-                schoolName: Collège Denis Poisson
+              schema:
+                type: object
+                properties:
+                  level:
+                    type: string
+                  login:
+                    type: string
+                  lastName:
+                    type: string
+                  firstName:
+                    type: string
+                  externalId:
+                    type: string
+                  username:
+                    type: string
+                  type:
+                    type: string
+                  childrenIds:
+                    type: array
+                    items:
+                      type: string
+                  uai:
+                    type: array
+                    items:
+                      type: string
+                  userId:
+                    type: string
+                  classId:
+                    type: string
+                  schoolName:
+                    type: string
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -353,20 +376,37 @@ paths:
           description: Successful response
           content:
             application/json:
-              example:
-                level: ""
-                login: severine.alexandre
-                lastName: ALEXANDRE
-                firstName: SEVERINE
-                externalId: "5555959"
-                username: SEVERINE ALEXANDRE
-                type: ENSEIGNANT
-                childrenIds: []
-                uai:
-                  - "0805432C"
-                userId: 2bacdfd2-b59c-4b21-a23e-f6346e02fc4a
-                classId: "55567$3ARMS"
-                schoolName: Collège Denis Poisson
+              schema:
+                type: object
+                properties:
+                  level:
+                    type: string
+                  login:
+                    type: string
+                  lastName:
+                    type: string
+                  firstName:
+                    type: string
+                  externalId:
+                    type: string
+                  username:
+                    type: string
+                  type:
+                    type: string
+                  childrenIds:
+                    type: array
+                    items:
+                      type: string
+                  uai:
+                    type: array
+                    items:
+                      type: string
+                  userId:
+                    type: string
+                  classId:
+                    type: string
+                  schoolName:
+                    type: string
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -374,10 +414,35 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-  /auth/internal/userinfo:
+  /auth/i18n:
     get:
       tags:
         - auth
+      summary: Retrieve internationalization keys for authentication
+      description: Returns a JSON object containing internationalization keys and their corresponding values for authentication messages.
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              example:
+                "project.name": "ENT"
+                "wayf.select.profile": "Vous souhaitez vous connecter en tant que ..."
+                "wayf.label.cgu": "Pour consulter la charte d'utilisation, cliquez ici"
+                "activation.error": "Erreur lors de l'activation, veuillez vérifier votre identifiant et votre code d'activation."
+                # ... (include all other keys and values)
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      security:
+        - oAuth2AuthCode:
+            - userinfo
+            - conversation
+  /auth/internal/userinfo:
+    get:
+      tags:
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -393,7 +458,7 @@ paths:
   /auth/activation/match:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -409,7 +474,7 @@ paths:
   /auth/rest/match:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -425,7 +490,7 @@ paths:
   /auth/activation/no-login:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -441,7 +506,7 @@ paths:
   /auth/forgot-id:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -457,7 +522,7 @@ paths:
   /auth/password-channels:
     get:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -473,7 +538,7 @@ paths:
   /auth/forgot-password:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -489,7 +554,7 @@ paths:
   /auth/sendResetPassword:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -505,7 +570,7 @@ paths:
   /auth/generatePasswordRenewalCode:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -521,7 +586,7 @@ paths:
   /auth/massGeneratePasswordRenewalCode:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -537,7 +602,7 @@ paths:
   /auth/block/{userId}:
     put:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       parameters:
         - name: userId
@@ -561,7 +626,7 @@ paths:
   /auth/block:
     put:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -577,7 +642,7 @@ paths:
   /auth/reset:
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -609,7 +674,7 @@ paths:
   /auth/user/mfa/code:
     get:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -624,7 +689,7 @@ paths:
             - conversation
     post:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -640,7 +705,7 @@ paths:
   /auth/session:
     delete:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -663,9 +728,13 @@ paths:
           description: Successful response
           content:
             application/json:
-              example:
-                otp: "3dsfsds4"
-                otpiat: 313213é
+              schema:
+                type: object
+                properties:
+                  otp:
+                    type: string
+                  otpiat:
+                    type: string
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -675,7 +744,7 @@ paths:
   /auth/configure/welcome:
     get:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -690,7 +759,7 @@ paths:
             - conversation
     put:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -802,7 +871,7 @@ paths:
   /auth/redirect:
     get:
       tags:
-        - auth
+        - auth🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1043,7 +1112,6 @@ paths:
             - userinfo
             - conversation
 
-
   /cas/configuration/mappings/:mappingId:
     delete:
       tags:
@@ -1060,7 +1128,6 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-
 
   /cas/configuration/mappings/:mappingId/usage:
     get:
@@ -1079,7 +1146,6 @@ paths:
             - userinfo
             - conversation
 
-
   /cas/configuration/mappings/:mappingId/usage/:structureId:
     get:
       tags:
@@ -1096,7 +1162,6 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-
 
   /cas/configuration/simulate:
     get:
@@ -1115,7 +1180,6 @@ paths:
             - userinfo
             - conversation
 
-
   /cas/login:
     get:
       tags:
@@ -1132,7 +1196,6 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-
 
   /cas/oauth/login:
     get:
@@ -1151,7 +1214,6 @@ paths:
             - userinfo
             - conversation
 
-
   /cas/samlValidate:
     get:
       tags:
@@ -1169,7 +1231,6 @@ paths:
             - userinfo
             - conversation
 
-
   /cas/serviceValidate:
     get:
       tags:
@@ -1186,7 +1247,6 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-
 
   /cas/proxyValidate:
     get:
