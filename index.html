@@ -43,6 +43,16 @@
     />
     <meta property="og:title" content="Edifice Api Documentation" />
 
+    <link rel="stylesheet" type="text/css" href="../swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../index-swagger.css" />
+    
+    <!-- Override Swagger UI default CSS -->
+    <style>
+      .swagger-ui .topbar { background-color: transparent; padding: 0; }
+      .swagger-ui .topbar .download-url-wrapper .select-label { color: gray; }
+      .swagger-ui .topbar a.link { display: none; }
+    </style>
+
     <link rel="dns-prefetch" href="//tarteaucitron.io" />
     <link
       rel="stylesheet"
@@ -134,17 +144,10 @@
             </a>
 
             <div class="text-black xl:hidden bg-background-main-secondary">
-              <button
-                class="hamburger hamburger--spin mobile-menu-controller"
-                type="button"
-                aria-label="Menu"
-                aria-controls="navigation"
-                style="color: rgb(15, 15, 15)"
-              >
-                <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-                </span>
-              </button>
+              <a href="../" class="btn-primary btn-sm" target="">
+                <span class="">Home</span>
+              </a>
+              
             </div>
           </div>
           <div
@@ -154,115 +157,16 @@
               <div
                 class="container justify-end items-center hidden lg:flex lg:gap-5"
               >
-                <button
-                  class="hamburger hamburger--spin mobile-menu-controller"
-                  type="button"
-                  aria-label="Menu"
-                  aria-controls="navigation"
-                  style="color: rgb(15, 15, 15)"
-                >
-                  <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                  </span>
-                </button>
+                <a href="../" class="btn-primary btn-sm" target="">
+                  <span class="">Home</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </nav>
 
-      <div
-        id="main-nav-sticky"
-        class="fixed -top-px bg-white w-full border-b border-gray-medium z-20 opacity-0"
-        style="
-          translate: none;
-          rotate: none;
-          scale: none;
-          transform: translate(0px, -100%);
-          opacity: 0;
-          visibility: hidden;
-          border-color: rgb(235, 237, 242);
-          background-color: rgb(255, 255, 255);
-        "
-      >
-        <nav
-          class="nav-light my-8 px-5 xxl:px-20 main-navbar z-20 relative"
-          role="navigation"
-          aria-label="main navigation"
-        >
-          <div class="flex h-full items-center relative gap-12">
-            <div
-              class="relative flex items-center justify-between w-full xl:w-auto"
-            >
-              <a
-                class="flex items-center relative xl:flex-1"
-                href="https://edifice.io/"
-              >
-                <img
-                  class="max-md:hidden logo absolute h-[40px] w-[180px]"
-                  src="https://edifice.io/app/uploads/2023/05/logo.svg"
-                  alt="Édifice"
-                  style="opacity: 1"
-                />
 
-                <img
-                  class="max-md:hidden logo-light h-[40px] w-[180px] opacity-0"
-                  src="https://edifice.io/app/uploads/2023/08/Logos.png"
-                  alt="Édifice"
-                  style="opacity: 0"
-                />
-
-                <img
-                  class="logo md:hidden h-[42px] w-auto absolute transition-opacity"
-                  src="https://edifice.io/app/uploads/2023/05/logo-mobile.svg"
-                  alt="Édifice"
-                  style="opacity: 1"
-                />
-                <img
-                  class="logo-light md:hidden h-[42px] w-auto opacity-0 transition-opacity"
-                  src="https://edifice.io/app/uploads/2023/06/logo-edifice-mobile-light.svg"
-                  alt="Édifice"
-                  style="opacity: 0"
-                />
-              </a>
-
-              <div class="text-black xl:hidden bg-background-main-secondary">
-                <button
-                  class="hamburger hamburger--spin mobile-menu-controller"
-                  type="button"
-                  aria-label="Menu"
-                  aria-controls="navigation"
-                  style="color: rgb(15, 15, 15)"
-                >
-                  <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div
-              class="flex flex-1 justify-end items-center max-xl:hidden lg:gap-5"
-            >
-              <div>
-                <div
-                  class="container justify-end items-center hidden lg:flex lg:gap-5"
-                >
-                  <button
-                    class="hamburger hamburger--spin mobile-menu-controller"
-                    type="button"
-                    aria-label="Menu"
-                    aria-controls="navigation"
-                    style="color: rgb(15, 15, 15)"
-                  >
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
       </div>
       <div
         id="primary-menu-mobile"
@@ -277,62 +181,7 @@
           transform: translate(0px, -20px);
         "
       >
-        <div class="px-5 h-full overflow-y-auto">
-          <div class="flex flex-col items-stretch relative my-30">
-            <div class="flex flex-col items-stretch">
-              <a
-                class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                target=""
-                href="auth/"
-              >
-                Auth Api 🚧
-              </a>
-
-              <a
-                class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                target=""
-                href="timeline/"
-              >
-                Timeline Api 🚧
-              </a>
-              <a
-                class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                target=""
-                href="actualites/"
-              >
-                Actualites Api 🚧
-              </a>
-              <a
-                class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                target=""
-                href="communication/"
-              >
-                Communication Api 🚧
-              </a>
-              <a
-                class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                target=""
-                href="conversation/"
-              >
-                Conversation Api 🚧
-              </a>
-              <a
-                class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                target=""
-                href="directory/"
-              >
-                Directory Api 🚧
-              </a>
-              <a
-                class="nav-link inline-flex menu-mobile:gap-3 gap-[6px] items-center menu-mobile:py-5 menu-mobile:border-b menu-mobile:border-opacity-[0.15] menu-mobile:border-white menu-mobile:before:w-2 menu-mobile:before:h-2 menu-mobile:before:left-0 menu-mobile:before:top-1/2 menu-mobile:before:-translate-y-1/2 menu-mobile:before:translate-x-0 menu-mobile:before:scale-y-100 menu-mobile:is-active:text-white menu-mobile:is-active:pl-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-782"
-                target=""
-                href="explorer/"
-              >
-                Explorer Api 🚧
-              </a>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </header>
     <div class=" ">
@@ -341,239 +190,51 @@
           <article class="post-type-page" id="post-779">
             <section class="article-content post-content">
               <section
-                id="section-block_659d56de491d8"
-                class="relative py-20 md:py-30 first:pt-30 md:first:pt-40 section wp-block-acf alignfull group/section"
-                style="background-color: #fcbfff"
-              >
-                <div class="max-w-full relative z-10">
-                  <div class="relative">
-                    <div
-                      id="hero-block_659d56de49222"
-                      class="hero wp-block-acf alignfull acf-block-preview:z-10"
-                    >
-                      <div
-                        class="bg-no-repeat bg-center max-md:-mb-5"
-                        style="background-size: 1440px; background-image: url()"
-                      >
-                        <div class="container">
-                          <div class="row justify-center text-center relative">
-                            <div class="col md:w-8/12">
-                              <h1 class="h1" style="">
-                                Edifice Api Documentation
-                              </h1>
-
-                              <div
-                                class="flex flex-col justify-center lg:justify-start"
-                              >
-                                <p></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="absolute inset-0 pointer-events-none">
-                  <div class="container h-full">
-                    <div
-                      class="z-10 w-24 xl:w-[265px] text-yellow absolute right-5 xl:right-15 -bottom-15"
-                    >
-                      <svg
-                        class="w-full h-auto"
-                        width="265"
-                        height="268"
-                        viewBox="0 0 265 268"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.000201954 268C-0.0427597 233.161 6.76911 198.592 20.0469 166.269C33.3247 133.946 52.8084 104.501 77.3855 79.6145C101.963 54.7285 131.152 34.8889 163.287 21.2286C195.422 7.56829 229.873 0.354824 264.673 0L265 265.298L0.000201954 268Z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </div>
-
-                    <div
-                      class="z-10 w-32 xl:w-[220px] text-primary-hover absolute translate-y-1/2 left-5 xl:left-28 bottom-0"
-                    >
-                      <svg
-                        class="w-full h-auto"
-                        width="220"
-                        height="55"
-                        viewBox="0 0 220 55"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect
-                          width="55"
-                          height="220"
-                          transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 220 55)"
-                          fill="currentColor"
-                        ></rect>
-                      </svg>
-                    </div>
-
-                    <div
-                      class="z-1 w-14 xl:w-[125px] text-orange absolute -translate-y-1/2 left-0 top-1/2"
-                    >
-                      <svg
-                        class="w-full h-auto"
-                        width="124"
-                        height="248"
-                        viewBox="0 0 124 248"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M123.424 124C123.424 55.5148 67.7191 0 -1 0L-1 248C67.7191 248 123.424 192.485 123.424 124Z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="h-5"></div>
-              </section>
-              <section
-                id="section-block_659d56de49766"
+                id="section-block_659d4d8d4c775"
                 class="relative my-20 md:my-30 first:mt-30 md:first:mt-40 section wp-block-acf alignfull group/section"
                 style=""
               >
                 <div class="max-w-full relative z-10">
+                  <div
+                    class="max-md:hidden z-1 w-[253px] text-pink left-0 -bottom-10 top-5 -right-24 absolute"
+                  >
+                    <svg
+                      class="w-full h-auto"
+                      width="330"
+                      height="468"
+                      viewBox="0 0 330 468"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M96.064 467.649C126.77 467.649 157.176 461.601 185.545 449.85C213.914 438.1 239.69 420.876 261.403 399.164C283.116 377.451 300.339 351.674 312.09 323.305C323.841 294.937 329.889 264.531 329.889 233.825C329.889 203.118 323.841 172.713 312.09 144.344C300.339 115.975 283.116 90.1983 261.403 68.4856C239.69 46.773 213.914 29.5496 185.545 17.7988C157.176 6.04804 126.77 -1.1563e-05 96.064 -1.02208e-05L96.064 96.0628C114.155 96.0628 132.069 99.6261 148.783 106.549C165.497 113.473 180.684 123.62 193.476 136.412C206.269 149.205 216.416 164.391 223.339 181.105C230.263 197.82 233.826 215.734 233.826 233.825C233.826 251.916 230.263 269.83 223.339 286.544C216.416 303.258 206.269 318.445 193.476 331.237C180.684 344.029 165.497 354.177 148.783 361.1C132.069 368.023 114.155 371.586 96.064 371.586L96.064 467.649ZM96.0635 0L96.0635 96.063L0.0005146 96.063L0.000518799 -4.19904e-06L96.0635 0ZM96.0635 467.649L96.0635 371.586L0.000533074 371.586L0.000528875 467.649L96.0635 467.649Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div
+                    class="max-md:hidden absolute inset-y-0 bg-primary w-24 right-0"
+                  ></div>
                   <div class="relative">
                     <div
                       class="wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrained"
                     >
                       <div class="wp-block-group__inner-container">
-                        <a href="auth/" target="" title="Auth">
-                          <div
-                            class="grid grid-cols-1 md:grid-cols-1 gap-3 text-sm font-medium px-[10px] py-[3px] rounded relative overflow-hidden items-center"
-                            style="color: #3030d1"
-                          >
-                            <h2 class="has-text-align-center">Auth 🚧</h2>
-
-                            <div
-                              class="absolute inset-0"
-                              style="background-color: #3030d1; opacity: 0.15"
-                            ></div>
-                          </div>
-                        </a>
-                        <div
-                          id="responsive-spacer-block_659d56de49777"
-                          class="responsive-spacer wp-block-acf alignfull h-8 md:h-15"
-                        ></div>
-                        <a href="timeline/" target="" title="Timeline">
-                          <div
-                            class="grid grid-cols-1 md:grid-cols-1 gap-3 text-sm font-medium px-[10px] py-[3px] rounded relative overflow-hidden items-center"
-                            style="color: #3030d1"
-                          >
-                            <h2 class="has-text-align-center">Timeline 🚧</h2>
-
-                            <div
-                              class="absolute inset-0"
-                              style="background-color: #3030d1; opacity: 0.15"
-                            ></div>
-                          </div>
-                        </a>
-                        <div
-                          id="responsive-spacer-block_659d56de49777"
-                          class="responsive-spacer wp-block-acf alignfull h-8 md:h-15"
-                        ></div>
-                        <a href="actualites/" target="" title="Actualites">
-                          <div
-                            class="grid grid-cols-1 md:grid-cols-1 gap-3 text-sm font-medium px-[10px] py-[3px] rounded relative overflow-hidden items-center"
-                            style="color: #3030d1"
-                          >
-                            <h2 class="has-text-align-center">Actualites 🚧</h2>
-
-                            <div
-                              class="absolute inset-0"
-                              style="background-color: #3030d1; opacity: 0.15"
-                            ></div>
-                          </div>
-                        </a>
-
-                        <div
-                          id="responsive-spacer-block_659d56de49777"
-                          class="responsive-spacer wp-block-acf alignfull h-8 md:h-15"
-                        ></div>
-                        <a
-                          href="communication/"
-                          target=""
-                          title="Communication"
-                        >
-                          <div
-                            class="grid grid-cols-1 md:grid-cols-1 gap-3 text-sm font-medium px-[10px] py-[3px] rounded relative overflow-hidden items-center"
-                            style="color: #3030d1"
-                          >
-                            <h2 class="has-text-align-center">
-                              Communication 🚧
-                            </h2>
-
-                            <div
-                              class="absolute inset-0"
-                              style="background-color: #3030d1; opacity: 0.15"
-                            ></div>
-                          </div>
-                        </a>
-
-                        <div
-                          id="responsive-spacer-block_659d56de49777"
-                          class="responsive-spacer wp-block-acf alignfull h-8 md:h-15"
-                        ></div>
-                        <a href="conversation/" target="" title="Conversation">
-                          <div
-                            class="grid grid-cols-1 md:grid-cols-1 gap-3 text-sm font-medium px-[10px] py-[3px] rounded relative overflow-hidden items-center"
-                            style="color: #3030d1"
-                          >
-                            <h2 class="has-text-align-center">
-                              Conversation 🚧
-                            </h2>
-
-                            <div
-                              class="absolute inset-0"
-                              style="background-color: #3030d1; opacity: 0.15"
-                            ></div>
-                          </div>
-                        </a>
-
-                        <div
-                          id="responsive-spacer-block_659d56de49777"
-                          class="responsive-spacer wp-block-acf alignfull h-8 md:h-15"
-                        ></div>
-                        <a href="directory/" target="" title="Directory">
-                          <div
-                            class="grid grid-cols-1 md:grid-cols-1 gap-3 text-sm font-medium px-[10px] py-[3px] rounded relative overflow-hidden items-center"
-                            style="color: #3030d1"
-                          >
-                            <h2 class="has-text-align-center">Directory 🚧</h2>
-
-                            <div
-                              class="absolute inset-0"
-                              style="background-color: #3030d1; opacity: 0.15"
-                            ></div>
-                          </div>
-                        </a>
-                        <div
-                          id="responsive-spacer-block_659d56de49777"
-                          class="responsive-spacer wp-block-acf alignfull h-8 md:h-15"
-                        ></div>
-                        <a href="explorer/" target="" title="Explorer">
-                          <div
-                            class="grid grid-cols-1 md:grid-cols-1 gap-3 text-sm font-medium px-[10px] py-[3px] rounded relative overflow-hidden items-center"
-                            style="color: #3030d1"
-                          >
-                            <h2 class="has-text-align-center">Explorer 🚧</h2>
-
-                            <div
-                              class="absolute inset-0"
-                              style="background-color: #3030d1; opacity: 0.15"
-                            ></div>
-                          </div>
-                        </a>
+                        <div id="swagger-ui"></div>
+                        <script
+                          src="./swagger-ui-bundle.js"
+                          charset="UTF-8"
+                        ></script>
+                        <script
+                          src="./swagger-ui-standalone-preset.js"
+                          charset="UTF-8"
+                        ></script>
+                        <script
+                          src="./swagger-initializer.js"
+                          charset="UTF-8"
+                        ></script>
                       </div>
                     </div>
                   </div>
@@ -823,130 +484,7 @@
                 </a>
               </div>
             </div>
-            <div class="col md:w-3/12 max-md:mt-5">
-              <div class="font-bold mb-5 text-sm md:text-base">To Begin</div>
-              <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
-                <a
-                  href="../auth/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Auth Api 🚧"
-                >
-                  Auth Api 🚧
-                </a>
-                <a
-                  href="../timeline/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Timeline Api 🚧"
-                >
-                  Timeline Api 🚧
-                </a>
-                <a
-                  href="../actualites/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Actualites Api 🚧"
-                >
-                  Actualites Api 🚧
-                </a>
-                <a
-                  href="../communication/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Communication Api 🚧"
-                >
-                  Communication Api 🚧
-                </a>
-                <a
-                  href="../conversation/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Conversation Api 🚧"
-                >
-                  Conversation Api 🚧
-                </a>
-                <a
-                  href="../directory/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Directory Api 🚧"
-                >
-                  Directory Api 🚧
-                </a>
-                <a
-                  href="../explorer/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Explorer Api 🚧"
-                >
-                  Explorer Api 🚧
-                </a>
-              </div>
-            </div>
-            <div class="col md:w-3/12 max-md:hidden"></div>
             <div class="col md:w-2/12">
-              <div class="font-bold mb-5 text-sm md:text-base">
-                More information
-              </div>
-              <div class="grid grid-cols-3 md:grid-cols-1 gap-3">
-                <a
-                  href="https://edifice.io/en/your-needs/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Your needs"
-                >
-                  Your needs
-                </a>
-                <a
-                  href="https://edifice.io/en/our-products/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Our products"
-                >
-                  Our products
-                </a>
-                <a
-                  href="https://edifice.io/en/community/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Community"
-                >
-                  Community
-                </a>
-                <a
-                  href="https://edifice.io/en/actualites/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="News"
-                >
-                  News
-                </a>
-                <a
-                  href="https://edifice.io/en/who-are-we/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Who are we?"
-                >
-                  Who are we?
-                </a>
-                <a
-                  href="https://edifice.io/en/release/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Release"
-                >
-                  Release
-                </a>
-                <a
-                  href="https://edifice.io/en/contact/"
-                  target=""
-                  class="text-xs md:text-sm"
-                  title="Contact us"
-                >
-                  Contact us
-                </a>
-              </div>
             </div>
           </div>
 
