@@ -15,8 +15,6 @@ tags:
     description: Get class information
   - name: structure
     description: Get structure information
-  - name: sharebookmark
-    description: Get sharebookmark information
   - name: user 🚧
     description: 🚧 //TODO
   - name: directory
@@ -427,22 +425,6 @@ paths:
     get:
       tags:
         - class 🚧
-      summary: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
-  /directory/admin-console:
-    get:
-      tags:
-        - directory
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1473,28 +1455,49 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-  /directory/sharebookmark/{id}:
-    parameters:
-      - name: id
-        in: path
-        required: true
-        style: simple
-        explode: false
-        description: This id represent shareBookmarkId
-        schema:
-          type: string
+  /directory/sharebookmark/all:
     get:
       tags:
-        - sharebookmark
-      summary: Get the details of a given Share Bookmark
-
+        - sharebookmark 🚧
+      summary: List all Share Bookmarks of the connected user
       responses:
-        "200":
-          description: "Get properties, groups and users of a Share Bookmark"
+        200:
+          description: List of Share Bookmark
           content:
             application/json:
-              schema:
-                $ref: "#/components/schemas/ShareBookmark"
+              schema: 
+                type: array
+                items: 
+                  required:
+                    - id
+                    - name
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+        302:
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
+  /directory/sharebookmark/{shareBookmarkId}:
+    get:
+      tags:
+        - sharebookmark 🚧
+      summary: Get the details of a given Share Bookmark
+      parameters:
+      - in: path
+        name: shareBookmarkId
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Get properties, groups and users of a Share Bookmark
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ShareBookmark'
+  
     put:
       tags:
         - sharebookmark 🚧
@@ -1533,24 +1536,6 @@ paths:
         - oAuth2AuthCode:
             - userinfo
             - conversation
-
-  /directory/sharebookmark/all:
-    get:
-      tags:
-        - sharebookmark
-      summary: List all Share Bookmarks of the connected user
-      responses:
-        "200":
-          description: List of Share Bookmark
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/LightShareBookmark"
-        "302":
-          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
-
   /directory/allowSharebookmarks:
     get:
       tags:
@@ -5105,16 +5090,6 @@ components:
         name:
           type: string
         externalId:
-          type: string
-    LightShareBookmark:
-      required:
-        - id
-        - name
-      type: object
-      properties:
-        id:
-          type: string
-        name:
           type: string
     ShareBookmark:
       required:
