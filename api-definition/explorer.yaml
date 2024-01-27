@@ -27,10 +27,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/resources:
     get:
@@ -44,10 +40,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/folders:
     get:
@@ -61,10 +53,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
     post:
       tags:
@@ -77,10 +65,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/folders/{id}:
     parameters:
@@ -102,10 +86,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
     put:
       tags:
@@ -118,10 +98,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/folders/{id}/move:
     parameters:
@@ -144,10 +120,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/trash:
     put:
@@ -161,10 +133,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/restore:
     put:
@@ -178,10 +146,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer:
     delete:
@@ -195,10 +159,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/share/{application}/{type}/{resourceId}:
     parameters:
@@ -235,10 +195,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/metrics:
     get:
@@ -252,10 +208,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/simulate/resource:
     get:
@@ -269,10 +221,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/simulate/folders/{id}:
     parameters:
@@ -294,10 +242,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/job/trigger:
     get:
@@ -311,10 +255,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/job/status/{method}:
     parameters:
@@ -336,10 +276,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/reindex/{application}/{type}:
     parameters:
@@ -368,10 +304,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
   /explorer/mute:
     get:
@@ -385,10 +317,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 
 components:
   schemas:

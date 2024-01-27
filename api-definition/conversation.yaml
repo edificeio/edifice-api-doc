@@ -41,10 +41,6 @@ paths:
                 $ref: "#/components/schemas/conversationVisible"
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation:
     get:
       tags:
@@ -56,10 +52,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/draft:
     post:
       tags:
@@ -71,10 +63,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/draft/{id}:
     put:
       tags:
@@ -94,10 +82,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/send:
     post:
       tags:
@@ -109,10 +93,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/list/{folder}:
     get:
       tags:
@@ -132,10 +112,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/threads/list:
     get:
       tags:
@@ -147,10 +123,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/thread/messages/{id}:
     get:
       tags:
@@ -170,10 +142,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/thread/previous-messages/{id}:
     get:
       tags:
@@ -193,10 +161,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/thread/new-messages/{id}:
     get:
       tags:
@@ -216,10 +180,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/thread/trash:
     put:
       tags:
@@ -231,10 +191,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/thread/toggleUnread:
     post:
       tags:
@@ -246,10 +202,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/count/{folder}:
     get:
       tags:
@@ -269,10 +221,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/visibles:
     post:
       tags:
@@ -284,10 +232,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/message/{id}:
     get:
       tags:
@@ -307,10 +251,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/trash:
     put:
       tags:
@@ -322,10 +262,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/restore:
     put:
       tags:
@@ -337,10 +273,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/delete:
     put:
       tags:
@@ -352,10 +284,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/emptyTrash:
     delete:
       tags:
@@ -367,10 +295,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/toggleUnread:
     post:
       tags:
@@ -382,10 +306,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/max-depth:
     get:
       tags:
@@ -397,10 +317,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/folders/list:
     get:
       tags:
@@ -412,10 +328,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/userfolders/list:
     get:
       tags:
@@ -427,10 +339,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/folder:
     post:
       tags:
@@ -442,10 +350,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/folder/{folderId}:
     put:
       tags:
@@ -465,10 +369,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/move/userfolder/{folderId}:
     put:
       tags:
@@ -488,10 +388,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - conversation 🚧
@@ -510,10 +406,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/move/root:
     put:
       tags:
@@ -525,10 +417,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/folder/trash/{folderId}:
     put:
       tags:
@@ -548,10 +436,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/folder/restore/{folderId}:
     put:
       tags:
@@ -571,10 +455,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/message/{id}/attachment:
     post:
       tags:
@@ -594,10 +474,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/message/{id}/attachment/{attachmentId}:
     get:
       tags:
@@ -624,10 +500,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - message
@@ -653,10 +525,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/message/{id}/allAttachments:
     get:
       tags:
@@ -676,10 +544,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/message/{id}/forward/{forwardedId}:
     put:
       tags:
@@ -706,10 +570,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /conversation/print:
     get:
       tags:
@@ -721,10 +581,6 @@ paths:
           description: Successful response
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 components:
   schemas:
     conversationVisible:

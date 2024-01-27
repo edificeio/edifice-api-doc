@@ -32,10 +32,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/group/{startGroupId}/communique/{endGroupId}:
     post:
       tags:
@@ -63,10 +59,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - group 🚧
@@ -93,10 +85,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/group/{groupId}:
     get:
       tags:
@@ -141,10 +129,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - group 🚧
@@ -164,10 +148,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/group/{groupId}/outgoing:
     get:
       tags:
@@ -188,10 +168,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/group/{groupId}/incoming:
     get:
       tags:
@@ -212,10 +188,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/relative/{groupId}:
     post:
       tags:
@@ -236,10 +208,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - communication 🚧
@@ -259,10 +227,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/visible/{userId}:
     get:
       tags:
@@ -283,10 +247,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/visible:
     post:
       tags:
@@ -299,10 +259,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/visible/group/{groupId}:
     get:
       tags:
@@ -323,10 +279,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/init/rules:
     put:
       tags:
@@ -339,10 +291,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/rules:
     get:
       tags:
@@ -355,10 +303,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - rules
@@ -370,10 +314,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/rules/{structureId}:
     put:
       tags:
@@ -394,10 +334,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/group/{groupId}/users:
     post:
       tags:
@@ -418,10 +354,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - group 🚧
@@ -441,10 +373,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/v2/group/{startGroupId}/communique/{endGroupId}/check:
     get:
       tags:
@@ -472,10 +400,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/v2/group/{startGroupId}/communique/{endGroupId}:
     post:
       tags:
@@ -503,10 +427,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - communication 🚧
@@ -533,10 +453,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /communication/verify/{from}/{to}:
     get:
       tags:

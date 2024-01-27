@@ -53,10 +53,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/{id}/markasread:
     put:
       tags:
@@ -79,10 +75,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/admin:
     get:
       tags:
@@ -95,10 +87,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/preview:
     get:
       tags:
@@ -111,10 +99,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg:
     post:
       tags:
@@ -127,10 +111,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - flashmsg 🚧
@@ -142,10 +122,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/structure/{structureId}:
     post:
       tags:
@@ -166,10 +142,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - flashmsg 🚧
@@ -189,10 +161,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/{id}:
     put:
       tags:
@@ -213,10 +181,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - flashmsg 🚧
@@ -236,10 +200,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/structure/{structureId}/{id}:
     put:
       tags:
@@ -267,10 +227,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - flashmsg 🚧
@@ -297,10 +253,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/listadmin:
     get:
       tags:
@@ -313,10 +265,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/listadmin/{structureId}:
     get:
       tags:
@@ -337,10 +285,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/{messageId}/substructures:
     get:
       tags:
@@ -361,10 +305,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     post:
       tags:
         - flashmsg 🚧
@@ -384,10 +324,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/structure/{structureId}/{messageId}/substructures:
     post:
       tags:
@@ -415,10 +351,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/flashmsg/notif:
     post:
       tags:
@@ -431,10 +363,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/timeline:
     get:
       tags:
@@ -447,10 +375,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/timeline2:
     get:
       tags:
@@ -463,10 +387,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/preferencesView:
     get:
       tags:
@@ -479,10 +399,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/historyView:
     get:
       tags:
@@ -495,10 +411,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/il8nNotifications:
     get:
       tags:
@@ -511,10 +423,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/registeredNotifications:
     get:
       tags:
@@ -551,10 +459,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/calendar:
     get:
       tags:
@@ -567,10 +471,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/lastNotifications:
     get:
       tags:
@@ -624,10 +524,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/types:
     get:
       tags:
@@ -647,10 +543,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/publish:
     post:
       tags:
@@ -663,10 +555,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/admin-consol:
     get:
       tags:
@@ -679,10 +567,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/admin-history:
     get:
       tags:
@@ -695,10 +579,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/config:
     get:
       tags:
@@ -711,10 +591,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     put:
       tags:
         - timeline 🚧
@@ -726,10 +602,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/notifications-defaults:
     get:
       tags:
@@ -742,10 +614,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/performWeeklyMailing:
     get:
       tags:
@@ -758,10 +626,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/allowLanguages:
     get:
       tags:
@@ -774,10 +638,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/{id}:
     put:
       tags:
@@ -798,10 +658,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/{id}/repor:
     put:
       tags:
@@ -822,10 +678,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/reported:
     get:
       tags:
@@ -838,10 +690,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/{id}/action/keep:
     put:
       tags:
@@ -862,10 +710,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/{id}/action/delete:
     get:
       tags:
@@ -886,10 +730,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/pushNotif/fcmTokens:
     get:
       tags:
@@ -902,10 +742,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     post:
       tags:
         - timeline 🚧
@@ -917,10 +753,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
     delete:
       tags:
         - timeline 🚧
@@ -932,10 +764,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
   /timeline/performDailyMailing:
     get:
       tags:
@@ -948,10 +776,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-      security:
-        - oAuth2AuthCode:
-            - userinfo
-            - conversation
 components:
   schemas:
     Error:
