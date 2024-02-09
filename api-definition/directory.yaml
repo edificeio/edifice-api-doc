@@ -2606,11 +2606,12 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /directory/preference/{application}:
+  /userbook/preference/{application}:
     get:
       tags:
-        - directory
-      summary: 🚧 //TODO
+        - user
+      summary: Get user preferences list
+      description: Retrieve the list of preferences for a user.
       parameters:
         - name: application
           in: path
@@ -2622,14 +2623,24 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type: string
+                    description: User's preference in JsonObject format as a string
+                    example: '{"lecture": true, "language": "fr"}'
         "404":
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
     put:
       tags:
-        - directory
-      summary: 🚧 //TODO
+        - user
+      summary: Update user preferences
+      description: Update the preferences of a user for a specific application.
       parameters:
         - name: application
           in: path
@@ -2638,6 +2649,14 @@ paths:
           explode: false
           schema:
             type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: User's preference in JsonObject format
+              example: '{"lecture": true, "language": "fr"}'
       responses:
         "200":
           description: Successful response
