@@ -2,9 +2,9 @@
 
 Welcome to the API documentation. Choose an API definition to explore:
 
-- [Auth](./auth)
-- [Directory](./directory/)
-- [Timeline](./timeline/)
-- [Conversation](./conversation/)
-- [Communication](./communication/)
-- [Actualites](./actualites/)
+- [Auth](./api-definition/auth.yaml)
+- [Directory](./api-definition/directory/)
+- [Timeline](./api-definition/timeline/)
+- [Conversation](./api-definition/conversation/)
+- [Communication](./api-definition/communication/)
+- [Actualites](./api-definition/actualites/)
