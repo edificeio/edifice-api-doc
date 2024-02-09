@@ -45,12 +45,19 @@
 
     <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
     <link rel="stylesheet" type="text/css" href="./index-swagger.css" />
-    
+
     <!-- Override Swagger UI default CSS -->
     <style>
-      .swagger-ui .topbar { background-color: transparent; padding: 0; }
-      .swagger-ui .topbar .download-url-wrapper .select-label { color: gray; }
-      .swagger-ui .topbar a.link { display: none; }
+      .swagger-ui .topbar {
+        background-color: transparent;
+        padding: 0;
+      }
+      .swagger-ui .topbar .download-url-wrapper .select-label {
+        color: gray;
+      }
+      .swagger-ui .topbar a.link {
+        display: none;
+      }
     </style>
 
     <link rel="dns-prefetch" href="//tarteaucitron.io" />
@@ -142,47 +149,9 @@
                 style="opacity: 0"
               />
             </a>
-
-            <div class="text-black xl:hidden bg-background-main-secondary">
-              <a href="../" class="btn-primary btn-sm" target="">
-                <span class="">Home</span>
-              </a>
-              
-            </div>
-          </div>
-          <div
-            class="flex flex-1 justify-end items-center max-xl:hidden lg:gap-5"
-          >
-            <div>
-              <div
-                class="container justify-end items-center hidden lg:flex lg:gap-5"
-              >
-                <a href="../" class="btn-primary btn-sm" target="">
-                  <span class="">Home</span>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </nav>
-
-
-      </div>
-      <div
-        id="primary-menu-mobile"
-        class="menu-mobile hidden lg:hidden overflow-hidden fixed inset-0 w-full h-full z-10 bg-secondary text-white"
-        style="
-          translate: none;
-          rotate: none;
-          scale: none;
-          opacity: 0;
-          visibility: hidden;
-          display: none;
-          transform: translate(0px, -20px);
-        "
-      >
-        
-      </div>
     </header>
     <div class=" ">
       <section id="content" role="main" class="overflow-x-clip">
@@ -484,8 +453,7 @@
                 </a>
               </div>
             </div>
-            <div class="col md:w-2/12">
-            </div>
+            <div class="col md:w-2/12"></div>
           </div>
 
           <hr class="border-white border-opacity-10" />
