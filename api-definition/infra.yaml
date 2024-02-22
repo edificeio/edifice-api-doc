@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  title: Edifice - Infra - API 🚧🚧
+  description: This part represant the documentation of the Edifice api use in explorer module
+  version: 4.10.0
+servers:
+  - url: /
+
+tags:
+  - name: event
+    description: Stores an event
+  - name: monitoring🚧
+    description: 🚧 //TODO
+
+paths:
+  /infra/event/web/store:
+    post:
+      tags:
+        - event
+      summary: Store Event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event-type:
+                  type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              example:
+                error: "bad event:*"
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /infra/monitoring/db:
+    get:
+      tags:
+        - monitoring🚧
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /infra/monitoring/db/neo4j/metrics:
+    get:
+      tags:
+        - monitoring🚧
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /infra/monitoring/versions/all:
+    get:
+      tags:
+        - monitoring🚧
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /infra/monitoring/versions:
+    get:
+      tags:
+        - monitoring🚧
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /infra/monitoring/csp:
+    get:
+      tags:
+        - monitoring🚧
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+components:
+  schemas:
+    Error:
+      required:
+        - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+  securitySchemes:
+    oAuth2AuthCode:
+      type: oauth2
+      description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
+      flows:
+        authorizationCode:
+          authorizationUrl: /auth/oauth2/auth
+          tokenUrl: /auth/oauth2/token
+          scopes:
+            userinfo: Get user's identification information
+            conversation: Access to conversation API
