@@ -1197,9 +1197,9 @@ paths:
           description: List of Share Bookmark
           content:
             application/json:
-              schema: 
+              schema:
                 type: array
-                items: 
+                items:
                   required:
                     - id
                     - name
@@ -1217,19 +1217,19 @@ paths:
         - sharebookmark 🚧
       summary: Get the details of a given Share Bookmark
       parameters:
-      - in: path
-        name: shareBookmarkId
-        required: true
-        schema:
-          type: string
+        - in: path
+          name: shareBookmarkId
+          required: true
+          schema:
+            type: string
       responses:
         200:
           description: Get properties, groups and users of a Share Bookmark
           content:
             application/json:
-              schema: 
-                $ref: '#/components/schemas/ShareBookmark'
-  
+              schema:
+                $ref: "#/components/schemas/ShareBookmark"
+
     put:
       tags:
         - sharebookmark 🚧
@@ -1512,11 +1512,78 @@ paths:
   /directory/structure/admin/list:
     get:
       tags:
-        - structure 🚧
-      summary: 🚧 //TODO
+        - structure
+      summary: Get Structure List
+      description: Retrieve a list of structures with detailed information.
       responses:
         "200":
-          description: Successful response
+          description: Successful response with an array of admin structures.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "07a80938-4a93-4161-8908-623142c2d55d"
+                    UAI:
+                      type: string
+                      example: "0190624A"
+                    name:
+                      type: string
+                      example: "LEGTPA-DE NAVES-NAVES"
+                    externalId:
+                      type: string
+                      example: "LIMOGES-737"
+                    timetable:
+                      type: array
+                      example: null
+                    punctualTimetable:
+                      type: array
+                      example: null
+                    hasApp:
+                      type: boolean
+                      example: true
+                    ignoreMFA:
+                      type: boolean
+                      example: true
+                    levelsOfEducation:
+                      type: array
+                      items:
+                        type: integer
+                      example: [1, 2]
+                    distributions:
+                      type: array
+                      example: []
+                    manualName:
+                      type: string
+                      example: null
+                    feederName:
+                      type: string
+                      example: null
+                    source:
+                      type: string
+                      example: "AAF"
+                    joinKey:
+                      type: array
+                      items:
+                        type: string
+                      example: ["LIMOGES-737"]
+                    parents:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: "Lycées d'enseignement général et technologique agricole"
+                          id:
+                            type: string
+                            example: "e9f324b4-7285-4f95-bf34-681fbddc3979"
+        "401":
+          description: Unauthorized, invalid user.
         "404":
           description: Bad request
         "302":
@@ -1577,19 +1644,30 @@ paths:
   /directory/structure/{structureId}/children:
     get:
       tags:
-        - structure 🚧
-      summary: 🚧 //TODO
+        - structure
+      summary: Get Children Structures
+      description: |
+        Retrieve children structures for a specific structure.
       parameters:
         - name: structureId
           in: path
+          description: The ID of the structure to get children structures.
           required: true
-          style: simple
-          explode: false
           schema:
             type: string
       responses:
-        "200":
-          description: Successful response
+        '200':
+          description: Successful response with an array of children structure IDs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                example:
+                  - "childStructureId1"
+                  - "childStructureId2"
+                  - "childStructureId3"
         "404":
           description: Bad request
         "302":
@@ -1597,19 +1675,45 @@ paths:
   /directory/structure/{structureId}/levels:
     get:
       tags:
-        - structure 🚧
-      summary: 🚧 //TODO
+        - structure
+      summary: Get Levels and Classes
+      description: Retrieve levels and associated classes for a specific structure.
       parameters:
         - name: structureId
           in: path
+          description: The ID of the structure to get levels and classes.
           required: true
-          style: simple
-          explode: false
           schema:
             type: string
       responses:
         "200":
-          description: Successful response
+          description: Successful response with an array of levels and classes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the level.
+                      example: "SECONDE GENERALE & TECHNO YC BT"
+                    classes:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            description: The name of the class.
+                            example: "2NDE3"
+                          id:
+                            type: string
+                            description: The ID of the class.
+                            example: "fe83bc10-b198-4ece-aa4c-6347894bde1a"
+        "403":
+          description: Forbidden, access to the resource is denied.
         "404":
           description: Bad request
         "302":
@@ -2474,7 +2578,7 @@ paths:
                 $ref: "#/components/schemas/Structures"
         "302":
           description: "Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/directory/structure/{structureId}/users"
-  /directory/structure/{structId}:
+  /userbook/structure/{structId}:
     get:
       tags:
         - structure 🚧
@@ -3961,7 +4065,7 @@ paths:
                   email:
                     type: string
                   emailState:
-                    type: string 
+                    type: string
                   firstName:
                     type: string
                   lastName:
