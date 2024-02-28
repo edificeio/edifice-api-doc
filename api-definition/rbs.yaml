@@ -1,0 +1,1793 @@
+---
+openapi: 3.0.0
+info:
+  title: Edifice - Reservation booking system (RBS) - API 🚧🚧
+  description: This part represant the documentation of the Edifice api use in reservation booking system - rbs module
+  version: 4.10.0
+servers:
+  - url: /
+
+tags:
+  - name: availability
+    description: Availability API
+  - name: booking
+    description: Booking for resource API
+  - name: slotProfiles
+    description: Slot profile API
+  - name: notification
+    description: Notification API
+  - name: resource
+    description: Resource API
+  - name: type
+    description: Type API
+
+paths:
+  /rbs/config:
+    get:
+      tags:
+        - availability 🚧
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/availability:
+    get:
+      tags:
+        - availability
+      summary: Get availability information
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 139
+                    owner:
+                      type: string
+                      example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    created:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:12:05.284"
+                    modified:
+                      type: string
+                      format: date-time
+                      example: "2020-10-23T15:48:49.123"
+                    visibility:
+                      type: string
+                      example: null
+                    name:
+                      type: string
+                      example: "Amphithéâtre - 200 places"
+                    description:
+                      type: string
+                      example: ""
+                    icon:
+                      type: string # Adjust the type accordingly
+                      example: null
+                    periodic_booking:
+                      type: boolean
+                      example: false
+                    is_available:
+                      type: boolean
+                      example: true
+                    min_delay:
+                      type: integer
+                      example: 604800
+                    max_delay:
+                      type: integer
+                      example: 2592000
+                    type_id:
+                      type: integer
+                      example: 70
+                    validation:
+                      type: boolean
+                      example: true
+                    color:
+                      type: string
+                      example: "#FF8500"
+                    quantity:
+                      type: integer
+                      example: 1
+                    shared:
+                      type: array
+                      items:
+                        example: []
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/availability:
+    get:
+      tags:
+        - availability
+      summary: Get availability information for a specific resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 139
+                  owner:
+                    type: string
+                    example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                  created:
+                    type: string
+                    format: date-time
+                    example: "2018-02-15T11:12:05.284"
+                  modified:
+                    type: string
+                    format: date-time
+                    example: "2020-10-23T15:48:49.123"
+                  visibility:
+                    type: string
+                    example: null
+                  name:
+                    type: string
+                    example: "Amphithéâtre - 200 places"
+                  description:
+                    type: string
+                    example: ""
+                  icon:
+                    type: string # Adjust the type accordingly
+                    example: null
+                  periodic_booking:
+                    type: boolean
+                    example: false
+                  is_available:
+                    type: boolean
+                    example: true
+                  min_delay:
+                    type: integer
+                    example: 604800
+                  max_delay:
+                    type: integer
+                    example: 2592000
+                  type_id:
+                    type: integer
+                    example: 70
+                  validation:
+                    type: boolean
+                    example: true
+                  color:
+                    type: string
+                    example: "#FF8500"
+                  quantity:
+                    type: integer
+                    example: 1
+                  shared:
+                    type: array
+                    items:
+                      example: []
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    post:
+      tags:
+        - availability 🚧
+      summary: 🚧 //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/availability/{availabilityId}:
+    put:
+      tags:
+        - availability 🚧
+      summary: Update an availability
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+        - name: availabilityId
+          in: path
+          required: true
+          description: ID of the availability
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    delete:
+      tags:
+        - availability
+      summary: Delete an availability
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+        - name: availabilityId
+          in: path
+          required: true
+          description: ID of the availability
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/availability/all/{areUnavailability}:
+    delete:
+      tags:
+        - availability
+      summary: Delete all (un)availabilities of a resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+        - name: areUnavailability
+          in: path
+          required: true
+          description: ID of the availability
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/booking:
+    post:
+      tags:
+        - booking 🚧
+      summary: Create booking of a given resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/booking/periodic:
+    post:
+      tags:
+        - booking 🚧
+      summary: Create periodic booking of a given resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/booking/{bookingId}:
+    put:
+      tags:
+        - booking 🚧
+      summary: Update booking
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+        - name: bookingId
+          in: path
+          required: true
+          description: ID of the booking
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/booking/{bookingId}/periodic:
+    put:
+      tags:
+        - booking 🚧
+      summary: Update periodic booking
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+        - name: bookingId
+          in: path
+          required: true
+          description: ID of the booking
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/booking/{bookingId}/process:
+    put:
+      tags:
+        - booking 🚧
+      summary: Validate or refuse booking
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+        - name: bookingId
+          in: path
+          required: true
+          description: ID of the booking
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/booking/{bookingId}/{booleanThisAndAfter}:
+    delete:
+      tags:
+        - booking
+      summary: Delete booking
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+        - name: bookingId
+          in: path
+          required: true
+          description: ID of the booking
+          schema:
+            type: integer
+        - name: booleanThisAndAfter
+          in: path
+          required: true
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/bookings/all:
+    get:
+      tags:
+        - booking
+      summary: List all bookings
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 5466
+                    resource_id:
+                      type: integer
+                      example: 133
+                    owner:
+                      type: string
+                      example: "0f39f811-c716-4d52-9adf-88ac8f2b0fe6"
+                    booking_reason:
+                      type: string
+                      example: "Atelier théâtre"
+                    created:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:15:40.743"
+                    modified:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:16:13.608"
+                    start_date:
+                      type: string
+                      format: date-time
+                      example: "2018-02-16T10:00:00.000"
+                    end_date:
+                      type: string
+                      format: date-time
+                      example: "2018-02-16T12:00:00.000"
+                    status:
+                      type: integer
+                      example: 2
+                    moderator_id:
+                      type: string
+                      example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    refusal_reason:
+                      type: string
+                      example: null
+                    parent_booking_id:
+                      type: integer
+                      example: 5467
+                    days:
+                      type: string
+                      example: "0000010"
+                    periodicity:
+                      type: integer
+                      example: 1
+                    occurrences:
+                      type: integer
+                      example: null
+                    is_periodic:
+                      type: boolean
+                      example: true
+                    quantity:
+                      type: integer
+                      example: 1
+                    owner_name:
+                      type: string
+                      example: "Josefina MAILHO"
+                    moderator_name:
+                      type: string
+                      example: "Bernard Briand (principal)"
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/booking/{id}:
+    get:
+      tags:
+        - booking
+      summary: Get booking details by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the booking
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 5466
+                  resource_id:
+                    type: integer
+                    example: 133
+                  owner:
+                    type: string
+                    example: "0f39f811-c716-4d52-9adf-88ac8f2b0fe6"
+                  booking_reason:
+                    type: string
+                    example: "Atelier théâtre"
+                  created:
+                    type: string
+                    format: date-time
+                    example: "2018-02-15T11:15:40.743"
+                  modified:
+                    type: string
+                    format: date-time
+                    example: "2018-02-15T11:16:13.608"
+                  start_date:
+                    type: string
+                    format: date-time
+                    example: "2018-02-16T10:00:00.000"
+                  end_date:
+                    type: string
+                    format: date-time
+                    example: "2018-02-16T12:00:00.000"
+                  status:
+                    type: integer
+                    example: 2
+                  moderator_id:
+                    type: string
+                    example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                  refusal_reason:
+                    type: string
+                    example: null
+                  parent_booking_id:
+                    type: integer
+                    example: 5467
+                  days:
+                    type: string
+                    example: "0000010"
+                  periodicity:
+                    type: integer
+                    example: 1
+                  occurrences:
+                    type: integer
+                    example: null
+                  is_periodic:
+                    type: boolean
+                    example: false
+                  quantity:
+                    type: integer
+                    example: 1
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/bookings/all/{startdate}/{enddate}:
+    get:
+      tags:
+        - booking
+      summary: List all bookings by dates
+      parameters:
+        - name: startdate
+          in: path
+          description: "Start date of the range (format: YYYY-MM-DD)"
+          required: true
+          schema:
+            type: string
+        - name: enddate
+          in: path
+          description: "End date of the range (format: YYYY-MM-DD)"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 5467
+                    resource_id:
+                      type: integer
+                      example: 133
+                    owner:
+                      type: string
+                      example: "0f39f811-c716-4d52-9adf-88ac8f2b0fe6"
+                    booking_reason:
+                      type: string
+                      example: "Atelier théâtre"
+                    created:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:15:40.743"
+                    modified:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:15:40.743"
+                    start_date:
+                      type: string
+                      format: date-time
+                      example: "2018-02-16T10:00:00.000"
+                    end_date:
+                      type: string
+                      format: date-time
+                      example: "2018-02-16T12:00:00.000"
+                    status:
+                      type: integer
+                      example: null
+                    moderator_id:
+                      type: string
+                      example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    refusal_reason:
+                      type: string
+                      example: null
+                    parent_booking_id:
+                      type: integer
+                      example: 5467
+                    days:
+                      type: string
+                      example: "0000010"
+                    periodicity:
+                      type: integer
+                      example: 1
+                    occurrences:
+                      type: integer
+                      example: null
+                    is_periodic:
+                      type: boolean
+                      example: true
+                    quantity:
+                      type: integer
+                      example: 1
+                    owner_name:
+                      type: string
+                      example: "Josefina MAILHO"
+                    moderator_name:
+                      type: string
+                      example: "Bernard Briand (principal)"
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/bookings/full/slots/{bookingId}:
+    get:
+      tags:
+        - booking 🚧
+      summary: List all booking slots of a periodic booking
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          description: ID of the booking
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/bookings:
+    get:
+      tags:
+        - booking
+      summary: List all bookings created by current user
+      description: Retrieve a list of bookings.
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 6233
+                    resource_id:
+                      type: integer
+                      format: int64
+                      example: 134
+                    owner:
+                      type: string
+                      example: "3bc6df93-4e92-45a3-b344-9e5dd34ba767"
+                    booking_reason:
+                      type: string
+                      example: "Meeting with Client"
+                    created:
+                      type: string
+                      format: date-time
+                      example: "2019-03-13T16:24:38.217"
+                    modified:
+                      type: string
+                      format: date-time
+                      example: "2019-03-13T16:26:48.263"
+                    start_date:
+                      type: string
+                      format: date-time
+                      example: "2019-03-14T13:00:00.000"
+                    end_date:
+                      type: string
+                      format: date-time
+                      example: "2019-03-14T15:30:00.000"
+                    status:
+                      type: integer
+                      example: 2
+                    moderator_id:
+                      type: string
+                      example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    refusal_reason:
+                      type: string
+                      example: "Not available"
+                    parent_booking_id:
+                      type: integer
+                      format: int64
+                      example: 6232
+                    days:
+                      type: string
+                      example: "0010100"
+                    periodicity:
+                      type: integer
+                      example: 1
+                    occurrences:
+                      type: integer
+                      example: 52
+                    is_periodic:
+                      type: boolean
+                      example: true
+                    quantity:
+                      type: integer
+                      example: 1
+                    owner_name:
+                      type: string
+                      example: "Moreau Michelle"
+                    moderator_name:
+                      type: string
+                      example: "Bernard Briand (principal)"
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}/bookings:
+    get:
+      tags:
+        - booking 🚧
+      summary: List all bookings for a given resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/bookings/unprocessed:
+    get:
+      tags:
+        - booking
+      summary: List all bookings waiting to be processed by current user
+      description: Retrieve a list of unprocessed bookings.
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 5574
+                    resource_id:
+                      type: integer
+                      format: int64
+                      example: 138
+                    owner:
+                      type: string
+                      example: "d0baed2f-f142-4d54-ae09-4b1d99731137"
+                    booking_reason:
+                      type: string
+                      example: null
+                    created:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:21:11.205"
+                    modified:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:21:11.205"
+                    start_date:
+                      type: string
+                      format: date-time
+                      example: "2018-02-21T09:00:00.000"
+                    end_date:
+                      type: string
+                      format: date-time
+                      example: "2019-02-13T12:00:00.000"
+                    status:
+                      type: integer
+                      example: null
+                    moderator_id:
+                      type: string
+                      example: null
+                    refusal_reason:
+                      type: string
+                      example: null
+                    parent_booking_id:
+                      type: integer
+                      format: int64
+                      example: null
+                    days:
+                      type: string
+                      example: "0001000"
+                    periodicity:
+                      type: integer
+                      example: 1
+                    occurrences:
+                      type: integer
+                      example: 52
+                    is_periodic:
+                      type: boolean
+                      example: true
+                    quantity:
+                      type: integer
+                      example: 1
+                    owner_name:
+                      type: string
+                      example: "Sochona ZENNOU"
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/bookings/export:
+    post:
+      tags:
+        - booking 🚧
+      summary: Export bookings in requested format
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resources:
+    get:
+      tags:
+        - resource
+      summary: List all resources visible by current user
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 139
+                    owner:
+                      type: string
+                      example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    created:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:12:05.284"
+                    modified:
+                      type: string
+                      format: date-time
+                      example: "2020-10-23T15:48:49.123"
+                    visibility:
+                      type: string
+                      example: null
+                    name:
+                      type: string
+                      example: "Amphithéâtre - 200 places"
+                    description:
+                      type: string
+                      example: ""
+                    icon:
+                      type: string
+                      example: null
+                    periodic_booking:
+                      type: boolean
+                      example: false
+                    is_available:
+                      type: boolean
+                      example: true
+                    min_delay:
+                      type: integer
+                      example: 604800
+                    max_delay:
+                      type: integer
+                      example: 2592000
+                    type_id:
+                      type: integer
+                      example: 70
+                    validation:
+                      type: boolean
+                      example: true
+                    color:
+                      type: string
+                      example: "#FF8500"
+                    quantity:
+                      type: integer
+                      example: 1
+                    shared:
+                      type: array
+                      items:
+                        type: string
+                      example: []
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/{id}:
+    get:
+      tags:
+        - resource
+      summary: Get resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 139
+                  owner:
+                    type: string
+                    example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                  created:
+                    type: string
+                    format: date-time
+                    example: "2018-02-15T11:12:05.284"
+                  modified:
+                    type: string
+                    format: date-time
+                    example: "2020-10-23T15:48:49.123"
+                  visibility:
+                    type: string
+                    example: null
+                  name:
+                    type: string
+                    example: "Amphithéâtre - 200 places"
+                  description:
+                    type: string
+                    example: ""
+                  icon:
+                    type: string
+                    example: null
+                  periodic_booking:
+                    type: boolean
+                    example: false
+                  is_available:
+                    type: boolean
+                    example: true
+                  min_delay:
+                    type: integer
+                    example: 604800
+                  max_delay:
+                    type: integer
+                    example: 2592000
+                  type_id:
+                    type: integer
+                    example: 70
+                  validation:
+                    type: boolean
+                    example: true
+                  color:
+                    type: string
+                    example: "#FF8500"
+                  quantity:
+                    type: integer
+                    example: 1
+                  shared:
+                    type: array
+                    items:
+                      type: string
+                    example: []
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    put:
+      tags:
+        - resource 🚧
+      summary: Update resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    delete:
+      tags:
+        - resource
+      summary: Delete resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/type/{id}/resource:
+    post:
+      tags:
+        - type 🚧
+      summary: Create resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/notification/add/{id}:
+    post:
+      tags:
+        - notification 🚧
+      summary: Add notification
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/notification/remove/{id}:
+    delete:
+      tags:
+        - notification
+      summary: Remove notification
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/notifications:
+    get:
+      tags:
+        - notification 🚧
+      summary: Get notification
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/share/json/{id}:
+    get:
+      tags:
+        - resource 🚧
+      summary: List rights for a given resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+    put:
+      tags:
+        - resource 🚧
+      summary: Add rights for a given resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/resource/share/remove/{id}:
+    put:
+      tags:
+        - resource
+      summary: Remove rights for a given resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/types:
+    get:
+      tags:
+        - type
+      summary: List resource types
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 69
+                    owner:
+                      type: string
+                      example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    created:
+                      type: string
+                      format: date-time
+                      example: "2018-02-15T11:10:28.260"
+                    modified:
+                      type: string
+                      format: date-time
+                      example: "2019-04-10T16:37:27.412"
+                    visibility:
+                      type: string
+                      example: null
+                    name:
+                      type: string
+                      example: "Equipements sportifs"
+                    validation:
+                      type: boolean
+                      example: true
+                    school_id:
+                      type: string
+                      example: "4be454ea-7f73-475f-835b-ce332f918d22"
+                    slotprofile:
+                      type: string
+                      example: null
+                    color:
+                      type: string
+                      example: "#4bafd5"
+                    extendcolor:
+                      type: boolean
+                      example: false
+                    shared:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          groupId:
+                            type: string
+                            example: "92766-1510043922665"
+                          net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-ResourceController|get:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-ResourceController|addNotification:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-BookingController|listBookingsByResource:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-ResourceTypeController|getModerators:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-ResourceController|removeNotification:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-BookingController|createPeriodicBooking:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-BookingController|updatePeriodicBooking:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-BookingController|updateBooking:
+                            type: boolean
+                            example: true
+                          net-atos-entng-rbs-controllers-BookingController|createBooking:
+                            type: boolean
+                            example: true
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/type/{id}:
+    get:
+      tags:
+        - type
+      summary: Get resource type
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource type
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 69
+                  owner:
+                    type: string
+                    example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                  created:
+                    type: string
+                    format: date-time
+                    example: "2018-02-15T11:10:28.260"
+                  modified:
+                    type: string
+                    format: date-time
+                    example: "2019-04-10T16:37:27.412"
+                  visibility:
+                    type: string
+                    example: null
+                  name:
+                    type: string
+                    example: "Equipements sportifs"
+                  validation:
+                    type: boolean
+                    example: true
+                  school_id:
+                    type: string
+                    example: "4be454ea-7f73-475f-835b-ce332f918d22"
+                  slotprofile:
+                    type: string
+                    example: null
+                  color:
+                    type: string
+                    example: "#4bafd5"
+                  extendcolor:
+                    type: boolean
+                    example: false
+                  shared:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        groupId:
+                          type: string
+                          example: "91d244a6-0521-4b39-b3cb-be7e6222321c"
+                        net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|get:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|addNotification:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-BookingController|listBookingsByResource:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|getModerators:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|removeNotification:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|removeShare:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|shareJsonSubmit:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|shareRemove:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|shareSubmit:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|updateResourceType:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|create:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-BookingController|deleteBooking:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|shareJson:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|delete:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|shareResource:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|share:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceTypeController|deleteResourceType:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-BookingController|createPeriodicBooking:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-BookingController|updatePeriodicBooking:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-BookingController|updateBooking:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-BookingController|createBooking:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-ResourceController|update:
+                          type: boolean
+                          example: true
+                        net-atos-entng-rbs-controllers-BookingController|processBooking:
+                          type: boolean
+                          example: true
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+    put:
+      tags:
+        - type 🚧
+      summary: Update resource type
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+    delete:
+      tags:
+        - type
+      summary: Delete resource type
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/type:
+    post:
+      tags:
+        - type 🚧
+      summary: Create resource type
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/type/{id}/moderators:
+    get:
+      tags:
+        - type
+      summary: Return moderators. This webservice is used to display moderators' names
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource type
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "1e3120f7-29a0-4287-83c7-0f888e0e389f"
+                    login:
+                      type: string
+                      example: "slimane.arsenne"
+                    username:
+                      type: string
+                      example: "ARSENNE Slimane"
+                    type:
+                      type: string
+                      example: null
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/share/json/{id}:
+    get:
+      tags:
+        - type 🚧
+      summary: List rights for a given resource type
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+    put:
+      tags:
+        - type 🚧
+      summary: Add rights for a given resource type
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/share/remove/{id}:
+    put:
+      tags:
+        - type
+      summary: Remove rights for a given resource type
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/slotprofiles/schools/{schoolId}:
+    get:
+      tags:
+        - slotProfiles
+      summary: Get all slot profiles for a school
+      parameters:
+        - name: schoolId
+          in: path
+          required: true
+          description: ID of the school
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    _id:
+                      type: string
+                      example: "b16f1df0-61cf-435b-b2d0-bde2f9a0b342"
+                    name:
+                      type: string
+                      example: "Etablissement"
+                    schoolId:
+                      type: string
+                      example: "4be454ea-7f73-475f-835b-ce332f918d22"
+                    slots:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: "8h"
+                          startHour:
+                            type: string
+                            example: "08:00"
+                          endHour:
+                            type: string
+                            example: "08:55"
+                          id:
+                            type: string
+                            example: "830844a3-f03d-4138-8b9b-9a311dab6c2b"
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/slotprofiles/{idSlotProfile}/slots:
+    get:
+      tags:
+        - slotProfiles
+      summary: Get all slots for a slot profile
+      parameters:
+        - name: idSloProfile
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: "8h"
+                    startHour:
+                      type: string
+                      example: "08:00"
+                    endHour:
+                      type: string
+                      example: "08:55"
+                    id:
+                      type: string
+                      example: "830844a3-f03d-4138-8b9b-9a311dab6c2b"
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/type/notification/add/{id}:
+    post:
+      tags:
+        - notification 🚧
+      summary: Add notifications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/type/notification/remove/{id}:
+    delete:
+      tags:
+        - notification
+      summary: Remove notifications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /rbs/share/resource/{id}:
+    put:
+      tags:
+        - resource 🚧
+      summary: 🚧 //TODO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the resource
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+components:
+  securitySchemes:
+    oAuth2AuthCode:
+      type: oauth2
+      description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
+      flows:
+        authorizationCode:
+          authorizationUrl: /auth/oauth2/auth
+          tokenUrl: /auth/oauth2/token
+          scopes:
+            userinfo: Get user's identification information
+            conversation: Access to conversation API
