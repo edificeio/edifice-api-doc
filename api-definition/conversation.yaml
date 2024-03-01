@@ -9,14 +9,12 @@ servers:
 tags:
   - name: conversation
     description: Api for conversation
-  - name: conversation 🚧
-    description: 🚧 //TODO
   - name: message
-    description: 🚧 //TODO
+    description: Api for message in the conversation
   - name: thread
-    description: 🚧 //TODO
+    description: Api for thread conversation
   - name: folder
-    description: 🚧 //TODO
+    description: Api for folder in the conversation
 paths:
   /conversation/visible:
     get:
@@ -41,64 +39,170 @@ paths:
                 $ref: "#/components/schemas/conversationVisible"
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-  /conversation:
-    get:
-      tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "302":
-          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/draft:
     post:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Create a draft message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                  example: '<div class="ng-scope"><br></div><div class="signature new-signature ng-scope"></div>'
+                to:
+                  type: array
+                  items:
+                    type: string
+                  example: []
+                cc:
+                  type: array
+                  items:
+                    type: string
+                  example: []
+                cci:
+                  type: array
+                  items:
+                    type: string
+                  example: []
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "e06c7b27-f611-4239-8ad9-acc5935c8452"
+                required:
+                  - id
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/draft/{id}:
     put:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Update a draft message
       parameters:
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
-          style: simple
-          explode: false
           schema:
             type: string
+          description: ID of the draft message to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                  example: '<div class="ng-scope"><br></div><div class="signature new-signature ng-scope"></div>'
+                to:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - "e120c8be-ce7b-4f2d-9926-38fc4b9c8126"
+                cc:
+                  type: array
+                  items:
+                    type: string
+                  example: []
+                cci:
+                  type: array
+                  items:
+                    type: string
+                  example: []
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema: {}
+
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/send:
     post:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Send a message
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          description: ID of the draft message to send
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                  example: '<div class="ng-scope">TEst message</div><div class="signature new-signature ng-scope"></div>'
+                to:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - "e120c8be-ce7b-4f2d-9926-38fc4b9c8126"
+                cc:
+                  type: array
+                  items:
+                    type: string
+                  example: []
+                cci:
+                  type: array
+                  items:
+                    type: string
+                  example: []
+                subject:
+                  type: string
+                  example: "Test"
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "e06c7b27-f611-4239-8ad9-acc5935c8452"
+                  subject:
+                    type: string
+                    example: "Test"
+                  body:
+                    type: string
+                    example: '<div class="ng-scope">TEst message</div><div class="signature new-signature ng-scope"></div>'
+                  thread_id:
+                    type: string
+                    example: "e06c7b27-f611-4239-8ad9-acc5935c8452"
+                  inactive:
+                    type: array
+                  undelivered:
+                    type: array
+                  sent:
+                    type: integer
+                    example: 1
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/list/{folder}:
     get:
       tags:
         - folder
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+      summary: Get a list of messages in the inbox
       parameters:
         - name: folder
           in: path
@@ -110,42 +214,270 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "148b7b23-9154-4bfa-9a3f-934a65c6784a"
+                    subject:
+                      type: string
+                      example: "Conseils de classe du deuxième trimestre"
+                    from:
+                      type: string
+                      example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    state:
+                      type: string
+                      example: "SENT"
+                    fromName:
+                      type: string
+                      example: null
+                    to:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                        - "92766-1510043922665"
+                    toName:
+                      type: string
+                      example: null
+                    cc:
+                      type: array
+                      items:
+                        type: string
+                      example: []
+                    ccName:
+                      type: string
+                      example: null
+                    cci:
+                      type: array
+                      items:
+                        type: string
+                      example: []
+                    cciName:
+                      type: string
+                      example: null
+                    displayNames:
+                      type: array
+                      items:
+                        type: array
+                      example:
+                        - [
+                            "92766-1510043922665",
+                            "Enseignants du groupe Collège Charlemagne.",
+                            true,
+                          ]
+                        - [
+                            "4e6f1a98-4696-4b9b-be8f-18b3a372a555",
+                            "Bernard Briand (principal)",
+                            false,
+                          ]
+                    date:
+                      type: integer
+                      example: 1676039126037
+                    unread:
+                      type: boolean
+                      example: true
+                    response:
+                      type: boolean
+                      example: false
+                    count:
+                      type: integer
+                      example: 13
+                    hasAttachment:
+                      type: boolean
+                      example: false
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/threads/list:
     get:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Get a list of conversation threads
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: ec401f74-092a-4e98-a1e8-ee9df2d35413
+                    date:
+                      type: integer
+                      example: 1669375921007
+                    subject:
+                      type: string
+                      example: "Invitation Réunion équipe enseignante"
+                    displayNames:
+                      type: array
+                      items:
+                        type: array
+                      example:
+                        - [
+                            "412d7ea2-1478-436a-ac33-2b088cb58bfe",
+                            "Alban Kerloc'h (directeur de l'école)",
+                            false,
+                          ]
+                        - [
+                            "e120c8be-ce7b-4f2d-9926-38fc4b9c8126",
+                            "CORDIER Bruno",
+                            false,
+                          ]
+                    to:
+                      type: array
+                      items:
+                        type: string
+                      example: []
+                    from:
+                      type: string
+                      example: 412d7ea2-1478-436a-ac33-2b088cb58bfe
+                    cc:
+                      type: string
+                      nullable: true
+                    cci:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                        - e120c8be-ce7b-4f2d-9926-38fc4b9c8126
+                    unread:
+                      type: integer
+                      example: 0
+                    cciName:
+                      type: array
+                      example: []
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/thread/messages/{id}:
     get:
       tags:
         - thread
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+      summary: Get messages in a thread
       parameters:
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
-          style: simple
-          explode: false
           schema:
             type: string
+          description: ID of the target thread
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "3fc5e9c3-d4ca-4966-b200-0274e3df93bb"
+                    parent_id:
+                      type: string
+                      example: null
+                    subject:
+                      type: string
+                      example: "Journées pédagogiques 2022-2023"
+                    body:
+                      type: string
+                      example: '<div class="ng-scope">...</div>'
+                    from:
+                      type: string
+                      example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    fromName:
+                      type: string
+                      example: null
+                    to:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                        - "92766-1510043922665"
+                    toName:
+                      type: string
+                      example: null
+                    cc:
+                      type: array
+                      items:
+                        type: string
+                      example: []
+                    ccName:
+                      type: string
+                      example: null
+                    cci:
+                      type: array
+                      items:
+                        type: string
+                      example: []
+                    cciName:
+                      type: string
+                      example: null
+                    displayNames:
+                      type: array
+                      items:
+                        type: array
+                      example:
+                        - [
+                            "92766-1510043922665",
+                            "Enseignants du groupe Collège Charlemagne.",
+                            true,
+                          ]
+                        - [
+                            "4e6f1a98-4696-4b9b-be8f-18b3a372a555",
+                            "Bernard Briand (principal)",
+                            false,
+                          ]
+                    date:
+                      type: integer
+                      example: 1669395064628
+                    thread_id:
+                      type: string
+                      example: "3fc5e9c3-d4ca-4966-b200-0274e3df93bb"
+                    unread:
+                      type: boolean
+                      example: false
+                    attachments:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: "75c30001-78e0-45b2-856b-ff9bee0f766c"
+                          name:
+                            type: string
+                            example: "file"
+                          charset:
+                            type: string
+                            example: "UTF-8"
+                          filename:
+                            type: string
+                            example: "Informations instituionnelles 2022-2023.pdf"
+                          contentType:
+                            type: string
+                            example: "application/pdf"
+                          contentTransferEncoding:
+                            type: string
+                            example: "7bit"
+                          size:
+                            type: integer
+                            example: 4216718
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/thread/previous-messages/{id}:
     get:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -164,7 +496,7 @@ paths:
   /conversation/thread/new-messages/{id}:
     get:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -183,7 +515,7 @@ paths:
   /conversation/thread/trash:
     put:
       tags:
-        - thread
+        - thread 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -194,20 +526,36 @@ paths:
   /conversation/thread/toggleUnread:
     post:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Toggle unread status for messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - "148b7b23-9154-4bfa-9a3f-934a65c6784a"
+                unread:
+                  type: boolean
+                  example: true
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema: {}
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/count/{folder}:
     get:
       tags:
         - folder
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+      summary: Get the count of conversations in a folder
       parameters:
         - name: folder
           in: path
@@ -216,9 +564,22 @@ paths:
           explode: false
           schema:
             type: string
+        - in: query
+          name: unread
+          schema:
+            type: boolean
+          description: Flag to filter unread conversations (true or false)
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 12
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/visibles:
@@ -235,9 +596,8 @@ paths:
   /conversation/message/{id}:
     get:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Get a conversation message by ID
       parameters:
         - name: id
           in: path
@@ -249,28 +609,160 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 3fc5e9c3-d4ca-4966-b200-0274e3df93bb
+                  parent_id:
+                    type: string
+                    nullable: true
+                  subject:
+                    type: string
+                    example: "Journées pédagogiques 2022-2023"
+                  body:
+                    type: string
+                    example: '<div class="ng-scope">...</div>'
+                  from:
+                    type: string
+                    example: 4e6f1a98-4696-4b9b-be8f-18b3a372a555
+                  fromName:
+                    type: string
+                    nullable: true
+                  to:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - "92766-1510043922665"
+                  toName:
+                    type: string
+                    nullable: true
+                  cc:
+                    type: array
+                    items:
+                      type: string
+                    example: []
+                  ccName:
+                    type: string
+                    nullable: true
+                  displayNames:
+                    type: array
+                    items:
+                      type: array
+                    example:
+                      - [
+                          "92766-1510043922665",
+                          "Enseignants du groupe Collège Charlemagne.",
+                          true,
+                        ]
+                      - [
+                          "4e6f1a98-4696-4b9b-be8f-18b3a372a555",
+                          "Bernard Briand (principal)",
+                          false,
+                        ]
+                  state:
+                    type: string
+                    example: "SENT"
+                  date:
+                    type: integer
+                    example: 1669395064628
+                  language:
+                    type: string
+                    example: "fr"
+                  text_searchable:
+                    type: string
+                    example: "'-2023':4A '2022':3A,72B 'a':24B,53B,99B,123B 'amont':82B ..."
+                  thread_id:
+                    type: string
+                    example: "3fc5e9c3-d4ca-4966-b200-0274e3df93bb"
+                  cci:
+                    type: array
+                    items:
+                      type: string
+                    example: []
+                  cciName:
+                    type: string
+                    nullable: true
+                  attachments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: "75c30001-78e0-45b2-856b-ff9bee0f766c"
+                        name:
+                          type: string
+                          example: "file"
+                        charset:
+                          type: string
+                          example: "UTF-8"
+                        filename:
+                          type: string
+                          example: "Informations instituionnelles 2022-2023.pdf"
+                        contentType:
+                          type: string
+                          example: "application/pdf"
+                        contentTransferEncoding:
+                          type: string
+                          example: "7bit"
+                        size:
+                          type: integer
+                          example: 4216718
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/trash:
     put:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Move messages to trash
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - "3fc5e9c3-d4ca-4966-b200-0274e3df93bb"
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema: {}
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/restore:
     put:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Restore messages from trash
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - "3fc5e9c3-d4ca-4966-b200-0274e3df93bb"
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema: {}
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/delete:
@@ -287,9 +779,8 @@ paths:
   /conversation/emptyTrash:
     delete:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Empty trash from message
       responses:
         "200":
           description: Successful response
@@ -309,18 +800,25 @@ paths:
   /conversation/max-depth:
     get:
       tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+        - conversation
+      summary: Get the maximum depth of conversations
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  max-depth:
+                    type: integer
+                    example: 3
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/folders/list:
     get:
       tags:
-        - folder
+        - folder 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       responses:
@@ -332,28 +830,74 @@ paths:
     get:
       tags:
         - folder
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+      summary: Get a list of user folders
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "861dedd4-e5d9-4147-b89d-3715af15e2cc"
+                    parent_id:
+                      type: string
+                      example: null
+                    depth:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "Test"
+                    nbUnread:
+                      type: integer
+                      example: 0
+                    skip_uniq:
+                      type: boolean
+                      example: false
+                    trashed:
+                      type: boolean
+                      example: false
+                    user_id:
+                      type: string
+                      example: "8d5313b4-acb4-406c-ab35-87d5e7b0fabe"
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/folder:
     post:
       tags:
         - folder
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+      summary: Create a new folder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Test"
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "861dedd4-e5d9-4147-b89d-3715af15e2cc"
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
   /conversation/folder/{folderId}:
     put:
       tags:
-        - folder
+        - folder 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -373,8 +917,7 @@ paths:
     put:
       tags:
         - folder
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+      summary: Move messages to a user folder
       parameters:
         - name: folderId
           in: path
@@ -383,9 +926,26 @@ paths:
           explode: false
           schema:
             type: string
+          description: ID of the target user folder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - "308bea6d-ada6-4796-8f71-5ff2afe23c3a"
+                  description: Message Id
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema: {}
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
     delete:
@@ -420,7 +980,7 @@ paths:
   /conversation/folder/trash/{folderId}:
     put:
       tags:
-        - folder
+        - folder 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -439,7 +999,7 @@ paths:
   /conversation/folder/restore/{folderId}:
     put:
       tags:
-        - folder
+        - folder 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -458,7 +1018,7 @@ paths:
   /conversation/message/{id}/attachment:
     post:
       tags:
-        - message
+        - message 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -478,8 +1038,7 @@ paths:
     get:
       tags:
         - message
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
+      summary: Get an attachment from a message
       parameters:
         - name: id
           in: path
@@ -502,7 +1061,7 @@ paths:
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
     delete:
       tags:
-        - message
+        - message 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -528,7 +1087,7 @@ paths:
   /conversation/message/{id}/allAttachments:
     get:
       tags:
-        - message
+        - message 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -547,7 +1106,7 @@ paths:
   /conversation/message/{id}/forward/{forwardedId}:
     put:
       tags:
-        - message
+        - message 🚧
       summary: 🚧 //TODO
       description: 🚧 //TODO
       parameters:
@@ -565,17 +1124,6 @@ paths:
           explode: false
           schema:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "302":
-          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
-  /conversation/print:
-    get:
-      tags:
-        - conversation 🚧
-      summary: 🚧 //TODO
-      description: 🚧 //TODO
       responses:
         "200":
           description: Successful response
