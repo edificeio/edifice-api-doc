@@ -25,8 +25,8 @@ paths:
   /rbs/config:
     get:
       tags:
-        - availability 🚧
-      summary: 🚧 //TODO
+        - availability 
+      summary: Get configuration information
       responses:
         "200":
           description: Successful response
@@ -206,10 +206,10 @@ paths:
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
 
-  /rbs/resource/{id}/availability/{availabilityId}:
+  /rbs/resource/{id}/{availabilityId}:
     put:
       tags:
-        - availability 🚧
+        - availability
       summary: Update an availability
       parameters:
         - name: id
@@ -285,7 +285,7 @@ paths:
   /rbs/resource/{id}/booking:
     post:
       tags:
-        - booking 🚧
+        - booking
       summary: Create booking of a given resource
       parameters:
         - name: id
@@ -305,7 +305,7 @@ paths:
   /rbs/resource/{id}/booking/periodic:
     post:
       tags:
-        - booking 🚧
+        - booking
       summary: Create periodic booking of a given resource
       parameters:
         - name: id
@@ -317,6 +317,17 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    status:
+                      type: integer
         "404":
           description: Bad request
         "302":
@@ -325,7 +336,7 @@ paths:
   /rbs/resource/{id}/booking/{bookingId}:
     put:
       tags:
-        - booking 🚧
+        - booking
       summary: Update booking
       parameters:
         - name: id
@@ -343,6 +354,56 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  resource_id:
+                    type: integer
+                  owner:
+                    type: string
+                  booking_reason:
+                    type: string
+                    nullable: true
+                  created:
+                    type: string
+                    format: date-time
+                  modified:
+                    type: string
+                    format: date-time
+                  start_date:
+                    type: string
+                    format: date-time
+                  end_date:
+                    type: string
+                    format: date-time
+                  status:
+                    type: integer
+                  moderator_id:
+                    type: string
+                    nullable: true
+                  refusal_reason:
+                    type: string
+                    nullable: true
+                  parent_booking_id:
+                    type: integer
+                    nullable: true
+                  days:
+                    type: string
+                    nullable: true
+                  periodicity:
+                    type: string
+                    nullable: true
+                  occurrences:
+                    type: integer
+                    nullable: true
+                  is_periodic:
+                    type: boolean
+                  quantity:
+                    type: integer
         "404":
           description: Bad request
         "302":
@@ -351,7 +412,7 @@ paths:
   /rbs/resource/{id}/booking/{bookingId}/periodic:
     put:
       tags:
-        - booking 🚧
+        - booking
       summary: Update periodic booking
       parameters:
         - name: id
@@ -366,18 +427,70 @@ paths:
           description: ID of the booking
           schema:
             type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slots:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      start_date:
+                        type: integer
+                      end_date:
+                        type: integer
+                      iana:
+                        type: string
+                quantity:
+                  type: integer
+                periodicity:
+                  type: integer
+                iana:
+                  type: string
+                days:
+                  type: array
+                  items:
+                    type: boolean
+                occurrences:
+                  type: integer
+                booking_reason:
+                  type: string
+              required:
+                - slots
+                - quantity
+                - periodicity
+                - iana
+                - days
+                - occurrences
+                - booking_reason
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    status:
+                      type: integer
         "404":
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
 
+
   /rbs/resource/{id}/booking/{bookingId}/process:
     put:
       tags:
-        - booking 🚧
+        - booking
       summary: Validate or refuse booking
       parameters:
         - name: id
@@ -392,9 +505,37 @@ paths:
           description: ID of the booking
           schema:
             type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  description: New status of the booking
+                  example: 2
+              required:
+                - status
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  status:
+                    type: integer
+                  owner:
+                    type: string
+                  start_date:
+                    type: string
+                  end_date:
+                    type: string
         "404":
           description: Bad request
         "302":
@@ -607,7 +748,7 @@ paths:
         - name: enddate
           in: path
           description: "End date of the range (format: YYYY-MM-DD)"
-          required: true
+          required: false
           schema:
             type: string
       responses:
@@ -689,7 +830,7 @@ paths:
   /rbs/bookings/full/slots/{bookingId}:
     get:
       tags:
-        - booking 🚧
+        - booking
       summary: List all booking slots of a periodic booking
       parameters:
         - name: bookingId
@@ -794,7 +935,7 @@ paths:
   /rbs/resource/{id}/bookings:
     get:
       tags:
-        - booking 🚧
+        - booking
       summary: List all bookings for a given resource
       parameters:
         - name: id
@@ -896,11 +1037,46 @@ paths:
   /rbs/bookings/export:
     post:
       tags:
-        - booking 🚧
+        - booking
       summary: Export bookings in requested format
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                format:
+                  type: string
+                view:
+                  type: string
+                startdate:
+                  type: string
+                  format: date
+                enddate:
+                  type: string
+                  format: date
+                resourceIds:
+                  type: array
+                  items:
+                    type: integer
+                usertimezone:
+                  type: string
+              required:
+                - format
+                - view
+                - startdate
+                - enddate
+                - resourceIds
+                - usertimezone
       responses:
         "200":
           description: Successful response
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
         "404":
           description: Bad request
         "302":
