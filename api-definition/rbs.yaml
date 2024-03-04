@@ -25,7 +25,7 @@ paths:
   /rbs/config:
     get:
       tags:
-        - availability 
+        - availability
       summary: Get configuration information
       responses:
         "200":
@@ -486,7 +486,6 @@ paths:
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
 
-
   /rbs/resource/{id}/booking/{bookingId}/process:
     put:
       tags:
@@ -748,7 +747,7 @@ paths:
         - name: enddate
           in: path
           description: "End date of the range (format: YYYY-MM-DD)"
-          required: false
+          required: true
           schema:
             type: string
       responses:
@@ -1240,7 +1239,7 @@ paths:
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
     put:
       tags:
-        - resource 🚧
+        - resource
       summary: Update resource
       parameters:
         - name: id
@@ -1249,9 +1248,53 @@ paths:
           description: ID of the resource
           schema:
             type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                color:
+                  type: string
+                  example: "#30bb61"
+                description:
+                  type: string
+                  example: '<div class="ng-scope">C''est une ressource de test</div>'
+                is_available:
+                  type: boolean
+                  example: true
+                name:
+                  type: string
+                  example: "salle de test"
+                periodic_booking:
+                  type: boolean
+                  example: true
+                quantity:
+                  type: integer
+                  example: 1
+                type_id:
+                  type: integer
+                  example: 68
+                validation:
+                  type: boolean
+                  example: true
+                was_available:
+                  type: boolean
+                  example: true
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 184
+                  name:
+                    type: string
+                    example: "salle de test"
         "404":
           description: Bad request
         "302":
@@ -1278,18 +1321,54 @@ paths:
   /rbs/type/{id}/resource:
     post:
       tags:
-        - type 🚧
+        - type
       summary: Create resource
       parameters:
         - name: id
           in: path
           required: true
-          description: ID of the resource
+          description: ID of the resource type
           schema:
             type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                color:
+                  type: string
+                  example: "#b930a2"
+                description:
+                  type: string
+                  example: "<div>C'est une ressource de test</div>"
+                is_available:
+                  type: boolean
+                  example: true
+                name:
+                  type: string
+                  example: "salle de test"
+                periodic_booking:
+                  type: boolean
+                  example: true
+                quantity:
+                  type: integer
+                  example: 1
+                validation:
+                  type: boolean
+                  example: true
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 184
         "404":
           description: Bad request
         "302":
@@ -1351,7 +1430,7 @@ paths:
   /rbs/resource/share/json/{id}:
     get:
       tags:
-        - resource 🚧
+        - resource
       summary: List rights for a given resource
       parameters:
         - name: id
@@ -1363,6 +1442,103 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  actions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: array
+                          items:
+                            type: string
+                        displayName:
+                          type: string
+                        type:
+                          type: string
+                    example:
+                      actions:
+                        - name:
+                            - net-atos-entng-rbs-controllers-ResourceController|update
+                            - net-atos-entng-rbs-controllers-BookingController|processBooking
+                            - net-atos-entng-rbs-controllers-AvailabilityController|createAvailability
+                            - net-atos-entng-rbs-controllers-AvailabilityController|updateAvailability
+                            - net-atos-entng-rbs-controllers-AvailabilityController|deleteAvailability
+                            - net-atos-entng-rbs-controllers-AvailabilityController|deleteAllAvailability
+                          displayName: rbs.publish
+                          type: RESOURCE
+                  groups:
+                    type: object
+                    properties:
+                      visibles:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            name:
+                              type: string
+                            groupDisplayName:
+                              type: string
+                            structureName:
+                              type: string
+                      checked:
+                        type: object
+                    example:
+                      groups:
+                        visibles:
+                          - id: 275118-1554910573977
+                            name: Enseignants du groupe 1ERE S 1.
+                            groupDisplayName: null
+                            structureName: Lycée Hugues Capet
+                          - id: 275095-1554910573973
+                            name: Enseignants du groupe 1ERE S 2.
+                            groupDisplayName: null
+                            structureName: Lycée Hugues Capet
+                        checked: {}
+                  users:
+                    type: object
+                    properties:
+                      visibles:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            login:
+                              type: string
+                            username:
+                              type: string
+                            lastName:
+                              type: string
+                            firstName:
+                              type: string
+                            profile:
+                              type: string
+                      checked:
+                        type: object
+                    example:
+                      users:
+                        visibles:
+                          - id: 4041519d-1a7b-442e-9f7d-c4c335ed5615
+                            login: frederic.abdelkodous
+                            username: ABD EL KODOUS FREDERIC
+                            lastName: ABD EL KODOUS
+                            firstName: FREDERIC
+                            profile: Relative
+                          - id: dc578c58-2d1f-4578-9a78-9dca2d5f3634
+                            login: hammou.abdelnabey
+                            username: ABD EL NABEY Hammou
+                            lastName: ABD EL NABEY
+                            firstName: Hammou
+                            profile: Relative
+                      checked: {}
         "404":
           description: Bad request
         "302":
@@ -1656,7 +1832,7 @@ paths:
 
     put:
       tags:
-        - type 🚧
+        - type
       summary: Update resource type
       parameters:
         - name: id
@@ -1665,9 +1841,35 @@ paths:
           description: ID of the resource
           schema:
             type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The updated name of the resource type
+                validation:
+                  type: boolean
+                  description: Indicates if the resource type requires validation
+                color:
+                  type: string
+                  description: The updated color code for the resource type
+                extendcolor:
+                  type: boolean
+                  description: Indicates if the color should be extended
+                slotprofile:
+                  type: string
+                  format: uuid
+                  description: The updated ID of the slot profile for the resource type
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              example: {}
         "404":
           description: Bad request
         "302":
@@ -1695,11 +1897,39 @@ paths:
   /rbs/type:
     post:
       tags:
-        - type 🚧
+        - type
       summary: Create resource type
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                color:
+                  type: string
+                  description: The color code for the resource type
+                name:
+                  type: string
+                  description: The name of the resource type
+                school_id:
+                  type: string
+                  format: uuid
+                  description: The ID of the school associated with the resource type
+                slotprofile:
+                  type: string
+                  format: uuid
+                  description: The ID of the slot profile for the resource type
+                validation:
+                  type: boolean
+                  description: Indicates if the resource type requires validation
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              example:
+                id: 82
         "404":
           description: Bad request
         "302":
@@ -1747,7 +1977,7 @@ paths:
   /rbs/share/json/{id}:
     get:
       tags:
-        - type 🚧
+        - type
       summary: List rights for a given resource type
       parameters:
         - name: id
@@ -1759,6 +1989,159 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  actions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: array
+                          items:
+                            type: string
+                        displayName:
+                          type: string
+                        type:
+                          type: string
+                    example:
+                      actions:
+                        - name:
+                            - net-atos-entng-rbs-controllers-ResourceController|update
+                            - net-atos-entng-rbs-controllers-BookingController|processBooking
+                            - net-atos-entng-rbs-controllers-AvailabilityController|createAvailability
+                            - net-atos-entng-rbs-controllers-AvailabilityController|updateAvailability
+                            - net-atos-entng-rbs-controllers-AvailabilityController|deleteAvailability
+                            - net-atos-entng-rbs-controllers-AvailabilityController|deleteAllAvailability
+                          displayName: rbs.publish
+                          type: RESOURCE
+                  groups:
+                    type: object
+                    properties:
+                      visibles:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            name:
+                              type: string
+                            groupDisplayName:
+                              type: string
+                            structureName:
+                              type: string
+                      checked:
+                        type: object
+                    example:
+                      groups:
+                        visibles:
+                          - id: 275118-1554910573977
+                            name: Enseignants du groupe 1ERE S 1.
+                            groupDisplayName: null
+                            structureName: Lycée Hugues Capet
+                          - id: 275095-1554910573973
+                            name: Enseignants du groupe 1ERE S 2.
+                            groupDisplayName: null
+                            structureName: Lycée Hugues Capet
+                        checked:
+                          "92765-1510043922665":
+                            [
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|getModerators",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType",
+                              "net-atos-entng-rbs-controllers-BookingController|listBookingsByResource",
+                              "net-atos-entng-rbs-controllers-ResourceController|get",
+                              "net-atos-entng-rbs-controllers-BookingController|createPeriodicBooking",
+                              "net-atos-entng-rbs-controllers-BookingController|updatePeriodicBooking",
+                              "net-atos-entng-rbs-controllers-BookingController|updateBooking",
+                              "net-atos-entng-rbs-controllers-BookingController|createBooking",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications",
+                              "net-atos-entng-rbs-controllers-ResourceController|addNotification",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications",
+                              "net-atos-entng-rbs-controllers-ResourceController|removeNotification",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|removeShare",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|shareJsonSubmit",
+                              "net-atos-entng-rbs-controllers-ResourceController|shareRemove",
+                              "net-atos-entng-rbs-controllers-ResourceController|shareSubmit",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|updateResourceType",
+                              "net-atos-entng-rbs-controllers-ResourceController|create",
+                              "net-atos-entng-rbs-controllers-BookingController|deleteBooking",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|shareJson",
+                              "net-atos-entng-rbs-controllers-ResourceController|delete",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|shareResource",
+                              "net-atos-entng-rbs-controllers-ResourceController|share",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|deleteResourceType",
+                              "net-atos-entng-rbs-controllers-ResourceController|update",
+                              "net-atos-entng-rbs-controllers-BookingController|processBooking",
+                            ]
+                          "92766-1510043922665":
+                            [
+                              "net-atos-entng-rbs-controllers-BookingController|createPeriodicBooking",
+                              "net-atos-entng-rbs-controllers-BookingController|updatePeriodicBooking",
+                              "net-atos-entng-rbs-controllers-BookingController|updateBooking",
+                              "net-atos-entng-rbs-controllers-BookingController|createBooking",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications",
+                              "net-atos-entng-rbs-controllers-ResourceController|get",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType",
+                              "net-atos-entng-rbs-controllers-ResourceController|addNotification",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications",
+                              "net-atos-entng-rbs-controllers-BookingController|listBookingsByResource",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|getModerators",
+                              "net-atos-entng-rbs-controllers-ResourceController|removeNotification",
+                            ]
+                          "91d244a6-0521-4b39-b3cb-be7e6222321c":
+                            [
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications",
+                              "net-atos-entng-rbs-controllers-ResourceController|get",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType",
+                              "net-atos-entng-rbs-controllers-ResourceController|addNotification",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications",
+                              "net-atos-entng-rbs-controllers-BookingController|listBookingsByResource",
+                              "net-atos-entng-rbs-controllers-ResourceTypeController|getModerators",
+                              "net-atos-entng-rbs-controllers-ResourceController|removeNotification",
+                            ]
+
+                  users:
+                    type: object
+                    properties:
+                      visibles:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            login:
+                              type: string
+                            username:
+                              type: string
+                            lastName:
+                              type: string
+                            firstName:
+                              type: string
+                            profile:
+                              type: string
+                      checked:
+                        type: object
+                    example:
+                      users:
+                        visibles:
+                          - id: 4041519d-1a7b-442e-9f7d-c4c335ed5615
+                            login: frederic.abdelkodous
+                            username: ABD EL KODOUS FREDERIC
+                            lastName: ABD EL KODOUS
+                            firstName: FREDERIC
+                            profile: Relative
+                          - id: dc578c58-2d1f-4578-9a78-9dca2d5f3634
+                            login: hammou.abdelnabey
+                            username: ABD EL NABEY Hammou
+                            lastName: ABD EL NABEY
+                            firstName: Hammou
+                            profile: Relative
+                      checked: {}
         "404":
           description: Bad request
         "302":
