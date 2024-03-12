@@ -1,0 +1,622 @@
+openapi: 3.0.0
+info:
+  title: Edifice - Blog - API 🚧🚧
+  description: This part represant the documentation of the Edifice api use in Blog module
+  version: 4.10.0
+servers:
+  - url: /
+
+tags:
+  - name: Blog
+    description: Blog API
+
+paths:
+  /blog/print/blog:
+    get:
+      tags:
+        - print 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/{blogId}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    delete:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/customer/{blogId}:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/list/all:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/linker:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/share/json/{blogId}:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/publish:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/share/remove/{blogId}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/share/resource/{blogId}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/blog/availables-workflow-actions:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/pub/{slug}:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/pub:
+    post:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/pub/{id}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the pub
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/post/{blogId}:
+    post:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/post/{blogId}/{postId}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+        - name: postId
+          in: path
+          required: true
+          description: ID of the post
+          schema:
+            type: integer
+
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    delete:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/post/list/all/{blogId}:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/post/submit/{blogId}/{postId}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+        - name: postId
+          in: path
+          required: true
+          description: ID of the post
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/post/publish/{blogId}/{postId}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+        - name: postId
+          in: path
+          required: true
+          description: ID of the post
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/post/unpublish/{blogId}/{postId}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+        - name: postId
+          in: path
+          required: true
+          description: ID of the post
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/comment/{blogId}/{postId}:
+    post:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+        - name: postId
+          in: path
+          required: true
+          description: ID of the post
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/comment/{blogId}/{postId}/{commentId}:
+    put:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+        - name: postId
+          in: path
+          required: true
+          description: ID of the post
+          schema:
+            type: integer
+        - name: commentId
+          in: path
+          required: true
+          description: ID of the comment
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    delete:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+        - name: postId
+          in: path
+          required: true
+          description: ID of the post
+          schema:
+            type: integer
+        - name: commentId
+          in: path
+          required: true
+          description: ID of the comment
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/pub/posts/{blogId}:
+    get:
+      tags:
+        - blog 🚧
+      summary: Get configuration information
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: ID of the blog
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/folder/list/{filter}:
+    get:
+      tags:
+        - folder 🚧
+      summary: Get configuration information
+      parameters:
+        - name: filter
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/folder:
+    post:
+      tags:
+        - folder 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /blog/folder/{id}:
+    put:
+      tags:
+        - folder 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the folder
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+    delete:
+      tags:
+        - folder 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the folder
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+components:
+  securitySchemes:
+    oAuth2AuthCode:
+      type: oauth2
+      description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
+      flows:
+        authorizationCode:
+          authorizationUrl: /auth/oauth2/auth
+          tokenUrl: /auth/oauth2/token
+          scopes:
+            userinfo: Get user's identification information
+            conversation: Access to conversation API

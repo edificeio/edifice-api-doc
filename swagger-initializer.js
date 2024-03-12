@@ -17,6 +17,8 @@ window.onload = function () {
         url: "./api-definition/rbs.yaml",
         name: " Reservation booking system (RBS)",
       },
+      { url: "./api-definition/blog.yaml", name: "Blog" },
+      { url: "./api-definition/wiki.yaml", name: "Wiki" },
     ],
     dom_id: "#swagger-ui",
     deepLinking: true,

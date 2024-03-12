@@ -1,0 +1,435 @@
+openapi: 3.0.0
+info:
+  title: Edifice - Wiki - API 🚧🚧
+  description: This part represant the documentation of the Edifice api use in Wiki module
+  version: 4.10.0
+servers:
+  - url: /
+
+tags:
+  - name: Wiki
+    description: Wiki API
+
+paths:
+  /wiki/print:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/list:
+    get:
+      tags:
+        - wiki
+      summary: Get a list of wiki items
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    _id:
+                      type: string
+                      example: "95ce2072-adcc-4f2b-888e-007aee813bc9"
+                    title:
+                      type: string
+                      example: "Musée Guggenheim de Bilbao"
+                    owner:
+                      type: object
+                      properties:
+                        userId:
+                          type: string
+                          example: "3bc6df93-4e92-45a3-b344-9e5dd34ba767"
+                        displayName:
+                          type: string
+                          example: "Michelle Moreau"
+                    modified:
+                      type: object
+                      properties:
+                        $date:
+                          type: integer
+                          example: "1574175111217"
+                    thumbnail:
+                      type: string
+                      example: "/workspace/document/a1c3bb5a-259d-4679-9153-35ae8bf5fc76"
+                    index:
+                      type: string
+                      example: "5a855344e4b0d6848cdd7418"
+                    shared:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          groupId:
+                            type: string
+                          net-atos-entng-wiki-controllers-WikiController|listPages:
+                            type: boolean
+                          net-atos-entng-wiki-controllers-WikiController|getWholeWiki:
+                            type: boolean
+                          net-atos-entng-wiki-controllers-WikiController|getPage:
+                            type: boolean
+                          net-atos-entng-wiki-controllers-WikiController|comment:
+                            type: boolean
+                          net-atos-entng-wiki-controllers-WikiController|listRevisions:
+                            type: boolean
+                          net-atos-entng-wiki-controllers-WikiController|createPage:
+                            type: boolean
+                          net-atos-entng-wiki-controllers-WikiController|updatePage:
+                            type: boolean
+                      example:                     
+                        - groupId: "96125-1510043932594"
+                          net-atos-entng-wiki-controllers-WikiController|listPages: true
+                          net-atos-entng-wiki-controllers-WikiController|getWholeWiki: true
+                          net-atos-entng-wiki-controllers-WikiController|getPage: true
+                          net-atos-entng-wiki-controllers-WikiController|comment: true
+                          net-atos-entng-wiki-controllers-WikiController|listRevisions: true
+                          net-atos-entng-wiki-controllers-WikiController|createPage: true
+                          net-atos-entng-wiki-controllers-WikiController|updatePage: true
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/{id}/listpages:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/listallpages:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/{id}/whole:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki:
+    post:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/{id}:
+    put:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    delete:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/{id}/page/{idpage}:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+        - name: idpage
+          in: path
+          required: true
+          description: ID of the page
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    put:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+    delete:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+    post:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/{id}/page:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/{id}/page/{idpage}/comment/(idcommen}:
+    delete:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+        - name: idpage
+          in: path
+          required: true
+          description: ID of the page
+          schema:
+            type: integer
+        - name: idcommen
+          in: path
+          required: true
+          description: ID of the commen
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/library:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/share/json/{id}:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    put:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/share/remove/{id}:
+    put:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/share/resource/{id}:
+    put:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+  /wiki/revisions/{id}/{idpage}:
+    get:
+      tags:
+        - wiki 🚧
+      summary: Get configuration information
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wiki
+          schema:
+            type: integer
+        - name: idpage
+          in: path
+          required: true
+          description: ID of the page
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+components:
+  securitySchemes:
+    oAuth2AuthCode:
+      type: oauth2
+      description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
+      flows:
+        authorizationCode:
+          authorizationUrl: /auth/oauth2/auth
+          tokenUrl: /auth/oauth2/token
+          scopes:
+            userinfo: Get user's identification information
+            conversation: Access to conversation API
