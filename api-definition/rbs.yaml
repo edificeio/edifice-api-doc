@@ -294,6 +294,32 @@ paths:
           description: ID of the resource
           schema:
             type: integer
+        - name: body
+          in: body
+          required: true
+          description: Booking details
+          schema:
+            type: object
+            properties:
+              slots:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    start_date:
+                      type: integer
+                    end_date:
+                      type: integer
+                    iana:
+                      type: string
+                required:
+                  - start_date
+                  - end_date
+                  - iana
+              quantity:
+                type: integer
+              booking_reason:
+                type: string
       responses:
         "200":
           description: Successful response
@@ -301,6 +327,7 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
 
   /rbs/resource/{id}/booking/periodic:
     post:
@@ -314,6 +341,44 @@ paths:
           description: ID of the resource
           schema:
             type: integer
+        - name: body
+          in: body
+          required: true
+          description: Periodic booking details
+          schema:
+            type: object
+            properties:
+              slots:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    start_date:
+                      type: integer
+                    end_date:
+                      type: integer
+                    iana:
+                      type: string
+                required:
+                  - start_date
+                  - end_date
+                  - iana
+              quantity:
+                type: integer
+              periodicity:
+                type: integer
+              iana:
+                type: string
+              days:
+                type: array
+                items:
+                  type: boolean
+                minItems: 7
+                maxItems: 7
+              occurrences:
+                type: integer
+              booking_reason:
+                type: string
       responses:
         "200":
           description: Successful response
@@ -535,10 +600,15 @@ paths:
                     type: string
                   end_date:
                     type: string
+          examples:
+            booking_processed:
+              value: {"id":9164,"status":2,"owner":"f40fdee8-4dfd-4170-b81b-5f5c2302c6e8","start_date":"13/05/24 08:03","end_date":"13/05/24 09:03"}
         "404":
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
+
 
   /rbs/resource/{id}/booking/{bookingId}/{booleanThisAndAfter}:
     delete:
