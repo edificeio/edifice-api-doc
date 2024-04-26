@@ -1187,6 +1187,46 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+  /directory/sharebookmarkAll/{userId}:
+    get:
+      tags:
+        - sharebookmark
+      summary: Retrieve information while logged in with admc for any user.
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID of the user
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                example:
+                  - id: "_5093b3bd6bb34818a5bee7c5b45960ba"
+                    name: "Enseignants et personnels écoles"
+                  - id: "_563aa660935240e28fde9933e088459d"
+                    name: "Parents écoles"
+                  - id: "_082019cca1794753b6cd9a3b2b3f55ce"
+                    name: "Ecole A. Rimbaud"
+                  - id: "_a7458bf05234446283e3af0f678db36d"
+                    name: "Ecole E. Zola"
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
   /directory/sharebookmark/all:
     get:
       tags:
