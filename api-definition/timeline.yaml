@@ -125,8 +125,8 @@ paths:
   /timeline/flashmsg/structure/{structureId}:
     post:
       tags:
-        - flashmsg 🚧
-      summary: 🚧 //TODO
+        - flashmsg
+      summary: Create message flash
       parameters:
         - name: structureId
           in: path
@@ -135,6 +135,40 @@ paths:
           explode: false
           schema:
             type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                contents:
+                  type: object
+                  additionalProperties:
+                    type: string
+                startDate:
+                  type: string
+                  format: date-time
+                endDate:
+                  type: string
+                  format: date-time
+                profiles:
+                  type: array
+                  items:
+                    type: string
+                color:
+                  type: string
+                customColor:
+                  type: string
+                  nullable: true
+                structureId:
+                  type: string
+                signature:
+                  type: string
+                signatureColor:
+                  type: string
       responses:
         "200":
           description: Successful response
@@ -142,6 +176,7 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
     delete:
       tags:
         - flashmsg 🚧
