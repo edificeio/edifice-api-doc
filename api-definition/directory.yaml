@@ -15,6 +15,8 @@ tags:
     description: Get class information
   - name: structure
     description: Get structure information
+  - name: sharebookmark
+    description: Get sharebookmark information
   - name: user 🚧
     description: 🚧 //TODO
   - name: directory
