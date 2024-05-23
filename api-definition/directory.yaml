@@ -1189,7 +1189,7 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /directory/sharebookmarkAll/{userId}:
+  /directory/sharebookmark/{userId}/{id}:
     get:
       tags:
         - sharebookmark
@@ -1201,29 +1201,66 @@ paths:
           description: ID of the user
           schema:
             type: string
+        - name: id
+          in: path
+          required: true
+          description: ID of the sharebookmark or use the keyword 'all' to get all sharebookmarks of the user
+          schema:
+            type: string
       responses:
         "200":
-          description: Successful response
+          description: Successfully shared bookmark.
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                example:
-                  - id: "_5093b3bd6bb34818a5bee7c5b45960ba"
-                    name: "Enseignants et personnels écoles"
-                  - id: "_563aa660935240e28fde9933e088459d"
-                    name: "Parents écoles"
-                  - id: "_082019cca1794753b6cd9a3b2b3f55ce"
-                    name: "Ecole A. Rimbaud"
-                  - id: "_a7458bf05234446283e3af0f678db36d"
-                    name: "Ecole E. Zola"
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "_2804c899918c4ec8891de101da15a764"
+                  name:
+                    type: string
+                    example: "Test"
+                  groups:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: "Head teachers of 1ERE ES."
+                        nbUsers:
+                          type: integer
+                          example: 1
+                        id:
+                          type: string
+                          example: "d9c37a68-c764-4e2e-8655-220b387bc78e"
+                        activationCode:
+                          type: boolean
+                          example: false
+                        groupType:
+                          type: string
+                          example: "HTGroup"
+                        sortName:
+                          type: string
+                          example: "1ERE ES-HeadTeacher"
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        displayName:
+                          type: string
+                          example: "DA SILVA Léa"
+                        profile:
+                          type: string
+                          example: "Relative"
+                        id:
+                          type: string
+                          example: "fef28ed1-f7eb-4c8c-b94f-18bb200075db"
+                        activationCode:
+                          type: boolean
+                          example: true
         "404":
           description: Bad request
         "302":
@@ -1698,7 +1735,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Successful response with an array of children structure IDs.
           content:
             application/json:
