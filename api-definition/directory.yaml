@@ -4180,6 +4180,124 @@ paths:
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
 
+  /directory/user/list/by/structure:
+    get:
+      tags:
+        - user
+      summary: List users for one or more structure using uai
+      parameters:
+        - name: uai
+          in: path
+          required: true
+          style: simple
+          explode: false
+          description: The uai of the structure
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successfully retrieved list of users.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    externalId:
+                      type: string
+                      example: "b015e0d6-13e3-4971-a679-ba867492749f"
+                    lastName:
+                      type: string
+                      example: "edifice"
+                    firstName:
+                      type: string
+                      example: "enseignant"
+                    login:
+                      type: string
+                      example: "enseignant.edifice"
+                    email:
+                      type: string
+                      nullable: true
+                      example: null
+                    emailAcademy:
+                      type: string
+                      nullable: true
+                      example: null
+                    mobile:
+                      type: string
+                      nullable: true
+                      example: null
+                    deleteDate:
+                      type: string
+                      format: date-time
+                      nullable: true
+                      example: null
+                    functions:
+                      type: string
+                      nullable: true
+                      example: null
+                    displayName:
+                      type: string
+                      example: "edifice enseignant"
+                    id:
+                      type: string
+                      example: "51888b84-2180-4aee-a5cc-df45f4cf76ac"
+                    blocked:
+                      type: boolean
+                      nullable: true
+                      example: null
+                    emailInternal:
+                      type: string
+                      nullable: true
+                      example: null
+                    profiles:
+                      type: string
+                      example: "Teacher"
+                    UAI:
+                      type: string
+                      example: "1122334A"
+                    isActive:
+                      type: boolean
+                      example: false
+                    structures:
+                      type: string
+                      example: "78679092-f5f2-48a7-9d6b-ad911c966a61"
+                    groups:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          groupName:
+                            type: string
+                            example: "Edifice-Teacher"
+                          groupId:
+                            type: string
+                            example: "326590-1701091034718"
+                    createdDate:
+                      type: string
+                      format: date-time
+                      example: "2024-03-21T16:34:01.165+01:00"
+                    duplicated:
+                      type: boolean
+                      nullable: true
+                      example: null
+                    isMergedWithINE:
+                      type: boolean
+                      example: false
+                    automaticMergedIds:
+                      type: array
+                      items:
+                        type: string
+                      nullable: true
+                      example: null
+                    isMergedManuel:
+                      type: boolean
+                      example: false
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
 components:
   schemas:
     Profile:
