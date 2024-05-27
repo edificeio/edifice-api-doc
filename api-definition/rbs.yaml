@@ -328,7 +328,6 @@ paths:
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
 
-
   /rbs/resource/{id}/booking/periodic:
     post:
       tags:
@@ -341,44 +340,55 @@ paths:
           description: ID of the resource
           schema:
             type: integer
-        - name: body
-          in: body
-          required: true
-          description: Periodic booking details
-          schema:
-            type: object
-            properties:
-              slots:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    start_date:
-                      type: integer
-                    end_date:
-                      type: integer
-                    iana:
-                      type: string
-                required:
-                  - start_date
-                  - end_date
-                  - iana
-              quantity:
-                type: integer
-              periodicity:
-                type: integer
-              iana:
-                type: string
-              days:
-                type: array
-                items:
-                  type: boolean
-                minItems: 7
-                maxItems: 7
-              occurrences:
-                type: integer
-              booking_reason:
-                type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slots:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      start_date:
+                        type: string
+                        format: date-time
+                        description: Start date and time of the booking, in ISO 8601 format
+                      end_date:
+                        type: string
+                        format: date-time
+                        description: End date and time of the booking, in ISO 8601 format
+                      iana:
+                        type: string
+                        description: Timezone identifier for the booking times
+                    required:
+                      - start_date
+                      - end_date
+                      - iana
+                quantity:
+                  type: integer
+                  description: Number of units to book
+                periodicity:
+                  type: integer
+                  description: Frequency of the booking recurrence
+                iana:
+                  type: string
+                  description: Timezone identifier for the booking recurrence
+                days:
+                  type: array
+                  items:
+                    type: boolean
+                  minItems: 7
+                  maxItems: 7
+                  description: Array of boolean values indicating whether the booking should occur on each day of the week, starting from Sunday
+                occurrences:
+                  type: integer
+                  description: Total number of occurrences for the booking
+                booking_reason:
+                  type: string
+                  description: Reason for the booking
       responses:
         "200":
           description: Successful response
@@ -391,8 +401,10 @@ paths:
                   properties:
                     id:
                       type: integer
+                      example: 100
                     status:
                       type: integer
+                      example: 1
         "404":
           description: Bad request
         "302":
@@ -424,51 +436,28 @@ paths:
               schema:
                 type: object
                 properties:
-                  id:
-                    type: integer
-                  resource_id:
-                    type: integer
-                  owner:
-                    type: string
-                  booking_reason:
-                    type: string
-                    nullable: true
-                  created:
-                    type: string
-                    format: date-time
-                  modified:
-                    type: string
-                    format: date-time
-                  start_date:
-                    type: string
-                    format: date-time
-                  end_date:
-                    type: string
-                    format: date-time
-                  status:
-                    type: integer
-                  moderator_id:
-                    type: string
-                    nullable: true
-                  refusal_reason:
-                    type: string
-                    nullable: true
-                  parent_booking_id:
-                    type: integer
-                    nullable: true
-                  days:
-                    type: string
-                    nullable: true
-                  periodicity:
-                    type: string
-                    nullable: true
-                  occurrences:
-                    type: integer
-                    nullable: true
-                  is_periodic:
-                    type: boolean
+                  slots:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        start_date:
+                          type: string
+                          format: date-time
+                          example: "2024-05-24T10:00:00Z"
+                        end_date:
+                          type: string
+                          format: date-time
+                          example: "2024-05-24T11:00:00Z"
+                        iana:
+                          type: string
+                          example: "Europe/Paris"
                   quantity:
                     type: integer
+                    example: 2
+                  booking_reason:
+                    type: string
+                    example: "Cette réservation a été effectuée depuis l'application Agenda"
         "404":
           description: Bad request
         "302":
@@ -600,15 +589,20 @@ paths:
                     type: string
                   end_date:
                     type: string
-          examples:
+        examples:
             booking_processed:
-              value: {"id":9164,"status":2,"owner":"f40fdee8-4dfd-4170-b81b-5f5c2302c6e8","start_date":"13/05/24 08:03","end_date":"13/05/24 09:03"}
+              value:
+                {
+                  "id": 9164,
+                  "status": 2,
+                  "owner": "f40fdee8-4dfd-4170-b81b-5f5c2302c6e8",
+                  "start_date": "13/05/24 08:03",
+                  "end_date": "13/05/24 09:03",
+                }
         "404":
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-
-
 
   /rbs/resource/{id}/booking/{bookingId}/{booleanThisAndAfter}:
     delete:
@@ -744,50 +738,50 @@ paths:
                 properties:
                   id:
                     type: integer
-                    example: 5466
+                    example: 527434
                   resource_id:
                     type: integer
-                    example: 133
+                    example: 3266
                   owner:
                     type: string
-                    example: "0f39f811-c716-4d52-9adf-88ac8f2b0fe6"
+                    example: "b3996f10-638f-4c6a-83d9-e513be24c13d"
                   booking_reason:
                     type: string
-                    example: "Atelier théâtre"
+                    example: "Cette réservation a été effectuée depuis l'application Agenda"
                   created:
                     type: string
                     format: date-time
-                    example: "2018-02-15T11:15:40.743"
+                    example: "2024-05-14T17:43:25.180"
                   modified:
                     type: string
                     format: date-time
-                    example: "2018-02-15T11:16:13.608"
+                    example: "2024-05-14T17:43:25.180"
                   start_date:
                     type: string
                     format: date-time
-                    example: "2018-02-16T10:00:00.000"
+                    example: "2024-05-15T07:00:00.000"
                   end_date:
                     type: string
                     format: date-time
-                    example: "2018-02-16T12:00:00.000"
+                    example: "2024-05-15T08:00:00.000"
                   status:
                     type: integer
                     example: 2
                   moderator_id:
                     type: string
-                    example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    example: null
                   refusal_reason:
                     type: string
                     example: null
                   parent_booking_id:
                     type: integer
-                    example: 5467
+                    example: null
                   days:
                     type: string
-                    example: "0000010"
+                    example: null
                   periodicity:
                     type: integer
-                    example: 1
+                    example: null
                   occurrences:
                     type: integer
                     example: null
@@ -1016,10 +1010,79 @@ paths:
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 527434
+                    resource_id:
+                      type: integer
+                      example: 3266
+                    owner:
+                      type: string
+                      example: "b3996f10-638f-4c6a-83d9-e513be24c13d"
+                    booking_reason:
+                      type: string
+                      example: "Cette réservation a été effectuée depuis l'application Agenda"
+                    created:
+                      type: string
+                      format: date-time
+                      example: "2024-05-14T17:43:25.180"
+                    modified:
+                      type: string
+                      format: date-time
+                      example: "2024-05-14T17:43:25.180"
+                    start_date:
+                      type: string
+                      format: date-time
+                      example: "2024-05-15T07:00:00.000"
+                    end_date:
+                      type: string
+                      format: date-time
+                      example: "2024-05-15T08:00:00.000"
+                    status:
+                      type: integer
+                      example: 2
+                    moderator_id:
+                      type: string
+                      example: null
+                    refusal_reason:
+                      type: string
+                      example: null
+                    parent_booking_id:
+                      type: integer
+                      example: null
+                    days:
+                      type: string
+                      example: null
+                    periodicity:
+                      type: string
+                      example: null
+                    occurrences:
+                      type: integer
+                      example: null
+                    is_periodic:
+                      type: boolean
+                      example: false
+                    quantity:
+                      type: integer
+                      example: 1
+                    owner_name:
+                      type: string
+                      example: "Djedjig Rafik"
+                    moderator_name:
+                      type: string
+                      example: null
         "404":
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
 
   /rbs/bookings/unprocessed:
     get:
@@ -1250,24 +1313,24 @@ paths:
                   id:
                     type: integer
                     format: int64
-                    example: 139
+                    example: 3266
                   owner:
                     type: string
-                    example: "4e6f1a98-4696-4b9b-be8f-18b3a372a555"
+                    example: "b3996f10-638f-4c6a-83d9-e513be24c13d"
                   created:
                     type: string
                     format: date-time
-                    example: "2018-02-15T11:12:05.284"
+                    example: "2024-05-14T17:34:43.123"
                   modified:
                     type: string
                     format: date-time
-                    example: "2020-10-23T15:48:49.123"
+                    example: "2024-05-14T17:34:43.123"
                   visibility:
                     type: string
                     example: null
                   name:
                     type: string
-                    example: "Amphithéâtre - 200 places"
+                    example: "Ressource TEST 1"
                   description:
                     type: string
                     example: ""
@@ -1276,113 +1339,33 @@ paths:
                     example: null
                   periodic_booking:
                     type: boolean
-                    example: false
+                    example: true
                   is_available:
                     type: boolean
                     example: true
                   min_delay:
                     type: integer
-                    example: 604800
+                    example: null
                   max_delay:
                     type: integer
-                    example: 2592000
+                    example: null
                   type_id:
                     type: integer
-                    example: 70
+                    example: 1359
                   validation:
                     type: boolean
-                    example: true
+                    example: false
                   color:
                     type: string
-                    example: "#FF8500"
+                    example: "#46bfaf"
                   quantity:
                     type: integer
-                    example: 1
+                    example: 3
                   shared:
                     type: array
                     items:
                       type: string
                     example: []
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    put:
-      tags:
-        - resource
-      summary: Update resource
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID of the resource
-          schema:
-            type: integer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                color:
-                  type: string
-                  example: "#30bb61"
-                description:
-                  type: string
-                  example: '<div class="ng-scope">C''est une ressource de test</div>'
-                is_available:
-                  type: boolean
-                  example: true
-                name:
-                  type: string
-                  example: "salle de test"
-                periodic_booking:
-                  type: boolean
-                  example: true
-                quantity:
-                  type: integer
-                  example: 1
-                type_id:
-                  type: integer
-                  example: 68
-                validation:
-                  type: boolean
-                  example: true
-                was_available:
-                  type: boolean
-                  example: true
-      responses:
-        "200":
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    example: 184
-                  name:
-                    type: string
-                    example: "salle de test"
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    delete:
-      tags:
-        - resource
-      summary: Delete resource
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID of the resource
-          schema:
-            type: integer
-      responses:
-        "200":
-          description: Successful response
         "404":
           description: Bad request
         "302":
@@ -1712,41 +1695,41 @@ paths:
                           groupId:
                             type: string
                             example: "92766-1510043922665"
-                          net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications
+                          : type: boolean
                             example: true
                           net-atos-entng-rbs-controllers-ResourceController|get:
                             type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-ResourceController|addNotification:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-ResourceController|addNotification
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-BookingController|listBookingsByResource:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-BookingController|listBookingsByResource
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-ResourceTypeController|getModerators:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-ResourceTypeController|getModerators
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-ResourceController|removeNotification:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-ResourceController|removeNotification
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-BookingController|createPeriodicBooking:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-BookingController|createPeriodicBooking
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-BookingController|updatePeriodicBooking:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-BookingController|updatePeriodicBooking
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-BookingController|updateBooking:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-BookingController|updateBooking
+                          : type: boolean
                             example: true
-                          net-atos-entng-rbs-controllers-BookingController|createBooking:
-                            type: boolean
+                          ? net-atos-entng-rbs-controllers-BookingController|createBooking
+                          : type: boolean
                             example: true
         "404":
           description: Bad request
@@ -1817,83 +1800,83 @@ paths:
                         groupId:
                           type: string
                           example: "91d244a6-0521-4b39-b3cb-be7e6222321c"
-                        net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|addNotifications
+                        : type: boolean
                           example: true
                         net-atos-entng-rbs-controllers-ResourceController|get:
                           type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|getResourceType
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceController|addNotification:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceController|addNotification
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|removeNotifications
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-BookingController|listBookingsByResource:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-BookingController|listBookingsByResource
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|getModerators:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|getModerators
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceController|removeNotification:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceController|removeNotification
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|removeShare:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|removeShare
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|shareJsonSubmit:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|shareJsonSubmit
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceController|shareRemove:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceController|shareRemove
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceController|shareSubmit:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceController|shareSubmit
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|updateResourceType:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|updateResourceType
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceController|create:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceController|create
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-BookingController|deleteBooking:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-BookingController|deleteBooking
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|shareJson:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|shareJson
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceController|delete:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceController|delete
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|shareResource:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|shareResource
+                        : type: boolean
                           example: true
                         net-atos-entng-rbs-controllers-ResourceController|share:
                           type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceTypeController|deleteResourceType:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceTypeController|deleteResourceType
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-BookingController|createPeriodicBooking:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-BookingController|createPeriodicBooking
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-BookingController|updatePeriodicBooking:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-BookingController|updatePeriodicBooking
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-BookingController|updateBooking:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-BookingController|updateBooking
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-BookingController|createBooking:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-BookingController|createBooking
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-ResourceController|update:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-ResourceController|update
+                        : type: boolean
                           example: true
-                        net-atos-entng-rbs-controllers-BookingController|processBooking:
-                          type: boolean
+                        ? net-atos-entng-rbs-controllers-BookingController|processBooking
+                        : type: boolean
                           example: true
         "404":
           description: Bad request
