@@ -28,7 +28,7 @@ paths:
   /auth/oauth2/auth:
     get:
       tags:
-        - oauth2
+        - auth
       summary: Authenticate using OAuth 2.0 with Authorization Code
       parameters:
         - name: response_type
@@ -463,18 +463,80 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /auth/forgot-id:
+  /auth/forgot-password:
     post:
       tags:
-        - auth🚧
-      summary: 🚧 //TODO
+        - auth
+      summary: Forgot password
+      requestBody:
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      login:
+                        type: string
+                        example: 'luc.dumon'
+                      service:
+                        type: string
+                        items:
+                          type: string
+                        example: 'mail'
       responses:
         "200":
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
         "404":
           description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+  /auth/forgot-id:
+    post:
+      tags:
+        - auth
+      summary: Forgot Id
+      requestBody:
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      firstName:
+                        type: string
+                        example: 'luc'
+                      mail:
+                        type: string
+                        items:
+                          type: string
+                        example: 'luc@edifice.io'
+                      service:
+                        type: string
+                        example: 'mail'
+                      structureId:
+                        type: string
+                        items:
+                          type: string
+                        example: 'cbc6cb9e-ce40-45dd-91b2-ddd7529fdcaa'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+        "404":
+          description: Bad request
   /auth/password-channels:
     get:
       tags:
@@ -487,18 +549,7 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /auth/forgot-password:
-    post:
-      tags:
-        - auth🚧
-      summary: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
   /auth/sendResetPassword:
     post:
       tags:
