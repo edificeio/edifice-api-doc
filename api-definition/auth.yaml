@@ -619,17 +619,53 @@ paths:
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
   /auth/reset:
-    post:
-      tags:
-        - auth🚧
-      summary: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      post:
+        tags:
+          - auth
+        summary: Reset user password
+        description: This endpoint is used to reset a user's password using a reset code.
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                      description: The key identifying the type of value (e.g., login, password, confirmPassword, resetCode)
+                      enum: [login, password, confirmPassword, resetCode]
+                    value:
+                      type: string
+                      description: The value associated with the key
+                  required:
+                    - key
+                    - value
+                example:
+                  - key: login
+                    value: simon.briaud
+                  - key: password
+                    value: s@7zaNL#8PABeRNS
+                  - key: confirmPassword
+                    value: s@7zaNL#8PABeRNS
+                  - key: resetCode
+                    value: 3ynvse3v
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+            headers:
+              Location:
+                description: URL to which the client is redirected
+                schema:
+                  type: string
+                example: $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+
   /auth/cgu/revalidate:
     get:
       tags:
