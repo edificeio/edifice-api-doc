@@ -14,11 +14,11 @@ tags:
       url: "https://oauth.net/2/grant-types/authorization-code/"
   - name: auth
     description: Authenticate
+  - name: cgu
+    description: Conditions Générales d'Utilisation (CGU)
   - name: auth🚧
     description: 🚧 //TODO
   - name: cas
-    description: 🚧 //TODO
-  - name: cgu
     description: 🚧 //TODO
   - name: openid
     description: 🚧 //TODO
@@ -667,15 +667,18 @@ paths:
                 example: $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
 
   /auth/cgu/revalidate:
-    get:
+    put:
       tags:
         - cgu
-      summary: 🚧 //TODO
+      summary: Revalidate CGU
+      description: Endpoint to revalidate the CGU for an authenticated user.
       responses:
         "200":
-          description: Successful response
-        "404":
-          description: Bad request
+          description: No Content - CGU revalidated successfully.
+        '400':
+          description: Bad Request - CGU revalidation failed.
+        '401':
+          description: Unauthorized - User is not authorized to revalidate CGU.
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
   /auth/user/mfa/code:
