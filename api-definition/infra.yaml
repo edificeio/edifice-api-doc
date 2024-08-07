@@ -44,15 +44,67 @@ paths:
   /infra/monitoring/db:
     get:
       tags:
-        - monitoring🚧
-      summary: 🚧 //TODO
+        - monitoring
+      summary: Get database monitoring information
       responses:
         "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+          description: Monitoring information displayed as HTML
+          content:
+            text/html:
+              schema:
+                type: string
+                description: HTML content representing the database monitoring page.
+        "401":
+          description: Unauthorized, user is not authenticated
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: accept
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+        - name: cookie
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "webviewsecure=true:zRLkRKyrFZ+Y93SW8r71txJ4XFM=; oneSessionId=63119fcb-f8b8-4ebc-aced-a7c5a3dc51ff:1x8B4cLCqoPxsBxK5FYFKU2W7V8=; authenticated=true; XSRF-TOKEN=e14db218-8b28-49a7-b72f-4aaa05809fba"
+
+
+  /infra/monitoring:
+    get:
+      tags:
+        - monitoring
+      summary: Get monitoring information for the infrastructure
+      responses:
+        "200":
+          description: Monitoring information displayed as HTML
+          content:
+            text/html:
+              schema:
+                type: string
+                description: HTML content representing the infrastructure monitoring page.
+        "401":
+          description: Unauthorized, user is not authenticated
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: accept
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+        - name: cookie
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "webviewsecure=true:zRLkRKyrFZ+Y93SW8r71txJ4XFM=; webviewignored=true:oUoqJZf9qz8AIhaL9isafO4HEgQ=; oneSessionId=d01c0db2-98b0-4d9b-b01f-1b7fd8f0e0f2:uCzxJnDnkpyanFqhrpYB9hsqtUI=; authenticated=true; XSRF-TOKEN=a5470dba-bd78-4350-bf27-d97b98c103cd"
+
+
 
   /infra/monitoring/db/neo4j/metrics:
     get:
@@ -83,15 +135,35 @@ paths:
   /infra/monitoring/versions:
     get:
       tags:
-        - monitoring🚧
-      summary: 🚧 //TODO
+        - monitoring
+      summary: Get version information for the infrastructure
       responses:
         "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+          description: Version information displayed as HTML
+          content:
+            text/html:
+              schema:
+                type: string
+                description: HTML content representing the infrastructure version page.
+        "401":
+          description: Unauthorized, user is not authenticated
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: accept
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+        - name: cookie
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "webviewsecure=true:zRLkRKyrFZ+Y93SW8r71txJ4XFM=; webviewignored=true:oUoqJZf9qz8AIhaL9isafO4HEgQ=; oneSessionId=d01c0db2-98b0-4d9b-b01f-1b7fd8f0e0f2:uCzxJnDnkpyanFqhrpYB9hsqtUI=; authenticated=true; XSRF-TOKEN=a5470dba-bd78-4350-bf27-d97b98c103cd"
+
+
 
   /infra/monitoring/csp:
     get:
