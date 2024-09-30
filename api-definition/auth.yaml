@@ -341,37 +341,74 @@ paths:
                         example: Le formulaire contient des erreurs. Veuillez vérifier que le nouveau mot de passe n’a pas déjà été utilisé et que les deux saisies sont identiques.
       security:
         - cookieAuth: []
+     
+  /auth/forceChangePassword:
+    post:
+      tags:
+        - auth
+      summary: Force Change Password
+      description: |
+        Endpoint to force the user to change their password.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  description: The ID of the user whose password needs to be changed
+                  example: "7be4ddd9-5641-4205-98d6-18db4e889728"
       parameters:
-        - name: X-XSRF-TOKEN
+        - name: Authorization
           in: header
+          description: Bearer token for authentication
           required: true
           schema:
             type: string
-            example: 7a30a76d-d48b-4d72-9b65-63ba8bbb010e
-        - name: authority
-          in: header
-          required: true
-          schema:
-            type: string
-            example: oneconnect.edifice.io
-        - name: user-agent
-          in: header
-          required: true
-          schema:
-            type: string
-            example: Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
-        - name: x-requested-with
-          in: header
-          required: true
-          schema:
-            type: string
-            example: XMLHttpRequest
-        - name: content-type
-          in: header
-          required: true
-          schema:
-            type: string
-            example: application/x-www-form-urlencoded; charset=UTF-8
+            example: "Bearer 2d2bff55-6d35-4069-9f4b-0916cf6ddbd1"
+      responses:
+        "200":
+          description: Password change successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Password changed successfully."
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid user ID."
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid or missing authorization token."
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "An unexpected error occurred."
 
   /auth/oauth2/userinfo:
     get:
