@@ -1,0 +1,13 @@
+oneSessionId:
+  name: oneSessionId
+  in: cookie
+  type: apiKey
+  description: Current session ID.
+xsrfTokenCookie:
+  name: 'XSRF-TOKEN'
+  in: cookie
+  type: apiKey
+xsrfTokenHeader:
+  name: 'x-xsrf-token'
+  in: header
+  type: apiKey

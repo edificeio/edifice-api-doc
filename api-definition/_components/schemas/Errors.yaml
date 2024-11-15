@@ -1,0 +1,13 @@
+ErrorModel:
+  description: 🚧 TODO follow RFC 9457 (https://www.rfc-editor.org/rfc/rfc9457)
+  type: object
+  required:
+  - message
+  - code
+  properties:
+    message:
+      type: string
+    code:
+      type: integer
+      minimum: 100
+      maximum: 600

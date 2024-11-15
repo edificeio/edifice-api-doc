@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "description": "User's ID",
+            "type": "string"
+        },
+        "displayName": {
+            "description": "User's fullname in a displayable format",
+            "type": "string"
+        },
+        "profile": {
+            "description": "User's profile",
+            "type": "string"
+        }
+    },
+    "required": ["id", "displayName", "profile"]
+  }
+  

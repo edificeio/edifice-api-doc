@@ -11,6 +11,7 @@ window.onload = function () {
       { url: "./api-definition/timeline.yaml", name: "Timeline" },
       { url: "./api-definition/explorer.yaml", name: "Explorer" },
       { url: "./api-definition/conversation.yaml", name: "Conversation" },
+      { url: "./api-definition/conversation/conversation.yaml", name: "Conversation 2024" },
       { url: "./api-definition/actualites.yaml", name: "Actualites" },
       { url: "./api-definition/infra.yaml", name: "Infra" },
       {

@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "description": "Group's ID",
+            "type": "string"
+        },
+        "displayName": {
+            "description": "Group's fullname in a displayable format",
+            "type": "string"
+        },
+        "size": {
+            "description": "Number of members in the group",
+            "type": "number"
+        },
+        "type": {
+            "description": "Type of group : Manual, Profile, Dscipline...",
+            "type": "string"
+        },
+        "subType": {
+            "description": "SubType of group : Broadcast...",
+            "type": "string"
+        }        
+    },
+    "required": ["id", "displayName", "size", "type"]
+  }
+  

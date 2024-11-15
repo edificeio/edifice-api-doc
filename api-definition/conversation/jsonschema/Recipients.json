@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "users": {
+            "description": "Users recipients",
+            "type": "array",
+            "items": {
+                "$ref": "User.json"
+            }
+        },
+        "groups": {
+            "description": "Groups recipients",
+            "type": "array",
+            "items": {
+                "$ref": "Group.json"
+            }
+        }
+    },
+    "required": ["users", "groups"]
+  }
+  

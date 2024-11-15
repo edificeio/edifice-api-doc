@@ -1,0 +1,97 @@
+openapi: '3.0.0'
+info:
+  title: Edifice - Conversation - API 2024 🚧🚧
+  description: Conversation is the internal messaging application in Edifice's platform.
+  version: 5.0.0
+
+servers:
+  - url: /
+
+security: 
+  - xsrfTokenCookie: []
+    oneSessionId: []
+  - xsrfTokenHeader: []
+    oneSessionId: []
+
+paths:
+  # ApiController
+  #-------------------------------------------------------------------------------
+  /folders/{folderId}/messages:
+    get:
+      operationId: ListFolderMessages
+      summary: List messages from a folder.
+      parameters: 
+        - name: folderId
+          in: path
+          required: true
+          schema:
+            oneOf:
+            - $ref: '#/components/schemas/DraftFolderId'
+            - $ref: '#/components/schemas/TrashFolderId'
+            - $ref: '#/components/schemas/InboxFolderId'
+            - $ref: '#/components/schemas/OutboxFolderId'
+            - type: string
+        - name: page
+          in: query
+          description: Requested page number, starting at 0.
+          schema:
+            type: integer
+        - name: page_size
+          in: query
+          description: 'Maximum number of messages to return (in other words: size of a page of results).'
+          schema:
+            type: integer
+        - name: unread
+          in: query
+          description: Only return unread messages ?
+          schema:
+            type: boolean
+        - name: search
+          in: query
+          description: Term to search for in messages body, recipients...
+          schema: 
+            type: string
+            example: "Hello!"
+      responses:
+        '200':
+          description: A list of messages without their body.
+          content:
+            application/json:
+              schema:
+                $ref: 'jsonschema/ListFolderMessagesResponse.json'
+        '302':
+          description: User session is closed, the HTTP client is redirected to a Location (login page).
+          headers: 
+            Location:
+              schema: 
+                type: string
+                example: "/auth/login?callback=$SERVER_DOMAIN/conversation/visible"
+        '400':
+          description: 🚧 TODO
+          content: 
+            application/json:
+              schema: 
+                $ref: '../_components/schemas/Errors.yaml#/ErrorModel'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '../_components/schemas/Errors.yaml#/ErrorModel'
+      
+components:
+  schemas:
+    DraftFolderId:
+      type: string
+      pattern: "^draft$"
+    TrashFolderId:
+      type: string
+      pattern: "^trash$"
+    InboxFolderId:
+      type: string
+      pattern: "^inbox$"
+    OutboxFolderId:
+      type: string
+      pattern: "^outbox$"
+  securitySchemes:
+    $ref: '../_components/schemas/SecuritySchemes.yaml'
