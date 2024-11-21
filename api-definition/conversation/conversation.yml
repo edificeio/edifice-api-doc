@@ -5,7 +5,7 @@ info:
   version: 5.0.0
 
 servers:
-  - url: /
+  - url: /conversation/api
 
 security: 
   - xsrfTokenCookie: []
@@ -59,6 +59,23 @@ paths:
             application/json:
               schema:
                 $ref: 'jsonschema/ListFolderMessagesResponse.json'
+              example: |[
+                |{
+                | "id":"abcdef-0123", "subject":"Preum's", "date":1732090599965, "from":
+                |   {"id":"1234-567890", "displayName":"Mr T", "profile":"Teacher"}, 
+                | "to":[{"id":"0987-654321", "displayName":"Alex", "profile":"Student"}], "cc":[], "cci":[], 
+                | "state":"SEND", "hasAttachment": true, "unread": false, "trashed": true, "responded": true, "forwarded": true
+                |},{
+                | "id":"ghijkl-4456", "subject":"Welcome !", "date":1732090625455, "from":
+                |   {"id":"0987-654321", "displayName":"Alex", "profile":"Student"}, 
+                | "to":[], "cc":[{"id":"1234-567890", "displayName":"Mr T", "profile":"Teacher"}], "cci":[], 
+                | "state":"SEND", "hasAttachment": false, "unread": true, "trashed": false, "responded": true, "forwarded": true
+                |},{
+                | "id":"mnopqr-7890", "subject":"Never ending story", "date":1732090636455, "from":
+                |   {"id":"0071-654321", "displayName":"This is me", "profile":"Teacher"}, 
+                | "to":[], "cc":[], "cci":[{"id":"1234-567890", "displayName":"Mr T", "profile":"Teacher"}], 
+                | "state":"DRAFT", "hasAttachment": false, "unread": false, "trashed": false, "responded": false, "forwarded": false
+                |}]
         '302':
           description: User session is closed, the HTTP client is redirected to a Location (login page).
           headers: 
@@ -78,6 +95,60 @@ paths:
             application/json:
               schema:
                 $ref: '../_components/schemas/Errors.yaml#/ErrorModel'
+  /messages/{messageId}:
+    get:
+      operationId: GetFullMessage
+      summary: Get the full content of a message.
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Return the queried message with its details.
+          content:
+            application/json:
+              schema:
+                $ref: 'jsonschema/GetFullMessageResponse.json'
+              example: |[
+                |{
+                | "id":"abcdef-0123", "subject":"Preum's", "date":1732090599965, "from":
+                |   {"id":"1234-567890", "displayName":"Mr T", "profile":"Teacher"}, 
+                | "to":[{"id":"0987-654321", "displayName":"Alex", "profile":"Student"}], "cc":[], "cci":[], 
+                | "state":"SEND", "hasAttachment": true, "unread": false, "trashed": true, "responded": true, "forwarded": true
+                |},{
+                | "id":"ghijkl-4456", "subject":"Welcome !", "date":1732090625455, "from":
+                |   {"id":"0987-654321", "displayName":"Alex", "profile":"Student"}, 
+                | "to":[], "cc":[{"id":"1234-567890", "displayName":"Mr T", "profile":"Teacher"}], "cci":[], 
+                | "state":"SEND", "hasAttachment": false, "unread": true, "trashed": false, "responded": true, "forwarded": true
+                |},{
+                | "id":"mnopqr-7890", "subject":"Never ending story", "date":1732090636455, "from":
+                |   {"id":"0071-654321", "displayName":"This is me", "profile":"Teacher"}, 
+                | "to":[], "cc":[], "cci":[{"id":"1234-567890", "displayName":"Mr T", "profile":"Teacher"}], 
+                | "state":"DRAFT", "hasAttachment": false, "unread": false, "trashed": false, "responded": false, "forwarded": false
+                |}]
+        '302':
+          description: User session is closed, the HTTP client is redirected to a Location (login page).
+          headers: 
+            Location:
+              schema: 
+                type: string
+                example: "/auth/login?callback=$SERVER_DOMAIN/conversation/visible"
+        '400':
+          description: 🚧 TODO
+          content: 
+            application/json:
+              schema: 
+                $ref: '../_components/schemas/Errors.yaml#/ErrorModel'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '../_components/schemas/Errors.yaml#/ErrorModel'
+
       
 components:
   schemas:

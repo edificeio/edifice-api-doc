@@ -1,0 +1,84 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Message ID",
+          "type": "string"
+        },
+        "subject": {
+          "description": "Message subject",
+          "type": "string"
+        },
+        "date": {
+          "description": "Message datation, in milliseconds elapsed since the midnight at the beginning of January 1, 1970, UTC",
+          "type": "number"
+        },
+        "from": {
+          "$ref": "./User.json"
+        },
+        "to": {
+          "$ref": "./Recipients.json"
+        },
+        "cc": {
+          "$ref": "./Recipients.json"
+        },
+        "cci": {
+          "$ref": "./Recipients.json"
+        },
+        "state": {
+          "description": "Current state of the message",
+          "type": "string",
+          "pattern": "^(DRAFT|SEND)$"
+        },
+        "attachments": {
+          "description": "List of attachments.",
+          "type": "array",
+          "items": {
+            "$ref": "./Attachment.json"
+          }
+        },
+        "body": {
+          "description": "Content (rich) of the message",
+          "type": "string"
+        },
+        "language": {
+          "description": "ISO 639-1 (IETF BCP 47) language code, used when creating the rich content.",
+          "type": "string"
+        },
+        "folder_id": {
+          "description": "ID of the folder where the user stored this message.",
+          "type": "string"
+        },
+        "parent_id": {
+          "description": "ID of the message which this message responds to, or is a forward.",
+          "type": "string"
+        },
+        "thread_id": {
+          "description": "ID of the thread this message belongs to.",
+          "type": "string"
+        },
+        "unread": {
+          "description": "Truthy when message is unread.",
+          "type": "boolean"
+        },
+        "trashed":{
+          "description": "Truthy when message is trashed.",
+          "type": "boolean"
+        },
+        "responded": {
+          "description": "Truthy when message has been responded.",
+          "type": "boolean"
+        },
+        "forwarded": {
+          "description": "Truthy when message has been forwarded.",
+          "type": "boolean"
+        }
+      },
+      "required": ["id", "subject", "date", "from", "to", "cc", "state", "hasAttachment", "unread", "trashed", "responded", "forwarded"]
+    }
+  }
+  
