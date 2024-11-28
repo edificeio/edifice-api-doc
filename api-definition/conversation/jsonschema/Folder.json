@@ -3,12 +3,40 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "name": {
+    "id": {
+      "description": "ID of the folder.",
       "type": "string"
     },
-    "parentId": {
+    "name": {
+      "description": "Name of the folder, in user's language.",
       "type": "string"
+    },
+    "depth": {
+      "description": "Depth of the folder, starting at 1.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "subFolders": {
+      "description": "List of subfolders (depth 2+).",
+      "type": "array",
+      "items": {
+        "$ref": "./Folder.json"
+      }
+    },
+    "nbMessages": {
+      "description": "Number of messages in the folder.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "nbUnread": {
+      "description": "Number of unread messages in the folder.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "trashed":{
+      "description": "Truthy when folder is trashed.",
+      "type": "boolean"
     }
   },
-  "required": ["name"]
+  "required": ["id", "name", "depth", "nbMessages", "nbUnread", "trashed"]
 }
