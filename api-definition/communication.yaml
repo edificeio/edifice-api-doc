@@ -1,544 +1,618 @@
 ---
-openapi: 3.0.0
-info:
-  title: Edifice - Communication - API 🚧🚧
-  description: Explore communication rules beteen users and groups
-  version: 4.10.0
-servers:
-  - url: /
-tags:
-  - name: communication
-    description: API for communication
-  - name: group
-    description: API for group communication
-  - name: communication 🚧
-    description: 🚧 //TODO
-  - name: group 🚧
-    description: 🚧 //TODO
-  - name: visible
-    description: 🚧 //TODO
-  - name: rules
-    description: 🚧 //TODO
-paths:
-  /communication/admin-console:
-    get:
-      tags:
-        - communication 🚧
-      summary: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/group/{startGroupId}/communique/{endGroupId}:
-    post:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: startGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+  openapi: 3.0.0
+  info:
+    title: Edifice - Communication - API 🚧🚧
+    description: Explore communication rules beteen users and groups
+    version: 4.10.0
+  servers:
+    - url: /
+  tags:
+    - name: visible
+      description: Fetch visible users and groups for a given user
+    - name: communication
+      description: API for communication
+    - name: group
+      description: API for group communication
+    - name: communication 🚧
+      description: 🚧 //TODO
+    - name: group 🚧
+      description: 🚧 //TODO
+    - name: rules
+      description: 🚧 //TODO
+  
+  paths:
+    /communication/group/{startGroupId}/communique/{endGroupId}:
+      post:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: startGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+          - name: endGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      delete:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: startGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+          - name: endGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/group/{groupId}:
+      get:
+        tags:
+          - group
+        summary: Retrieve Communication Group
+        description: Retrieves information about a communication group.
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/inline_response_200"
+          "404":
+            description: Group not found
+          "302":
+            description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      post:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      delete:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/group/{groupId}/outgoing:
+      get:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/group/{groupId}/incoming:
+      get:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/relative/{groupId}:
+      post:
+        tags:
+          - communication 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      delete:
+        tags:
+          - communication 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+            
+    /communication/visible/{userId}:
+      get:
+        tags:
+          - visible
+        summary: Search visible users and groups
+        description: "If a search keyword is passed as queryParam, then only users with displayname matching that keyword are returned."
+        parameters:
+          - name: userId
+            in: path
+            required: true
+            schema:
+              type: string
+          - name: search
+            in: query
+            required: false
+            style: form
+            explode: true
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Visible users (matching search's keyword) and visible groups
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/CommunicationVisible"
+          "302":
+            description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/communication/visible
+  
+    /communication/visible:
+      post:
+        tags:
+          - visible
+        summary: Search visible users and groups
+        description: "If a search keyword is passed as queryParam, then only users with displayname matching that keyword are returned."
+        parameters:
+          - name: search
+            in: query
+            required: false
+            style: form
+            explode: true
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Visible users (matching search's keyword) and visible groups
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/CommunicationVisible"
+          "302":
+            description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/communication/visible
+    /communication/visible/group/{groupId}:
+      get:
+        tags:
+          - visible
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/init/rules:
+      put:
+        tags:
+          - rules
+        summary: 🚧 //TODO
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/rules:
+      get:
+        tags:
+          - rules
+        summary: 🚧 //TODO
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      delete:
+        tags:
+          - rules
+        summary: 🚧 //TODO
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/rules/{structureId}:
+      put:
+        tags:
+          - rules
+        summary: 🚧 //TODO
+        parameters:
+          - name: structureId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/group/{groupId}/users:
+      post:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      delete:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: groupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/v2/group/{startGroupId}/communique/{endGroupId}/check:
+      get:
+        tags:
+          - group 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: startGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+          - name: endGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+    /communication/v2/group/{startGroupId}/communique/{endGroupId}:
+      post:
+        tags:
+          - communication 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: startGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+          - name: endGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+      delete:
+        tags:
+          - communication 🚧
+        summary: 🚧 //TODO
+        parameters:
+          - name: startGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+          - name: endGroupId
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: Successful response
+          "404":
+            description: Bad request
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+            
+    /communication/verify/{from}/{to}:
+      get:
+        tags:
+          - communication
+        summary: Verify Communication
+        parameters:
+          - name: from
+            in: path
+            description: Id for the sender (user)
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+          - name: to
+            in: path
+            description: "Id for the recipient (user, group)"
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: "Returns JsonObject {canCommunicate => true/false}"
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    canCommunicate:
+                      type: boolean
+          "302":
+            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+          "404":
+            description: Not Found
+  components:
+    schemas:
+      CommunicationVisible:
+        required:
+          - groups
+          - users
+        type: object
+        properties:
+          groups:
+            type: array
+            items:
+              $ref: "#/components/schemas/VisibleGroup"
+          users:
+            type: array
+            items:
+              $ref: "#/components/schemas/VisibleUser"
+      VisibleUser:
+        required:
+          - displayName
+          - id
+          - profile
+        type: object
+        properties:
+          id:
             type: string
-        - name: endGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          displayName:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    delete:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: startGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          profile:
             type: string
-        - name: endGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+            enum:
+              - Student
+              - Teacher
+              - Relative
+              - Personel
+              - Guest
+          groupDisplayName:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/group/{groupId}:
-    get:
-      tags:
-        - group
-      summary: Retrieve Communication Group
-      description: Retrieves information about a communication group.
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          structureyName:
             type: string
-      responses:
-        "200":
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/inline_response_200"
-        "404":
-          description: Group not found
-        "302":
-          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    post:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+      VisibleGroup:
+        required:
+          - groupDisplayName
+          - id
+          - name
+          - profile
+        type: object
+        properties:
+          id:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    delete:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          name:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/group/{groupId}/outgoing:
-    get:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          profile:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/group/{groupId}/incoming:
-    get:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+            enum:
+              - Student
+              - Teacher
+              - Relative
+              - Personel
+              - Guest
+              - Manual
+          groupDisplayName:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/relative/{groupId}:
-    post:
-      tags:
-        - communication 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          structureyName:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    delete:
-      tags:
-        - communication 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+      inline_response_200_communiqueWith:
+        type: object
+        properties:
+          filter:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/visible/{userId}:
-    get:
-      tags:
-        - visible
-      summary: 🚧 //TODO
-      parameters:
-        - name: userId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          displayNameSearchField:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/visible:
-    post:
-      tags:
-        - visible
-      summary: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/visible/group/{groupId}:
-    get:
-      tags:
-        - visible
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          structureName:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/init/rules:
-    put:
-      tags:
-        - rules
-      summary: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/rules:
-    get:
-      tags:
-        - rules
-      summary: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    delete:
-      tags:
-        - rules
-      summary: 🚧 //TODO
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/rules/{structureId}:
-    put:
-      tags:
-        - rules
-      summary: 🚧 //TODO
-      parameters:
-        - name: structureId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          nbUsers:
+            type: integer
+          communiqueWith:
+            type: array
+            items:
+              type: string
+          name:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/group/{groupId}/users:
-    post:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          id:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    delete:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: groupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          users:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/v2/group/{startGroupId}/communique/{endGroupId}/check:
-    get:
-      tags:
-        - group 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: startGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+      inline_response_200:
+        type: object
+        properties:
+          filter:
             type: string
-        - name: endGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          displayNameSearchField:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/v2/group/{startGroupId}/communique/{endGroupId}:
-    post:
-      tags:
-        - communication 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: startGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          structureName:
             type: string
-        - name: endGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          communiqueWith:
+            type: array
+            items:
+              $ref: "#/components/schemas/inline_response_200_communiqueWith"
+          name:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-    delete:
-      tags:
-        - communication 🚧
-      summary: 🚧 //TODO
-      parameters:
-        - name: startGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          id:
             type: string
-        - name: endGroupId
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
+          users:
             type: string
-      responses:
-        "200":
-          description: Successful response
-        "404":
-          description: Bad request
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-  /communication/verify/{from}/{to}:
-    get:
-      tags:
-        - communication
-      summary: Verify Communication
-      parameters:
-        - name: from
-          in: path
-          description: Id for the sender (user)
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-        - name: to
-          in: path
-          description: "Id for the recipient (user, group)"
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-      responses:
-        "200":
-          description: "Returns JsonObject {canCommunicate => true/false}"
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  canCommunicate:
-                    type: boolean
-        "302":
-          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-        "404":
-          description: Not Found
-components:
-  schemas:
-    inline_response_200_communiqueWith:
-      type: object
-      properties:
-        filter:
-          type: string
-        displayNameSearchField:
-          type: string
-        structureName:
-          type: string
-        nbUsers:
-          type: integer
-        communiqueWith:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        id:
-          type: string
-        users:
-          type: string
-    inline_response_200:
-      type: object
-      properties:
-        filter:
-          type: string
-        displayNameSearchField:
-          type: string
-        structureName:
-          type: string
-        communiqueWith:
-          type: array
-          items:
-            $ref: "#/components/schemas/inline_response_200_communiqueWith"
-        name:
-          type: string
-        id:
-          type: string
-        users:
-          type: string
-  securitySchemes:
-    oAuth2AuthCode:
-      type: oauth2
-      description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
-      flows:
-        authorizationCode:
-          authorizationUrl: /auth/oauth2/auth
-          tokenUrl: /auth/oauth2/token
-          scopes:
-            userinfo: Get user's identification information
-            conversation: Access to conversation API
+    securitySchemes:
+      oAuth2AuthCode:
+        type: oauth2
+        description: "For more information, see https://opendigitaleducation.atlassian.net/wiki/spaces/PUBLIC/pages/1184891013/Connecteur+-+SSO+oAuth2"
+        flows:
+          authorizationCode:
+            authorizationUrl: /auth/oauth2/auth
+            tokenUrl: /auth/oauth2/token
+            scopes:
+              userinfo: Get user's identification information
+              conversation: Access to conversation API
+  
