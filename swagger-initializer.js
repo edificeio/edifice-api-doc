@@ -19,6 +19,7 @@ window.onload = function () {
       },
       { url: "./api-definition/blog.yaml", name: "Blog" },
       { url: "./api-definition/wiki.yaml", name: "Wiki" },
+      { url: "./api-definition/statistics.yaml", name: "Statistics"},
     ],
     dom_id: "#swagger-ui",
     deepLinking: true,
