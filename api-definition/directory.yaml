@@ -1,7 +1,6 @@
----
 openapi: 3.0.0
 info:
-  title: Edifice - Directory - API 🚧🚧
+  title: Edifice - directory 🚧 - API 🚧🚧
   description: "Discover Schools, classes, groups and users in Edifice's platform"
   version: 4.10.0
 servers:
@@ -17,9 +16,11 @@ tags:
     description: Get structure information
   - name: sharebookmark
     description: Get sharebookmark information
+  - name: directory
+    description: Get directory information
   - name: user 🚧
     description: 🚧 //TODO
-  - name: directory
+  - name: directory 🚧
     description: 🚧 //TODO
   - name: class 🚧
     description: 🚧 //TODO
@@ -45,7 +46,7 @@ paths:
   /directory/calendar:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -406,7 +407,7 @@ paths:
   /directory/import:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -418,7 +419,7 @@ paths:
   /directory/transition:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -430,7 +431,7 @@ paths:
   /directory/removeclassgroupshare/{structureExternalId}:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureExternalId
@@ -450,7 +451,7 @@ paths:
   /directory/duplicates/mark:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -462,7 +463,7 @@ paths:
   /directory/autogroups/link:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -474,7 +475,7 @@ paths:
   /directory/export:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -486,7 +487,7 @@ paths:
   /directory/reinitLogins:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -498,7 +499,7 @@ paths:
   /directory/annuaire:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -510,7 +511,7 @@ paths:
   /directory/schools:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -522,7 +523,7 @@ paths:
   /directory/api/ecole:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -534,7 +535,7 @@ paths:
   /directory/school:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -546,7 +547,7 @@ paths:
   /directory/school/{id}:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -566,7 +567,7 @@ paths:
   /directory/school/{schoolId}:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: schoolId
@@ -586,7 +587,7 @@ paths:
   /directory/api/classes:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -598,7 +599,7 @@ paths:
   /directory/api/personnes:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -610,7 +611,7 @@ paths:
   /directory/users:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -622,7 +623,7 @@ paths:
   /directory/api/details:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -634,7 +635,7 @@ paths:
   /directory/api/user:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -646,7 +647,7 @@ paths:
   /directory/api/export:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1061,7 +1062,7 @@ paths:
   /directory/profiles:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1072,7 +1073,7 @@ paths:
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
     put:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1084,7 +1085,7 @@ paths:
   /directory/functions:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -1096,7 +1097,7 @@ paths:
   /directory/function/{profile}:
     post:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: profile
@@ -1116,7 +1117,7 @@ paths:
   /directory/function/{function}:
     delete:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: function
@@ -1136,7 +1137,7 @@ paths:
   /directory/functiongroup/{groupId}:
     delete:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -1265,7 +1266,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-
   /directory/sharebookmark/all:
     get:
       tags:
@@ -1308,7 +1308,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ShareBookmark"
-
     put:
       tags:
         - sharebookmark 🚧
@@ -2586,7 +2585,7 @@ paths:
   /directory/mon-compte:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2598,7 +2597,7 @@ paths:
   /directory/birthday:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2610,7 +2609,7 @@ paths:
   /directory/mood:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2622,7 +2621,7 @@ paths:
   /directory/api/search:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2634,7 +2633,7 @@ paths:
   /directory/api/person:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2680,7 +2679,7 @@ paths:
   /directory/users/{groupId}:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: groupId
@@ -2700,7 +2699,7 @@ paths:
   /directory/api/class:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2712,7 +2711,7 @@ paths:
   /directory/api/edit-userbook-info:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2724,7 +2723,7 @@ paths:
   /directory/api/set-visibility:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2736,7 +2735,7 @@ paths:
   /directory/avatar/{id}:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: id
@@ -2756,7 +2755,7 @@ paths:
   /directory/person/birthday:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2768,7 +2767,7 @@ paths:
   /directory/api/edit-user-info-visibility:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2780,7 +2779,7 @@ paths:
   /directory/user-preferences:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2850,7 +2849,7 @@ paths:
   /directory/search/criteria:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -2862,7 +2861,7 @@ paths:
   /directory/search/criteria/{structureId}/classes:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       parameters:
         - name: structureId
@@ -3004,7 +3003,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-
   /userbook/preference/timeline:
     get:
       tags:
@@ -3025,7 +3023,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-
   /userbook/preference/presences.register:
     get:
       tags:
@@ -3341,10 +3338,323 @@ paths:
     get:
       tags:
         - directory
-      summary: 🚧 //TODO
+      summary: Get user information
       responses:
         "200":
-          description: Successful response
+          description: Successful response with user information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lastName:
+                    type: string
+                    example: "DOE"
+                  lastLogin:
+                    type: string
+                    format: date-time
+                    example: "2025-04-01T11:31:29.817+02:00"
+                  functions:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          example: "ABC"
+                        functionName:
+                          type: string
+                          example: "TEACHING STUDENTS"
+                        scope:
+                          type: array
+                          items:
+                            type: string
+                        structureExternalIds:
+                          type: array
+                          items:
+                            type: string
+                            example: "SCHOOL-1234"
+                        subjects:
+                          type: object
+                          additionalProperties:
+                            type: object
+                            properties:
+                              subjectCode:
+                                type: string
+                                example: "SUBJ123"
+                              subjectName:
+                                type: string
+                                example: "MATHEMATICS"
+                              scope:
+                                type: array
+                                items:
+                                  type: string
+                              structureExternalIds:
+                                type: array
+                                items:
+                                  type: string
+                                  example: "SCHOOL-1234"
+                  displayName:
+                    type: string
+                    example: "DOE JOHN"
+                  classCategories:
+                    type: array
+                    items:
+                      type: string
+                    example: ["13$MATHEMATICS"]
+                  classes:
+                    type: array
+                    items:
+                      type: string
+                    example: ["SCHOOL-1234$CLASS1"]
+                  source:
+                    type: string
+                    example: "AAF"
+                  login:
+                    type: string
+                    example: "john.doe"
+                  title:
+                    type: string
+                    example: "Mme"
+                  headTeacher:
+                    type: array
+                    items:
+                      type: string
+                  teaches:
+                    type: boolean
+                    example: true
+                  federated:
+                    type: boolean
+                    example: true
+                  surname:
+                    type: string
+                    example: "DOE"
+                  modified:
+                    type: string
+                    format: date-time
+                    example: "2024-09-12T02:36:57.449+02:00"
+                  subjectTaught:
+                    type: array
+                    items:
+                      type: string
+                    example: ["SCHOOL-1234$MATHEMATICS"]
+                  id:
+                    type: string
+                    format: uuid
+                    example: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                  created:
+                    type: string
+                    format: date-time
+                    example: "2017-07-20T19:26:56.377+02:00"
+                  structures:
+                    type: array
+                    items:
+                      type: string
+                    example: ["SCHOOL-1234"]
+                  profiles:
+                    type: array
+                    items:
+                      type: string
+                    example: ["Teacher"]
+                  externalId:
+                    type: string
+                    example: "SCHOOL-5678"
+                  groups:
+                    type: array
+                    items:
+                      type: string
+                    example: ["SCHOOL-1234$GROUP1", "SCHOOL-1234$GROUP2"]
+                  subCC:
+                    type: string
+                    example: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                  needRevalidateTerms:
+                    type: boolean
+                    example: false
+                  joinKey:
+                    type: array
+                    items:
+                      type: string
+                    example: ["SCHOOL-5678"]
+                  birthDate:
+                    type: string
+                    format: date
+                    example: "1985-05-15"
+                  modules:
+                    type: array
+                    items:
+                      type: string
+                    example: ["SCHOOL-1234$MODULE123$ADVANCED MATH"]
+                  firstName:
+                    type: string
+                    example: "JOHN"
+                  isTeacher:
+                    type: boolean
+                    example: true
+                  structureNodes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        zipCode:
+                          type: string
+                          example: "10000"
+                        ignoreMFA:
+                          type: boolean
+                          example: false
+                        city:
+                          type: string
+                          example: "METROPOLIS"
+                        exports:
+                          type: array
+                          items:
+                            type: string
+                            example: ["GAR-J0"]
+                        source:
+                          type: string
+                          example: "AAF"
+                        type:
+                          type: string
+                          example: "LYCEE D ENSEIGNEMENT GENERAL"
+                        oldName:
+                          type: string
+                          example: "ANONYMIZED-OLD-NAME"
+                        checksum:
+                          type: string
+                          example: "ANONYMIZED-CHECKSUM"
+                        modified:
+                          type: string
+                          format: date-time
+                          example: "ANONYMIZED-DATE-TIME"
+                        id:
+                          type: string
+                          example: "ANONYMIZED-ID"
+                        defaultBookmarks:
+                          type: string
+                          example: '{"Personnel":["ANONYMIZED-BOOKMARK"],"Relative":["ANONYMIZED-BOOKMARK"],"Student":["ANONYMIZED-BOOKMARK"],"Teacher":["ANONYMIZED-BOOKMARK"]}'
+                        email:
+                          type: string
+                          format: email
+                          example: "contact@school.edu"
+                        academy:
+                          type: string
+                          example: "NORTH ACADEMY"
+                        SIRET:
+                          type: string
+                          example: "ANONYMIZED-SIRET"
+                        area:
+                          type: string
+                          example: "ANONYMIZED-AREA"
+                        address:
+                          type: string
+                          example: "123 Main Street"
+                        hasApp:
+                          type: boolean
+                          example: false
+                        created:
+                          type: string
+                          format: date-time
+                          example: "2017-07-20T19:18:16.312+02:00"
+                        contract:
+                          type: string
+                          example: "ANONYMIZED-CONTRACT"
+                        externalId:
+                          type: string
+                          example: "ANONYMIZED-SCHOOL-ID"
+                        groups:
+                          type: array
+                          items:
+                            type: string
+                            example: "ANONYMIZED-GROUP"
+                        joinKey:
+                          type: array
+                          items:
+                            type: string
+                            example: ["ANONYMIZED-JOIN-KEY"]
+                        distributions:
+                          type: array
+                          items:
+                            type: string
+                            example: ["ANONYMIZED-DISTRIBUTION"]
+                        phone:
+                          type: string
+                          example: "ANONYMIZED-PHONE"
+                        name:
+                          type: string
+                          example: "ANONYMIZED-NAME"
+                        feederName:
+                          type: string
+                          example: "ANONYMIZED-FEEDER-NAME"
+                        UAI:
+                          type: string
+                          example: "ANONYMIZED-UAI"
+                        ministry:
+                          type: string
+                          example: "ANONYMIZED-MINISTRY"
+                  type:
+                    type: array
+                    items:
+                      type: string
+                      example: ["Teacher"]
+                  children:
+                    type: array
+                    items:
+                      type: object
+                      example: []
+                  parents:
+                    type: array
+                    items:
+                      type: object
+                      example: []
+                  functionalGroups:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: "ANONYMIZED-GROUP-NAME"
+                        id:
+                          type: string
+                          format: uuid
+                          example: "ANONYMIZED-UUID"
+                  administrativeStructures:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                          example: "ANONYMIZED-UUID"
+                  subjectCodes:
+                    type: array
+                    items:
+                      type: string
+                      example: "ANONYMIZED-SUBJECT-CODE"
+                  userPositions:
+                    type: array
+                    items:
+                      type: object
+                      example: []
+                  manualGroups:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        structureUai:
+                          type: string
+                          example: "ANONYMIZED-UAI"
+                        name:
+                          type: string
+                          example: "ANONYMIZED-GROUP-NAME"
+                        structureId:
+                          type: string
+                          format: uuid
+                          example: "ANONYMIZED-UUID"
+                        id:
+                          type: string
+                          format: uuid
+                          example: "ANONYMIZED-UUID"
         "404":
           description: Bad request
         "302":
@@ -3352,7 +3662,7 @@ paths:
   /directory/myinfos-ext:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -3364,7 +3674,7 @@ paths:
   /directory/e-tude:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -3376,7 +3686,7 @@ paths:
   /directory/saooti:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -3388,7 +3698,7 @@ paths:
   /directory/myclasses:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -3420,7 +3730,7 @@ paths:
   /directory/list/isolated:
     get:
       tags:
-        - directory
+        - directory 🚧
       summary: 🚧 //TODO
       responses:
         "200":
@@ -3779,7 +4089,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-
   /directory/user/adml/list/{structureId}:
     get:
       tags:
@@ -3800,7 +4109,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-
   /directory/user/admin/list:
     get:
       tags:
@@ -3844,7 +4152,6 @@ paths:
                 $ref: "#/components/schemas/ExportUsers"
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
-
   /directory/user/{studentId}/related/{relativeId}:
     put:
       tags:
@@ -4179,7 +4486,6 @@ paths:
           description: Bad request
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-
   /directory/user/list/by/structure:
     get:
       tags:
