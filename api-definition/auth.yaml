@@ -341,7 +341,7 @@ paths:
                         example: Le formulaire contient des erreurs. Veuillez vérifier que le nouveau mot de passe n’a pas déjà été utilisé et que les deux saisies sont identiques.
       security:
         - cookieAuth: []
-     
+
   /auth/forceChangePassword:
     post:
       tags:
@@ -414,7 +414,7 @@ paths:
     get:
       tags:
         - oauth2
-      summary: Get User Information
+      summary: Get User Information version 1.0
       parameters:
         - name: Authorization
           in: header
@@ -431,34 +431,213 @@ paths:
               schema:
                 type: object
                 properties:
-                  level:
-                    type: string
-                  login:
-                    type: string
-                  lastName:
-                    type: string
-                  firstName:
-                    type: string
-                  externalId:
-                    type: string
-                  username:
-                    type: string
-                  type:
-                    type: string
-                  childrenIds:
+                  classNames:
                     type: array
                     items:
                       type: string
+                      example: "ANONYMIZED-CLASS"
+                  level:
+                    type: string
+                    example: "ANONYMIZED-LEVEL"
+                  email:
+                    type: string
+                    example: "anon@example.com"
+                  mobile:
+                    type: string
+                    example: "ANONYMIZED-MOBILE"
+                  login:
+                    type: string
+                    example: "anonymous.user"
+                  lastName:
+                    type: string
+                    example: "USER"
+                  firstName:
+                    type: string
+                    example: "ANONYMOUS"
+                  externalId:
+                    type: string
+                    example: "ANONYMIZED-ID"
+                  federated:
+                    type: boolean
+                    example: true
+                  birthDate:
+                    type: string
+                    format: date
+                    example: "2000-01-01"
+                  forceChangePassword:
+                    type: boolean
+                    example: false
+                  needRevalidateTerms:
+                    type: boolean
+                    example: false
+                  deletePending:
+                    type: boolean
+                    example: false
+                  username:
+                    type: string
+                    example: "ANONYMOUS-USERNAME"
+                  type:
+                    type: string
+                    example: "ANONYMOUS-TYPE"
+                  hasPw:
+                    type: boolean
+                    example: true
+                  functions:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                        functionName:
+                          type: string
+                        scope:
+                          type: array
+                          items:
+                            type: string
+                        structureExternalIds:
+                          type: array
+                          items:
+                            type: string
+                        subjects:
+                          type: object
+                          additionalProperties:
+                            type: object
+                            properties:
+                              subjectCode:
+                                type: string
+                              subjectName:
+                                type: string
+                              scope:
+                                type: array
+                                items:
+                                  type: string
+                              structureExternalIds:
+                                type: array
+                                items:
+                                  type: string
+                  groupsIds:
+                    type: array
+                    items:
+                      type: string
+                      example: "ANONYMIZED-GROUP"
+                  federatedIDP:
+                    type: string
+                    example: "ANONYMIZED-IDP"
+                  optionEnabled:
+                    type: array
+                    items:
+                      type: string
+                      example: "ANONYMIZED-OPTION"
+                  userId:
+                    type: string
+                    example: "ANONYMIZED-USER-ID"
+                  structures:
+                    type: array
+                    items:
+                      type: string
+                      example: "ANONYMIZED-STRUCTURE"
+                  structureNames:
+                    type: array
+                    items:
+                      type: string
+                      example: "ANONYMIZED-STRUCTURE-NAME"
                   uai:
                     type: array
                     items:
                       type: string
-                  userId:
-                    type: string
-                  classId:
-                    type: string
-                  schoolName:
-                    type: string
+                      example: "ANONYMIZED-UAI"
+                  hasApp:
+                    type: boolean
+                    example: false
+                  ignoreMFA:
+                    type: boolean
+                    example: false
+                  classes:
+                    type: array
+                    items:
+                      type: string
+                      example: "ANONYMIZED-CLASS-ID"
+                  authorizedActions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: "ANONYMIZED-ACTION"
+                        displayName:
+                          type: string
+                          example: "ANONYMIZED.ACTION"
+                        type:
+                          type: string
+                          example: "ANONYMOUS_ACTION_TYPE"
+                  apps:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        address:
+                          type: string
+                        icon:
+                          type: string
+                        target:
+                          type: string
+                          nullable: true
+                        displayName:
+                          type: string
+                        display:
+                          type: boolean
+                        prefix:
+                          type: string
+                          nullable: true
+                        casType:
+                          type: string
+                          nullable: true
+                        scope:
+                          type: array
+                          items:
+                            type: string
+                        isExternal:
+                          type: boolean
+                  widgets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        application:
+                          type: string
+                          nullable: true
+                        i18n:
+                          type: string
+                        name:
+                          type: string
+                        path:
+                          type: string
+                        mandatory:
+                          type: boolean
+                        id:
+                          type: string
+                        js:
+                          type: string
+                  sessionMetadata:
+                    type: object
+                    properties:
+                      _id:
+                        type: string
+                        example: "ANONYMIZED-SESSION-ID"
+                      userId:
+                        type: string
+                        example: "ANONYMIZED-USER-ID"
+                      SessionIndex:
+                        type: string
+                        example: "_"
+                      NameID:
+                        type: string
+                        example: "ANONYMIZED-NAME-ID"
+
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
       security:
@@ -596,19 +775,19 @@ paths:
         - auth
       summary: Forgot password
       requestBody:
-              content:
-                application/json:
-                  schema:
-                    type: object
-                    properties:
-                      login:
-                        type: string
-                        example: 'luc.dumon'
-                      service:
-                        type: string
-                        items:
-                          type: string
-                        example: 'mail'
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login:
+                  type: string
+                  example: "luc.dumon"
+                service:
+                  type: string
+                  items:
+                    type: string
+                  example: "mail"
       responses:
         "200":
           description: Successful response
@@ -629,27 +808,27 @@ paths:
         - auth
       summary: Forgot Id
       requestBody:
-              content:
-                application/json:
-                  schema:
-                    type: object
-                    properties:
-                      firstName:
-                        type: string
-                        example: 'luc'
-                      mail:
-                        type: string
-                        items:
-                          type: string
-                        example: 'luc@edifice.io'
-                      service:
-                        type: string
-                        example: 'mail'
-                      structureId:
-                        type: string
-                        items:
-                          type: string
-                        example: 'cbc6cb9e-ce40-45dd-91b2-ddd7529fdcaa'
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: "luc"
+                mail:
+                  type: string
+                  items:
+                    type: string
+                  example: "luc@edifice.io"
+                service:
+                  type: string
+                  example: "mail"
+                structureId:
+                  type: string
+                  items:
+                    type: string
+                  example: "cbc6cb9e-ce40-45dd-91b2-ddd7529fdcaa"
       responses:
         "200":
           description: Successful response
@@ -746,52 +925,52 @@ paths:
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
   /auth/reset:
-      post:
-        tags:
-          - auth
-        summary: Reset user password
-        description: This endpoint is used to reset a user's password using a reset code.
-        requestBody:
-          required: true
-          content:
-            application/json:
+    post:
+      tags:
+        - auth
+      summary: Reset user password
+      description: This endpoint is used to reset a user's password using a reset code.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                    description: The key identifying the type of value (e.g., login, password, confirmPassword, resetCode)
+                    enum: [login, password, confirmPassword, resetCode]
+                  value:
+                    type: string
+                    description: The value associated with the key
+                required:
+                  - key
+                  - value
+              example:
+                - key: login
+                  value: simon.briaud
+                - key: password
+                  value: s@7zaNL#8PABeRNS
+                - key: confirmPassword
+                  value: s@7zaNL#8PABeRNS
+                - key: resetCode
+                  value: 3ynvse3v
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+          headers:
+            Location:
+              description: URL to which the client is redirected
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    key:
-                      type: string
-                      description: The key identifying the type of value (e.g., login, password, confirmPassword, resetCode)
-                      enum: [login, password, confirmPassword, resetCode]
-                    value:
-                      type: string
-                      description: The value associated with the key
-                  required:
-                    - key
-                    - value
-                example:
-                  - key: login
-                    value: simon.briaud
-                  - key: password
-                    value: s@7zaNL#8PABeRNS
-                  - key: confirmPassword
-                    value: s@7zaNL#8PABeRNS
-                  - key: resetCode
-                    value: 3ynvse3v
-        responses:
-          "200":
-            description: Successful response
-          "404":
-            description: Bad request
-          "302":
-            description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
-            headers:
-              Location:
-                description: URL to which the client is redirected
-                schema:
-                  type: string
-                example: $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+                type: string
+              example: $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
 
   /auth/cgu/revalidate:
     put:
@@ -802,9 +981,9 @@ paths:
       responses:
         "200":
           description: No Content - CGU revalidated successfully.
-        '400':
+        "400":
           description: Bad Request - CGU revalidation failed.
-        '401':
+        "401":
           description: Unauthorized - User is not authorized to revalidate CGU.
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
