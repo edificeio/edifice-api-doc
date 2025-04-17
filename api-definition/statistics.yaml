@@ -49,7 +49,7 @@ paths:
           required: false
           schema:
             type: string
-            enum: ["platform", "structure", "class", "tenant"]
+            enum: ["platform", "structure", "class"]
           description: Niveau de l'entité concernée.
         - name: entity
           in: query
@@ -165,7 +165,7 @@ paths:
           required: false
           schema:
             type: string
-            enum: ["platform", "structure", "class", "tenant"]
+            enum: ["platform", "structure", "class"]
 
         - name: entity
           in: query
