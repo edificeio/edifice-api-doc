@@ -83,6 +83,79 @@ paths:
                   - id
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/conversation/visible
+  
+  /conversation/externe:
+    post:
+      tags:
+        - conversation
+      summary: Send a message from an external source
+      description: |
+        Allows an external system to send a message to a user via the application.  
+        All fields are required.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - messageBody
+                - subject
+                - to
+                - from
+                - username
+              properties:
+                messageBody:
+                  type: string
+                  description: HTML content of the message.
+                  example: "<h3>Bonjour,</h3><p>Ceci est un message de test avec un contexte</p><p><br/><div>Consultez l'application test</div></p><p><a href=\"https://www.google.com\">Google</a></p><p><img src=\"https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png\" alt=\"Google Logo\" /></p>"
+                subject:
+                  type: string
+                  description: Subject of the message.
+                  example: "Test Notification"
+                to:
+                  type: string
+                  description: ENT ID of the recipient user.
+                  example: "user-ent-id-123"
+                from:
+                  type: string
+                  description: ENT ID of the sender user.
+                  example: "sender-ent-id-456"
+                username:
+                  type: string
+                  description: Username (used as sender name).
+                  example: "system@example.com"
+      responses:
+        '200':
+          description: Message successfully sent
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      example: {}
+        '400':
+          description: Bad Request (missing or invalid fields)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Missing required fields"
+
+        '302':
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/*
   /conversation/draft/{id}:
     put:
       tags:
