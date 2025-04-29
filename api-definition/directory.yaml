@@ -1945,8 +1945,9 @@ paths:
   /directory/structure/{structureId}/metrics:
     get:
       tags:
-        - structure 🚧
-      summary: 🚧 //TODO
+        - structure
+      summary: Get metrics for a specific structure
+      description: "Retrieves metrics by profile type for a given structure ID, including active and inactive counts."
       parameters:
         - name: structureId
           in: path
@@ -1957,7 +1958,40 @@ paths:
             type: string
       responses:
         "200":
-          description: Successful response
+          description: A list of profile metrics for the structure.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metrics:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        profile:
+                          type: string
+                          example: "Student"
+                        active:
+                          type: integer
+                          example: 219
+                        inactive:
+                          type: integer
+                          example: 227
+              example:
+                metrics:
+                  - inactive: 2
+                    profile: "Personnel"
+                    active: 0
+                  - inactive: 797
+                    profile: "Relative"
+                    active: 0
+                  - inactive: 227
+                    profile: "Student"
+                    active: 219
+                  - inactive: 45
+                    profile: "Teacher"
+                    active: 9
         "404":
           description: Bad request
         "302":
