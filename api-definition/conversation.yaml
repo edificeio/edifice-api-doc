@@ -116,9 +116,9 @@ paths:
                   description: Subject of the message.
                   example: "Test Notification"
                 to:
-                  type: string
+                  type: array
                   description: ENT ID of the recipient user.
-                  example: "user-ent-id-123"
+                  example: ["user-ent-id-123"]
                 from:
                   type: string
                   description: ENT ID of the sender user.
