@@ -257,3 +257,60 @@ paths:
           description: Non autorisé
         '500':
           description: Erreur interne du serveur.
+
+  /stats/structure/metrics:
+    get:
+      tags:
+        - stats
+      summary: Récupérer les statistiques d'une structure
+      description: |
+        Retourne le nombre d'utilisateurs actifs et inactifs par type de profil pour une structure identifiée par son `structureId`.
+      parameters:
+        - name: structureId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: L'identifiant unique (UUID) de la structure
+      responses:
+        '200':
+          description: Requête réussie - statistiques retournées avec succès
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metrics:
+                    type: array
+                    description: Liste des statistiques par profil
+                    items:
+                      type: object
+                      properties:
+                        profile:
+                          type: string
+                          description: Nom du profil utilisateur
+                          example: Enseignant
+                        active:
+                          type: integer
+                          description: Nombre d'utilisateurs actifs
+                          example: 1
+                        inactive:
+                          type: integer
+                          description: Nombre d'utilisateurs inactifs
+                          example: 3
+        '400':
+          description: Requête invalide - `structureId` manquant ou vide
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Code d'erreur
+                    example: structure.id.missing
+        '401':
+          description: Non autorisé
+        '500':
+          description: Erreur interne du serveur lors de l'exportation des données.
