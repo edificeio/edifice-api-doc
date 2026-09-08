@@ -223,9 +223,6 @@ paths:
         inclure des utilisateurs "présupprimés" (désinscrits mais encore
         récupérables) rattachés à cette structure.
 
-
-        Voir également `/directory/structure/{id}/removedUsers` pour la
-        liste des utilisateurs retirés de la structure.
       parameters:
         - name: id
           in: path
