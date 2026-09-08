@@ -5,7 +5,7 @@ window.onload = function () {
   window.ui = SwaggerUIBundle({
     // url: "swagger.json",
     urls: [
-      { url: "./api-definition/auth.yaml", name: "Auth" },
+      { url: "./api-definition/auth_public.yaml", name: "Auth" },
       { url: "./api-definition/directory_public.yaml", name: "Directory" },
       { url: "./api-definition/communication.yaml", name: "Communication" }
     ],
