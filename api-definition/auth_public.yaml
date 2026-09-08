@@ -10,8 +10,7 @@ tags:
   - name: openid
     description: >
       Endpoints implémentant le flux OpenID Connect (Authorization Code Flow)
-      permettant la fédération d'identité avec un fournisseur d'identité tiers
-      (ex. France Connect, City Connect, Worldline...).
+      permettant la fédération d'identité avec un fournisseur d'identité tiers.
 paths:
   /auth/openid/certs:
     get:
