@@ -1,0 +1,48 @@
+---
+openapi: 3.0.0
+info:
+  title: Edifice - Auth - API (Public)
+  description: Public subset of the Edifice Auth API documentation
+  version: 4.10.0
+servers:
+  - url: /
+tags:
+  - name: openid
+    description: 🚧 //TODO
+paths:
+  /auth/openid/certs:
+    get:
+      tags:
+        - openid
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+  /auth/openid/login:
+    get:
+      tags:
+        - openid
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+  /auth/openid/authenticate:
+    get:
+      tags:
+        - openid
+      summary: 🚧 //TODO
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
