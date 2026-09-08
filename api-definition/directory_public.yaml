@@ -1,1 +1,315 @@
-
+---
+openapi: 3.0.0
+info:
+  title: Edifice - Directory - API (Public)
+  description: Public subset of the Edifice Directory API documentation
+  version: 4.10.0
+servers:
+  - url: /
+tags:
+  - name: user
+    description: User
+  - name: structure
+    description: Structure
+paths:
+  /directory/user/{userId}:
+    get:
+      tags:
+        - user
+      summary: Get user details by user ID
+      description: Retrieve detailed information about a user based on the provided user ID.
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: The unique identifier for the user.
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lastLogin:
+                    type: string
+                    format: date-time
+                  lastName:
+                    type: string
+                  zipCode:
+                    type: string
+                  city:
+                    type: string
+                  displayName:
+                    type: string
+                  source:
+                    type: string
+                  title:
+                    type: string
+                  login:
+                    type: string
+                  modified:
+                    type: string
+                    format: date-time
+                  id:
+                    type: string
+                  email:
+                    type: string
+                  address:
+                    type: string
+                  created:
+                    type: string
+                    format: date-time
+                  mobile:
+                    type: string
+                  structures:
+                    type: array
+                    items:
+                      type: string
+                  profiles:
+                    type: array
+                    items:
+                      type: string
+                  externalId:
+                    type: string
+                  needRevalidateTerms:
+                    type: boolean
+                  firstName:
+                    type: string
+                  structureNodes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        created:
+                          type: string
+                          format: date-time
+                        checksum:
+                          type: string
+                        name:
+                          type: string
+                        modified:
+                          type: string
+                          format: date-time
+                        externalId:
+                          type: string
+                        feederName:
+                          type: string
+                        id:
+                          type: string
+                        source:
+                          type: string
+                  type:
+                    type: array
+                    items:
+                      type: string
+                  functions:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: string
+                  children:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        displayName:
+                          type: string
+                        externalId:
+                          type: string
+                        id:
+                          type: string
+                  parents:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        displayName:
+                          type: string
+                        externalId:
+                          type: string
+                        id:
+                          type: string
+                  functionalGroups:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        id:
+                          type: string
+                  administrativeStructures:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                  subjectCodes:
+                    type: array
+                    items:
+                      type: string
+        "404":
+          description: Bad request
+        "302":
+          description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
+  /directory/structure/{id}/users:
+    get:
+      tags:
+        - structure
+      summary: Get all users of the school
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          description: This id represent structureId
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of users
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StructureUsers"
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
+components:
+  schemas:
+    StructureUsers:
+      type: array
+      items:
+        $ref: "#/components/schemas/StructureUser"
+    StructureUser:
+      required:
+        - creationDate
+        - displayName
+        - externalId
+        - firstName
+        - id
+        - lastName
+        - login
+        - source
+        - type
+      type: object
+      properties:
+        id:
+          type: string
+        externalId:
+          type: string
+        displayName:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        type:
+          $ref: "#/components/schemas/Profile"
+        source:
+          $ref: "#/components/schemas/Source"
+        creationDate:
+          type: string
+        deleteDate:
+          type: string
+          description: Date when user account is pre-deleted. It will be definitively deleted (or hard deleted) 3 month after this date. That is de default configuration
+        disappearanceDate:
+          type: string
+          description: Date when a user account disappear from feeding sources
+        blocked:
+          type: boolean
+          description: User account can be blocked by the school's administrator
+        code:
+          type: string
+          description: Activation code is a temporary password usefull for the first connexion
+        attachmentId:
+          type: string
+        structures:
+          type: array
+          items:
+            $ref: "#/components/schemas/StructureUser_structures"
+        classes:
+          type: array
+          items:
+            $ref: "#/components/schemas/StructureUser_structures"
+        manualGroups:
+          type: array
+          items:
+            type: string
+        parents:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExportUser_parents"
+        children:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExportUser_children"
+        functionalGroups:
+          type: array
+          items:
+            type: string
+        functions:
+          type: array
+          items:
+            type: string
+        duplicates:
+          type: array
+          items:
+            type: string
+        removedFromStructures:
+          type: string
+          description: // TODO
+    StructureUser_structures:
+      type: object
+      properties:
+        id:
+          type: string
+        externalId:
+          type: string
+        name:
+          type: string
+    ExportUser_parents:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+    ExportUser_children:
+      type: object
+      properties:
+        id:
+          type: string
+        attachmentId:
+          type: string
+        childExternalId:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        displayName:
+          type: string
+    Profile:
+      type: string
+      enum:
+        - Student
+        - Teacher
+        - Relative
+        - Personnel
+        - Guest
+    Source:
+      type: string
+      enum:
+        - AAF
+        - CSV
+        - MANUAL
