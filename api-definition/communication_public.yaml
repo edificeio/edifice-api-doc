@@ -8,7 +8,7 @@ servers:
   - url: /
 tags:
   - name: visible
-    description: Fetch visible users and groups for a given user
+    description: Retourne l'ensemble des utilisateurs et groupes avec lesquels userId peut communiquer
 paths:
   /communication/visible/{userId}:
     get:
