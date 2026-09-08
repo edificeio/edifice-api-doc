@@ -1,0 +1,102 @@
+---
+openapi: 3.0.0
+info:
+  title: Edifice - Communication - API (Public)
+  description: Public subset of the Edifice Communication API documentation
+  version: 4.10.0
+servers:
+  - url: /
+tags:
+  - name: visible
+    description: Fetch visible users and groups for a given user
+paths:
+  /communication/visible/{userId}:
+    get:
+      tags:
+        - visible
+      summary: Search visible users and groups
+      description: "If a search keyword is passed as queryParam, then only users with displayname matching that keyword are returned."
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Visible users (matching search's keyword) and visible groups
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommunicationVisible"
+        "302":
+          description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/communication/visible
+components:
+  schemas:
+    CommunicationVisible:
+      required:
+        - groups
+        - users
+      type: object
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: "#/components/schemas/VisibleGroup"
+        users:
+          type: array
+          items:
+            $ref: "#/components/schemas/VisibleUser"
+    VisibleUser:
+      required:
+        - displayName
+        - id
+        - profile
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        profile:
+          type: string
+          enum:
+            - Student
+            - Teacher
+            - Relative
+            - Personel
+            - Guest
+        groupDisplayName:
+          type: string
+        structureyName:
+          type: string
+    VisibleGroup:
+      required:
+        - groupDisplayName
+        - id
+        - name
+        - profile
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        profile:
+          type: string
+          enum:
+            - Student
+            - Teacher
+            - Relative
+            - Personel
+            - Guest
+            - Manual
+        groupDisplayName:
+          type: string
