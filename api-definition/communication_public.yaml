@@ -14,8 +14,32 @@ paths:
     get:
       tags:
         - visible
-      summary: Search visible users and groups
-      description: "If a search keyword is passed as queryParam, then only users with displayname matching that keyword are returned."
+      summary: Recherche les utilisateurs et groupes visibles pour un utilisateur
+      description: >
+        Retourne l'ensemble des utilisateurs et groupes avec lesquels
+        `userId` peut communiquer, d'après les règles de communication
+        configurées (relations `COMMUNIQUE` entre groupes de profils, et
+        liens directs `COMMUNIQUE_DIRECT`, par exemple entre un responsable
+        et son enfant). Un utilisateur ou groupe bloqué (`blocked`), masqué
+        (`Hidden`), ou un groupe vide, est exclu du résultat. L'utilisateur
+        `userId` lui-même n'est jamais inclus dans la réponse.
+
+
+        Si `schoolId` est fourni, la règle change : la réponse contient tous
+        les utilisateurs joignables depuis `userId` (jusqu'à 3 sauts de
+        relation `COMMUNIQUE`) qui sont par ailleurs rattachés à la structure
+        indiquée, indépendamment des groupes de communication de l'appelant.
+
+
+        Contrôle d'accès : l'accès est uniquement soumis au droit
+        applicatif (workflow) `communication.visible.user` — il n'est **pas**
+        vérifié que `userId` correspond à l'utilisateur authentifié : tout
+        utilisateur disposant de ce droit peut interroger les visibles d'un
+        autre utilisateur que lui-même.
+
+
+        Si `userId` est vide, la réponse est un tableau vide (`200`), sans
+        appel à la recherche.
       parameters:
         - name: userId
           in: path
@@ -27,8 +51,32 @@ paths:
           required: false
           style: form
           explode: true
+          description: "🚧 //TODO : paramètre documenté par le contrat mais non retrouvé dans l'implémentation actuelle de la route (voir plutôt `expectedType`/`schoolId`)."
           schema:
             type: string
+        - name: schoolId
+          in: query
+          required: false
+          description: >
+            Identifiant de structure. Si renseigné, restreint et redéfinit la
+            recherche aux utilisateurs joignables depuis `userId` (jusqu'à 3
+            sauts de communication) et rattachés à cette structure.
+          schema:
+            type: string
+        - name: expectedType
+          in: query
+          required: false
+          style: form
+          explode: true
+          description: >
+            Filtre les entités retournées par type/label (ex. `Teacher`,
+            `Student`, `Relative`, `Personnel`, `Guest`, ou type de groupe).
+            Paramètre répétable ; si absent, tous les types visibles sont
+            retournés.
+          schema:
+            type: array
+            items:
+              type: string
       responses:
         "200":
           description: Visible users (matching search's keyword) and visible groups
@@ -36,6 +84,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/CommunicationVisible"
+        "400":
+          description: >
+            Erreur lors de la recherche (ex. `schoolId` invalide, erreur de
+            base de données).
+        "401":
+          description: >
+            L'utilisateur authentifié ne dispose pas du droit
+            `communication.visible.user`.
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/communication/visible
 components:
