@@ -16,8 +16,32 @@ paths:
     get:
       tags:
         - user
-      summary: Get user details by user ID
-      description: Retrieve detailed information about a user based on the provided user ID.
+      summary: Récupère les détails d'un utilisateur par son identifiant
+      description: >
+        Retourne les informations détaillées d'un utilisateur.
+
+
+        Contrôle d'accès (droits requis, du plus au moins permissif) : l'appelant
+        doit être `SUPER_ADMIN`, ou être l'utilisateur lui-même, ou partager une
+        structure avec l'utilisateur cible (administrateur de cette structure),
+        ou être enseignant d'une classe de l'utilisateur cible, ou, à défaut,
+        que l'utilisateur cible soit "visible" pour l'appelant selon les règles
+        de visibilité de l'annuaire de la structure. Si aucune de ces conditions
+        n'est remplie, la requête est rejetée (`403`).
+
+
+        Lorsque l'accès n'est accordé que via la règle de "visibilité" (et non
+        via un accès complet), la réponse est fortement restreinte : de
+        nombreux champs sensibles sont retirés (coordonnées, email, téléphone,
+        adresse, fonctions, structures, groupes, enfants/parents, etc.), et le
+        champ `birthDate` n'est renvoyé que si la configuration serveur
+        `enable-birthdate-in-get-user` est activée. Dans les autres cas
+        (accès complet), le profil est renvoyé sans cette restriction.
+
+
+        Certains champs internes/sensibles (mot de passe, jetons de
+        réinitialisation, secrets MFA...) ne sont jamais renvoyés, quel que
+        soit le niveau d'accès.
       parameters:
         - name: userId
           in: path
@@ -27,6 +51,15 @@ paths:
           explode: false
           schema:
             type: string
+        - name: manual-groups
+          in: query
+          required: false
+          description: >
+            Si `true`, inclut également les groupes manuels ("manualGroups")
+            auxquels appartient l'utilisateur cible dans la réponse.
+          schema:
+            type: boolean
+            default: false
       responses:
         "200":
           description: Successful response
@@ -156,14 +189,43 @@ paths:
                     items:
                       type: string
         "404":
-          description: Bad request
+          description: Utilisateur introuvable, ou identifiant invalide.
+        "403":
+          description: >
+            Accès refusé : l'appelant ne dispose d'aucun droit sur cet
+            utilisateur (ni admin, ni lui-même, ni enseignant, ni visibilité
+            d'annuaire).
         "302":
           description: Authentication failed. HTTP Client is redirected to $SERVER_DOMAIN/auth/login?callback=$SERVER_DOMAIN/
   /directory/structure/{id}/users:
     get:
       tags:
         - structure
-      summary: Get all users of the school
+      summary: Liste tous les utilisateurs d'une structure (établissement)
+      description: >
+        Retourne la liste des utilisateurs rattachés à la structure indiquée,
+        avec pour chacun ses classes, groupes fonctionnels/manuels, fonctions,
+        éventuels doublons détectés (utilisateurs liés par relation
+        `DUPLICATE`) et rattachements administratifs.
+
+
+        Contrôle d'accès : l'appelant doit être administrateur local (ADML)
+        de cette structure précise (structure incluse dans son périmètre
+        d'administration), ou `SUPER_ADMIN`. La double authentification (MFA)
+        est requise si elle est configurée pour le compte.
+
+
+        Si l'appelant n'est pas `SUPER_ADMIN`, les comptes ayant la fonction
+        `SUPER_ADMIN` sont automatiquement exclus de la liste retournée.
+
+
+        Selon la configuration serveur (`listUserMode`), la liste peut aussi
+        inclure des utilisateurs "présupprimés" (désinscrits mais encore
+        récupérables) rattachés à cette structure.
+
+
+        Voir également `/directory/structure/{id}/removedUsers` pour la
+        liste des utilisateurs retirés de la structure.
       parameters:
         - name: id
           in: path
@@ -180,6 +242,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/StructureUsers"
+        "401":
+          description: >
+            Session invalide ou utilisateur non résolu (`invalid.user`).
+        "403":
+          description: >
+            Accès refusé : l'appelant n'est pas administrateur local de cette
+            structure (ni `SUPER_ADMIN`), ou la double authentification (MFA)
+            requise n'a pas été effectuée.
         "302":
           description: Authentification failed. HTTP Client is redirect to $SERVER_DOMAIN/auth/login?callback=
 components:
