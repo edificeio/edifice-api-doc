@@ -20,9 +20,7 @@ paths:
       description: >
         Retourne les certificats publics (chargés au démarrage du serveur depuis
         la configuration `openid-connect.certs`) utilisés pour vérifier la
-        signature des ID tokens émis par le fournisseur d'identité. Ce format
-        de certificats est un format historique/simplifié, distinct du format
-        JWKS standard exposé par `/auth/openid/jwks`.
+        signature des ID tokens émis par le fournisseur d'identité.
       responses:
         "200":
           description: >
@@ -89,7 +87,6 @@ paths:
         Endpoint de redirection (`redirect_uri`) appelé par le fournisseur
         d'identité après authentification de l'utilisateur, avec les paramètres
         standards OAuth2 `code` et `state`.
-
 
         Traitement effectué :
           - vérifie la présence des cookies signés `csrfstate` et `nonce` posés
