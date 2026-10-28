@@ -5,9 +5,10 @@ window.onload = function () {
   window.ui = SwaggerUIBundle({
     // url: "swagger.json",
     urls: [
-      { url: "./api-definition/auth_public.yaml", name: "Auth" },
-      { url: "./api-definition/directory_public.yaml", name: "Directory" },
-      { url: "./api-definition/communication_public.yaml", name: "Communication" }
+      { url: "./api-definition/auth-public.yaml", name: "Auth" },
+      { url: "./api-definition/directory-public.yaml", name: "Directory" },
+      { url: "./api-definition/communication-public.yaml", name: "Communication" }
+      { url: "./api-definition/statistics-public.yaml", name: "Statistics" }
     ],
     dom_id: "#swagger-ui",
     deepLinking: true,
