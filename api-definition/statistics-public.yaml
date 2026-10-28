@@ -1,1 +1,316 @@
+---
+openapi: 3.0.0
+info:
+  title: Edifice - Statistics - API 🚧🚧
+  description: This part represents the documentation of the Edifice api use in statistics module
+  version: 4.10.0
+servers:
+  - url: /
+tags:
+  - name: stats
+paths:
+  /stats/list:
+    get:
+      tags:
+        - stats
+      summary: Récupère les statistiques
+      description: Retourne les statistiques en fonction des paramètres fournis.
+      parameters:
+        - name: indicator
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: ["accounts", "access"]
+          description: Type d'indicateur à récupérer.
+        - name: from
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+          description: Date de début.
+        - name: to
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+          description: Date de fin.
+        - name: frequency
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: ["hour", "day", "week", "month"]
+          description: Fréquence des données.
+        - name: entityLevel
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: ["platform", "structure", "class"]
+          description: Niveau de l'entité concernée.
+        - name: entity
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Identifiant de l'entité.
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Filtrer par appareil.
+      responses:
+        '200':
+          description: Succès, retourne les statistiques demandées.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    entity_name:
+                      type: string
+                    uai:
+                      type: string
+                    id:
+                      type: string
+                    platform_id:
+                      type: string
+                    date:
+                      type: string
+                      format: date-time
+                    structure_id:
+                      type: string
+                    profile:
+                      type: string
+                    type:
+                      type: string
+                    module:
+                      type: string
+                    access:
+                      type: integer
+                    unique_access_minute:
+                      type: integer
+                    unique_access:
+                      type: integer
+                    access_wta:
+                      type: integer
+                    unique_access_minute_wta:
+                      type: integer
+                    unique_access_wta:
+                      type: integer
+        '400':
+          description: Requête invalide (paramètres manquants ou incorrects).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "invalid.params"
+        '401':
+          description: Non autorisé
+        '500':
+          description: Erreur interne du serveur.
 
+  /stats/export:
+    get:
+      tags:
+        - stats
+      summary: Exporte les statistiques selon les paramètres spécifiés.
+      description: Cette requête permet d'exporter les statistiques au format CSV, avec la possibilité de filtrer les résultats par divers critères.
+      operationId: exportStats
+      parameters:
+        - name: indicator
+          in: query
+          description: Indicateur à exporter.
+          required: true
+          schema:
+            type: string
+            enum: ["accounts", "access"]
+
+        - name: from
+          in: query
+          description: Date de début.
+          required: true
+          schema:
+            type: string
+            format: date
+
+        - name: to
+          in: query
+          description: Date de fin. Si non spécifiée, la date actuelle est utilisée.
+          required: false
+          schema:
+            type: string
+            format: date
+
+        - name: frequency
+          in: query
+          description: Fréquence des données à exporter
+          required: false
+          schema:
+            type: string
+            enum: ["hour", "day", "week", "month"]
+
+        - name: entityLevel
+          in: query
+          description: Niveau d'entité des données à exporter
+          required: false
+          schema:
+            type: string
+            enum: ["platform", "structure", "class"]
+
+        - name: entity
+          in: query
+          description: Identifiant de l'entité à exporter.
+          required: false
+          schema:
+            type: string
+
+        - name: device
+          in: query
+          description: Filtrer les résultats selon le type de dispositif.
+          required: false
+          schema:
+            type: boolean
+
+        - name: accumulate
+          in: query
+          required: false
+          schema:
+            type: string
+
+        - name: substructures
+          in: query
+          description: Inclure les sous-structures dans les données exportées.
+          required: false
+          schema:
+            type: boolean
+
+        - name: userClasses
+          in: query
+          description: Filtrer par les classes d'utilisateur.
+          required: false
+          schema:
+            type: boolean
+
+      responses:
+        '200':
+          description: L'export des données a été effectué avec succès. Le fichier CSV sera téléchargé.
+          content:
+            application/csv:
+              schema:
+              
+        '400':
+          description: Paramètres manquants ou invalides dans la requête.
+        '401':
+          description: Non autorisé
+        '500':
+          description: Erreur interne du serveur lors de l'exportation des données.
+
+  /stats/structures:
+    get:
+      tags:
+        - stats
+      summary: Récupère les informations des structures
+      description: Retourne un tableau contenant les détails des structures.
+      responses:
+        '200':
+          description: Succès, retourne un tableau de structures.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    name:
+                      type: string
+                    parents:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          id:
+                            type: string
+                            format: uuid
+                    classes:
+                      type: string
+                      nullable: true
+                      example: null
+                    notroot:
+                      type: boolean
+                      example: true
+        '401':
+          description: Non autorisé
+        '500':
+          description: Erreur interne du serveur.
+
+  /stats/structure/metrics:
+    get:
+      tags:
+        - stats
+      summary: Récupérer les statistiques d'une structure
+      description: |
+        Retourne le nombre d'utilisateurs actifs et inactifs par type de profil pour une structure identifiée par son `structureId`.
+      parameters:
+        - name: structureId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: L'identifiant unique (UUID) de la structure
+      responses:
+        '200':
+          description: Requête réussie - statistiques retournées avec succès
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metrics:
+                    type: array
+                    description: Liste des statistiques par profil
+                    items:
+                      type: object
+                      properties:
+                        profile:
+                          type: string
+                          description: Nom du profil utilisateur
+                          example: Enseignant
+                        active:
+                          type: integer
+                          description: Nombre d'utilisateurs actifs
+                          example: 1
+                        inactive:
+                          type: integer
+                          description: Nombre d'utilisateurs inactifs
+                          example: 3
+        '400':
+          description: Requête invalide - `structureId` manquant ou vide
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Code d'erreur
+                    example: structure.id.missing
+        '401':
+          description: Non autorisé
+        '500':
+          description: Erreur interne du serveur lors de l'exportation des données.
