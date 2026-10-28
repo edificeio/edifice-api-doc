@@ -7,7 +7,7 @@ window.onload = function () {
     urls: [
       { url: "./api-definition/auth-public.yaml", name: "Auth" },
       { url: "./api-definition/directory-public.yaml", name: "Directory" },
-      { url: "./api-definition/communication-public.yaml", name: "Communication" }
+      { url: "./api-definition/communication-public.yaml", name: "Communication" },
       { url: "./api-definition/statistics-public.yaml", name: "Statistics" }
     ],
     dom_id: "#swagger-ui",
